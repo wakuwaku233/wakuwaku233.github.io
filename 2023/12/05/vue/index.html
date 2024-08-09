@@ -1,351 +1,166 @@
-<!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-  
-  <meta name="baidu-site-verification" content="code-J1Qg17G6wT" />
-  <title>vue2+vue3 - Hexo</title>
-  <meta charset="UTF-8">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-  
-  
-
-    <!-- Site Verification -->
-    <meta name="baidu-site-verification" content="code-J1Qg17G6wT" />
-
-  <link rel="shortcut icon" href="/images/head/head.jpg" type="image/png" />
-  <meta name="description" content="Vue是一套用于构建用户界面的渐进式Javascript框架  Vue的特点：  采用组件化模式，提高代码复用率、且让代码更好维护。  声明式编码，让编码人员无需直接操作DOM，提高开发效率。    一、vue2第1章：Vue核心1.模块语法html 中包含了一些 JS 语法代码，语法分为两种，分别为：   插值语法（双大括号表达式）  指令（以 v-开头）  插值语法： 功能: 用于解析标签体内">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>vue2+vue3 | Hexo</title><meta name="author" content="wakuwaku233"><meta name="copyright" content="wakuwaku233"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Vue是一套用于构建用户界面的渐进式Javascript框架  Vue的特点：  采用组件化模式，提高代码复用率、且让代码更好维护。  声明式编码，让编码人员无需直接操作DOM，提高开发效率。    一、vue2第1章：Vue核心1.模块语法html 中包含了一些 JS 语法代码，语法分为两种，分别为：   插值语法（双大括号表达式）  指令（以 v-开头）  插值语法： 功能: 用于解析标签体内">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue2+vue3">
-<meta property="og:url" content="http://example.com/2023/12/05/vue/index.html">
+<meta property="og:url" content="https://wakuwaku233.gitee.io/2023/12/05/vue/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Vue是一套用于构建用户界面的渐进式Javascript框架  Vue的特点：  采用组件化模式，提高代码复用率、且让代码更好维护。  声明式编码，让编码人员无需直接操作DOM，提高开发效率。    一、vue2第1章：Vue核心1.模块语法html 中包含了一些 JS 语法代码，语法分为两种，分别为：   插值语法（双大括号表达式）  指令（以 v-开头）  插值语法： 功能: 用于解析标签体内">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/images/image-20231205220305663.png">
-<meta property="og:image" content="http://example.com/images/image-20231205221009600.png">
-<meta property="og:image" content="http://example.com/images/image-20231217163507933.png">
-<meta property="og:image" content="http://example.com/images/image-20231217192352221.png">
-<meta property="og:image" content="http://example.com/images/image-20231217193643670.png">
-<meta property="og:image" content="http://example.com/images/image-20231217194303233.png">
-<meta property="og:image" content="http://example.com/images/image-20231218130927642.png">
-<meta property="og:image" content="http://example.com/images/image-20231218132946737.png">
-<meta property="og:image" content="http://example.com/images/image-20231218191656785.png">
-<meta property="og:image" content="http://example.com/images/image-20231218203004929.png">
-<meta property="og:image" content="http://example.com/images/image-20231218205712584.png">
-<meta property="og:image" content="http://example.com/images/image-20231219194837162.png">
-<meta property="og:image" content="http://example.com/images/image-20231219200322979.png">
-<meta property="og:image" content="http://example.com/images/image-20231220202821267.png">
-<meta property="og:image" content="http://example.com/images/image-20240118004311962.png">
-<meta property="og:image" content="http://example.com/images/image-20240118021131238.png">
-<meta property="og:image" content="http://example.com/images/image-20240118025029030.png">
-<meta property="og:image" content="http://example.com/images/image-20240118231007852.png">
-<meta property="og:image" content="http://example.com/images/image-20240119221532211.png">
-<meta property="og:image" content="http://example.com/images/image-20240120184426141.png">
-<meta property="og:image" content="http://example.com/images/image-20240120235000192.png">
-<meta property="og:image" content="http://example.com/images/image-20240121000046222.png">
-<meta property="og:image" content="http://example.com/images/image-20240121005913414.png">
-<meta property="og:image" content="http://example.com/images/image-20240121013550099.png">
-<meta property="og:image" content="http://example.com/images/image-20240121013752275.png">
-<meta property="og:image" content="http://example.com/images/image-20240121014142921.png">
-<meta property="og:image" content="http://example.com/images/image-20240121234452910.png">
-<meta property="og:image" content="http://example.com/images/image-20240122004725444.png">
-<meta property="og:image" content="http://example.com/images/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F-1705856081273-6.png">
-<meta property="og:image" content="http://example.com/images/image-20240122221016414.png">
-<meta property="og:image" content="http://example.com/images/image-20240123010514898.png">
-<meta property="og:image" content="http://example.com/images/image-20240123010008796.png">
-<meta property="og:image" content="http://example.com/images/image-20240123204047752.png">
-<meta property="og:image" content="http://example.com/images/image-20240123210856438.png">
-<meta property="og:image" content="http://example.com/images/image-20240123212747557.png">
-<meta property="og:image" content="http://example.com/images/image-20240124215713958.png">
-<meta property="og:image" content="http://example.com/images/image-20240126012315311.png">
-<meta property="og:image" content="http://example.com/images/image-20240126160705074.png">
-<meta property="og:image" content="http://example.com/images/image-20240127012207047.png">
-<meta property="og:image" content="http://example.com/images/image-20240127014802582.png">
-<meta property="og:image" content="http://example.com/images/image-20240127022111474.png">
-<meta property="og:image" content="http://example.com/images/image-20240128161844002.png">
-<meta property="og:image" content="http://example.com/images/image-20240128161829392.png">
-<meta property="og:image" content="http://example.com/images/image-20240128170132012.png">
-<meta property="og:image" content="http://example.com/images/image-20240129231647841.png">
-<meta property="og:image" content="http://example.com/images/image-20240130200832530.png">
-<meta property="og:image" content="http://example.com/images/image-20240202000315263.png">
-<meta property="og:image" content="http://example.com/images/image-20240202013312536.png">
-<meta property="og:image" content="http://example.com/images/image-20240203004644535.png">
-<meta property="og:image" content="http://example.com/images/image-20240203004731445.png">
-<meta property="og:image" content="http://example.com/images/image-20240203004827642.png">
-<meta property="og:image" content="http://example.com/images/image-20240204182927903.png">
-<meta property="og:image" content="http://example.com/images/image-20240204183000877.png">
-<meta property="og:image" content="http://example.com/images/image-20240204183019912.png">
-<meta property="og:image" content="http://example.com/images/image-20240205212000277.png">
-<meta property="og:image" content="http://example.com/images/image-20240205212325262.png">
-<meta property="og:image" content="http://example.com/images/image-20240205212349454.png">
-<meta property="og:image" content="http://example.com/images/image-20240207145822733.png">
-<meta property="og:image" content="http://example.com/images/image-20240207150112742.png">
-<meta property="og:image" content="http://example.com/images/image-20240207150341962.png">
-<meta property="og:image" content="http://example.com/images/image-20240207150356947.png">
-<meta property="og:image" content="http://example.com/images/image-20240207151018560.png">
-<meta property="og:image" content="http://example.com/images/image-20240207151052510.png">
-<meta property="og:image" content="http://example.com/2023/12/05/images/image-20240207172438191.png">
-<meta property="og:image" content="http://example.com/images/image-20240207212858916.png">
-<meta property="og:image" content="http://example.com/images/image-20240207212912199.png">
-<meta property="og:image" content="http://example.com/images/image-20240208222830891.png">
-<meta property="og:image" content="http://example.com/images/image-20240208222850905.png">
-<meta property="og:image" content="http://example.com/images/image-20240208231348503.png">
-<meta property="og:image" content="http://example.com/images/image-20240209005658356.png">
-<meta property="og:image" content="http://example.com/images/image-20240209005720845.png">
-<meta property="og:image" content="http://example.com/images/image-20240209005745922.png">
-<meta property="og:image" content="http://example.com/images/image-20240210224233386.png">
-<meta property="og:image" content="http://example.com/images/image-20240210224249275.png">
-<meta property="og:image" content="http://example.com/images/image-20240211165023166.png">
-<meta property="og:image" content="http://example.com/images/image-20240211165048580.png">
-<meta property="og:image" content="http://example.com/images/image-20240211184938720.png">
-<meta property="og:image" content="http://example.com/images/image-20240212005415421.png">
-<meta property="og:image" content="http://example.com/images/image-20240212005434738.png">
-<meta property="og:image" content="http://example.com/images/image-20240212005455861.png">
-<meta property="og:image" content="http://example.com/images/image-20240213002229379.png">
-<meta property="og:image" content="http://example.com/images/image-20240213011515577.png">
-<meta property="og:image" content="http://example.com/images/image-20240213014803663.png">
-<meta property="og:image" content="http://example.com/images/image-20240214002414834.png">
-<meta property="og:image" content="http://example.com/images/image-20240214002431847.png">
-<meta property="og:image" content="http://example.com/images/image-20240214002504474.png">
-<meta property="og:image" content="http://example.com/images/image-20240214005428614.png">
-<meta property="og:image" content="http://example.com/images/image-20240213015354269.png">
-<meta property="og:image" content="http://example.com/images/image-20240213015406935.png">
-<meta property="og:image" content="http://example.com/images/image-20240214010009289.png">
-<meta property="og:image" content="http://example.com/images/image-20240213002334497.png">
-<meta property="og:image" content="http://example.com/images/image-20240215013803520.png">
-<meta property="og:image" content="http://example.com/images/image-20240215014614504.png">
-<meta property="og:image" content="http://example.com/images/image-20240215020159584.png">
-<meta property="og:image" content="http://example.com/images/image-20240216001843301.png">
-<meta property="og:image" content="http://example.com/images/image-20240216002341727.png">
-<meta property="og:image" content="http://example.com/images/image-20240216011554863.png">
-<meta property="og:image" content="http://example.com/images/image-20240216152751951.png">
-<meta property="og:image" content="http://example.com/2023/12/05/images/93624428-53932780-f9ae-11ea-8d16-af949e16a09f.png">
-<meta property="og:image" content="https://cn.vitejs.dev/assets/bundler.37740380.png">
-<meta property="og:image" content="https://cn.vitejs.dev/assets/esm.3070012d.png">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
 <meta property="article:published_time" content="2023-12-05T13:58:39.649Z">
 <meta property="article:modified_time" content="2024-02-17T15:54:41.062Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="wakuwaku233">
 <meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/images/image-20231205220305663.png">
-  <link rel="stylesheet" href="https://lib.baomitu.com/highlight.js/9.15.8/styles/atom-one-dark.min.css" crossorigin>
-  <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css">
-  <link rel="stylesheet" href="/lib/iconfont/iconfont.css">
-  <link rel="stylesheet" href="/lib/fancybox/css/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="https://lib.baomitu.com/justifiedGallery/3.8.1/css/justifiedGallery.min.css">
-  
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
-  
-  <link rel="stylesheet" href="/css/style.css?v=1709382268343">
-<meta name="generator" content="Hexo 6.3.0"></head>
-
-<body class="mdui-drawer-body-left">
-  
-  <div id="nexmoe-background">
-    <div class="nexmoe-bg" style="background-image: url(/images/background/xiaomai.jpg)"></div>
-    <div class="nexmoe-small" style="background-image: url(/images/background/lihui.png)"></div>
-    <div class="mdui-appbar mdui-shadow-0">
-      <div class="mdui-toolbar">
-        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
-        <div class="mdui-toolbar-spacer"></div>
-        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
-        <a href="/" title="John Doe" class="mdui-btn mdui-btn-icon"><img src="/images/head/head.jpg" alt="John Doe"></a>
-       </div>
-    </div>
-  </div>
-  <div id="nexmoe-header">
-      <div class="nexmoe-drawer mdui-drawer" id="drawer">
-    <div class="nexmoe-avatar mdui-ripple">
-        <a href="/" title="John Doe">
-            <img src="/images/head/head.jpg" alt="John Doe" alt="John Doe">
-        </a>
-    </div>
-    <div class="nexmoe-count">
-        <div class="nexmoe-count-item"><span>Articles</span>4 <div class="item-radius"></div><div class="item-radius item-right"></div> </div>
-        <div class="nexmoe-count-item"><span>Tags</span>4<div class="item-radius"></div><div class="item-radius item-right"></div></div>
-        <div class="nexmoe-count-item"><span>Categories</span>1<div class="item-radius"></div><div class="item-radius item-right"></div></div>
-    </div>
-    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
-            <i class="mdui-list-item-icon nexmoefont icon-meishi"></i>
-            <div class="mdui-list-item-content">
-                回到首页
-            </div>
-        </a>
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/archives.html" title="文章归档">
-            <i class="mdui-list-item-icon nexmoefont icon-hanbao1"></i>
-            <div class="mdui-list-item-content">
-                文章归档
-            </div>
-        </a>
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于糖糖">
-            <i class="mdui-list-item-icon nexmoefont icon-jiubei1"></i>
-            <div class="mdui-list-item-content">
-                关于糖糖
-            </div>
-        </a>
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/friend.html" title="我的朋友">
-            <i class="mdui-list-item-icon nexmoefont icon-cola"></i>
-            <div class="mdui-list-item-content">
-                我的朋友
-            </div>
-        </a>
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/download.html" title="下载中心">
-            <i class="mdui-list-item-icon nexmoefont icon-tangguo"></i>
-            <div class="mdui-list-item-content">
-                下载中心
-            </div>
-        </a>
-        
-    </div>
-    <aside id="nexmoe-sidebar">
-  
-  
-<!-- 站内搜索 -->
-
-<div class="nexmoe-widget-wrap">
-    <div class="nexmoe-widget nexmoe-search" >
-        <form id="search-form">
-            <label><input type="text" id="local-search-input" name="q" results="0" placeholder="站内搜索" class="input form-control" autocomplete="off" autocorrect="off"/></label>
-            <!-- 清空/重置搜索框 -->
-            <i class="fa fa-times" onclick="resetSearch()"></i>
-        </form>
-    </div>
-    <div id="local-search-result"></div> <!-- 搜索结果区 -->
-    <!-- <p class='no-result'></p> 无匹配时显示，注意在 CSS 中设置默认隐藏 -->
-</div>
-
-
-  
-  <div class="nexmoe-widget-wrap">
-    <div class="nexmoe-widget nexmoe-social">
-        <a class="mdui-ripple" href="http://wpa.qq.com/msgrd?v=3&uin=2120252100&site=qq&menu=yes" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(64, 196, 255);background-color: rgba(64, 196, 255, .1);">
-            <i class="nexmoefont icon-QQ"></i>
-        </a><a class="mdui-ripple" href="mailto:tangyuxian@vip.qq.com" target="_blank" mdui-tooltip="{content: 'mail'}" style="color: rgb(249,8,8);background-color: rgba(249,8,8,.1);">
-            <i class="nexmoefont icon-mail-fill"></i>
-        </a><a class="mdui-ripple" href="https://blog.csdn.net/qq_40621378?type=blog" target="_blank" mdui-tooltip="{content: 'CSDN'}" style="color: rgb(199,29,35);background-color: rgba(199,29,35,.1);">
-            <i class="nexmoefont icon-csdn"></i>
-        </a><a class="mdui-ripple" href="https://www.cnblogs.com/lovetangyuxian/" target="_blank" mdui-tooltip="{content: '博客园'}" style="color: rgb(66, 214, 29);background-color: rgba(66, 214, 29, .1);">
-            <i class="nexmoefont icon-bokeyuan"></i>
-        </a><a class="mdui-ripple" href="https://github.com/tangyuxian/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
-            <i class="nexmoefont icon-github"></i>
-        </a><a class="mdui-ripple" href="https://gitee.com/tangyuxian" target="_blank" mdui-tooltip="{content: 'gitee'}" style="color: rgb(255, 255, 255);background-color: rgb(199,29,35);">
-            <i class="nexmoefont icon-mayun"></i>
-        </a>
-    </div>
-</div>
-  
-  
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">Categories</h3>
-    <div class="nexmoe-widget">
-
-      <ul class="category-list">
-
-        
-
-
-        
-
-        
-
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/web前端/">web前端</a>
-          <span class="category-list-count">4</span>
-        </li>
-
-        
-      </ul>
-
-    </div>
-  </div>
-
-
-  
-  
-  <div class="nexmoe-widget-wrap">
-    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
-      <a href="/tags/ES/" style="font-size: 10px;">ES</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a>
-    </div>
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://wakuwaku233.gitee.io/2023/12/05/vue/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'vue2+vue3',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-02-17 23:54:41'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
     
-  </div>
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
 
-  
-  
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">Archive</h3>
-    <div class="nexmoe-widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a><span class="archive-list-count">4</span></li></ul>
-    </div>
-  </div>
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
 
-
-<style>
-.nexmoe-widget .archive-list-count{
-	position : absolute;
-	right: 15px;
-	top:9px;
-	color: #DDD;
-}
-</style>
-
-  
-</aside>
-    <div class="nexmoe-copyright">
-        &copy; 2024 John Doe
-        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-        & <a href="https://github.com/tangyuxian/hexo-theme-tangyuxian" target="_blank">Tangyuxian</a><br/>
-        <a href="http://beian.miit.gov.cn" target="_blank">辽ICP备2021002341号</a><br/>
-        
-        <div style="font-size: 12px">
-            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-            本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br />
-            本站访客数<a id="busuanzi_value_site_uv"></a>人次
-        </div>
-        
-        
-    </div>
-
-</div><!-- .nexmoe-drawer -->
-
-  </div>
-  <div id="nexmoe-content">
-    <div class="nexmoe-primary">
-        <div class="nexmoe-post">
+        document.head.appendChild(script)
+      })
     
-        <div class="nexmoe-post-cover" style="padding-bottom: 26.666666666666668%;">
-            <img data-src="/images/post/vue.jpg" data-sizes="auto" alt="vue2+vue3"
-                 class="lazyload">
-            <h1>vue2+vue3</h1>
-        </div>
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
     
-
-        <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2023年12月05日</a>
-    <a><i class="nexmoefont icon-areachart"></i>5k 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 22 分钟</a>
-</div>
-
-        <div class="nexmoe-post-right">
-            
-        </div>
-
-        <article>
-            <p>Vue是一套用于<strong>构建用户界面</strong>的<strong>渐进式</strong>Javascript框架</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20231205220305663.png" alt="image-20231205220305663" class="lazyload"></p>
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Hexo"><span class="site-name">Hexo</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">vue2+vue3</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-12-05T13:58:39.649Z" title="发表于 2023-12-05 21:58:39">2023-12-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-02-17T15:54:41.062Z" title="更新于 2024-02-17 23:54:41">2024-02-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/web%E5%89%8D%E7%AB%AF/">web前端</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="vue2+vue3"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>Vue是一套用于<strong>构建用户界面</strong>的<strong>渐进式</strong>Javascript框架</p>
+<p><img src="/../images/image-20231205220305663.png" alt="image-20231205220305663"></p>
 <p><strong>Vue的特点</strong>：</p>
 <ol>
 <li><p>采用<strong>组件化</strong>模式，提高代码复用率、且让代码更好维护。</p>
 </li>
 <li><p><strong>声明式</strong>编码，让编码人员无需直接操作DOM，提高开发效率。</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20231205221009600.png" alt="image-20231205221009600" class="lazyload"></p>
+<p><img src="/../images/image-20231205221009600.png" alt="image-20231205221009600"></p>
 </li>
 </ol>
 <h1 id="一、vue2"><a href="#一、vue2" class="headerlink" title="一、vue2"></a>一、vue2</h1><h2 id="第1章：Vue核心"><a href="#第1章：Vue核心" class="headerlink" title="第1章：Vue核心"></a>第1章：Vue核心</h2><h3 id="1-模块语法"><a href="#1-模块语法" class="headerlink" title="1.模块语法"></a>1.模块语法</h3><p>html 中包含了一些 JS 语法代码，语法分为两种，分别为： </p>
@@ -376,10 +191,10 @@
 <li>V：视图(View) ：模板 </li>
 <li>VM：视图模型(ViewModel) ： Vue 实例对象</li>
 </ol>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20231217163507933.png" alt="image-20231217163507933" class="lazyload"></p>
+<p><img src="/../images/image-20231217163507933.png" alt="image-20231217163507933"></p>
 <h3 id="4-数据代理"><a href="#4-数据代理" class="headerlink" title="4.数据代理"></a>4.数据代理</h3><p>Vue中的数据代理</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20231217192352221.png" alt="image-20231217192352221" class="lazyload"></p>
-<h3 id="5-事件处理"><a href="#5-事件处理" class="headerlink" title="5.事件处理"></a>5.事件处理</h3><h4 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20231217193643670.png" alt="image-20231217193643670" class="lazyload"></p>
+<p><img src="/../images/image-20231217192352221.png" alt="image-20231217192352221"></p>
+<h3 id="5-事件处理"><a href="#5-事件处理" class="headerlink" title="5.事件处理"></a>5.事件处理</h3><h4 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h4><p><img src="/../images/image-20231217193643670.png" alt="image-20231217193643670"></p>
 <h4 id="绑定接听"><a href="#绑定接听" class="headerlink" title="绑定接听"></a>绑定接听</h4><ol>
 <li>v-on:xxx&#x3D;”fun” </li>
 <li>@xxx&#x3D;”fun” </li>
@@ -387,18 +202,18 @@
 <li>默认事件形参: event</li>
 <li>隐含属性对象: $eve</li>
 </ol>
-<h4 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20231217194303233.png" alt="image-20231217194303233" class="lazyload"></p>
-<h4 id="事件修饰符"><a href="#事件修饰符" class="headerlink" title="事件修饰符"></a>事件修饰符</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20231218130927642.png" alt="image-20231218130927642" class="lazyload"></p>
+<h4 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h4><p><img src="/../images/image-20231217194303233.png" alt="image-20231217194303233"></p>
+<h4 id="事件修饰符"><a href="#事件修饰符" class="headerlink" title="事件修饰符"></a>事件修饰符</h4><p><img src="/../images/image-20231218130927642.png" alt="image-20231218130927642"></p>
 <ol>
 <li>.prevent : 阻止事件的默认行为 event.preventDefault() </li>
 <li>.stop : 停止事件冒泡 event.stopPropagation</li>
 </ol>
-<h4 id="按键修饰符"><a href="#按键修饰符" class="headerlink" title="按键修饰符"></a>按键修饰符</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20231218132946737.png" alt="image-20231218132946737" class="lazyload"></p>
+<h4 id="按键修饰符"><a href="#按键修饰符" class="headerlink" title="按键修饰符"></a>按键修饰符</h4><p><img src="/../images/image-20231218132946737.png" alt="image-20231218132946737"></p>
 <ol>
 <li>keycode : 操作的是某个 keycode 值的键 </li>
 <li>.keyName : 操作的某个按键名的键(少部分）</li>
 </ol>
-<h3 id="6-计算属性与监视"><a href="#6-计算属性与监视" class="headerlink" title="6.计算属性与监视"></a>6.计算属性与监视</h3><h4 id="效果-1"><a href="#效果-1" class="headerlink" title="效果"></a>效果</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20231218191656785.png" alt="image-20231218191656785" class="lazyload"></p>
+<h3 id="6-计算属性与监视"><a href="#6-计算属性与监视" class="headerlink" title="6.计算属性与监视"></a>6.计算属性与监视</h3><h4 id="效果-1"><a href="#效果-1" class="headerlink" title="效果"></a>效果</h4><p><img src="/../images/image-20231218191656785.png" alt="image-20231218191656785"></p>
 <h4 id="计算属性-computed"><a href="#计算属性-computed" class="headerlink" title="计算属性-computed"></a>计算属性-computed</h4><ol>
 <li>要显示的数据不存在，要通过计算得来。 </li>
 <li>在 computed 对象中定义计算属性。 </li>
@@ -406,16 +221,16 @@
 </ol>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//get有什么作用？当有人读取fullName时，get就会被调用，且返回值就作为fullName的值</span></span><br><span class="line"><span class="comment">//get什么时候调用？1.初次读取fullname时。2.所依赖的数据发生变化时。</span></span><br><span class="line"><span class="title function_">get</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">firstName</span> + <span class="string">&#x27;-&#x27;</span> + <span class="variable language_">this</span>.<span class="property">lastName</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20231218203004929.png" alt="image-20231218203004929" class="lazyload"></p>
-<h4 id="监视属性-watch"><a href="#监视属性-watch" class="headerlink" title="监视属性-watch"></a>监视属性-watch</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20231218205712584.png" alt="image-20231218205712584" class="lazyload"></p>
+<p><img src="/../images/image-20231218203004929.png" alt="image-20231218203004929"></p>
+<h4 id="监视属性-watch"><a href="#监视属性-watch" class="headerlink" title="监视属性-watch"></a>监视属性-watch</h4><p><img src="/../images/image-20231218205712584.png" alt="image-20231218205712584"></p>
 <ol>
 <li>通过通过 vm 对象的$watch()或 watch 配置来监视指定的属性 </li>
 <li>当属性变化时, 回调函数自动调用, 在函数内部进行计算</li>
 </ol>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20231219194837162.png" alt="image-20231219194837162" class="lazyload"></p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20231219200322979.png" alt="image-20231219200322979" class="lazyload"></p>
+<p><img src="/../images/image-20231219194837162.png" alt="image-20231219194837162"></p>
+<p><img src="/../images/image-20231219200322979.png" alt="image-20231219200322979"></p>
 <p>(面临异步计算的时候用watch，比如说延迟更改，因为computed不能接受延迟的返回值)</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20231220202821267.png" alt="image-20231220202821267" class="lazyload"></p>
+<p><img src="/../images/image-20231220202821267.png" alt="image-20231220202821267"></p>
 <h3 id="7-class与style绑定"><a href="#7-class与style绑定" class="headerlink" title="7.class与style绑定"></a>7.class与style绑定</h3><h4 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h4><ol>
 <li>在应用界面中, 某个(些)元素的样式是变化的 </li>
 <li>class&#x2F;style 绑定就是专门用来实现动态样式效果的技术</li>
@@ -438,25 +253,25 @@
 <li>如果需要频繁切换 v-show 较好 </li>
 <li>当条件不成立时, v-if 的所有子节点不会解析(项目中使用)</li>
 </ol>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240118004311962.png" alt="image-20240118004311962" class="lazyload"></p>
-<h3 id="9-列表渲染"><a href="#9-列表渲染" class="headerlink" title="9.列表渲染"></a>9.列表渲染</h3><h4 id="效果-2"><a href="#效果-2" class="headerlink" title="效果"></a>效果</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240118021131238.png" alt="image-20240118021131238" class="lazyload"></p>
+<p><img src="/../images/image-20240118004311962.png" alt="image-20240118004311962"></p>
+<h3 id="9-列表渲染"><a href="#9-列表渲染" class="headerlink" title="9.列表渲染"></a>9.列表渲染</h3><h4 id="效果-2"><a href="#效果-2" class="headerlink" title="效果"></a>效果</h4><p><img src="/../images/image-20240118021131238.png" alt="image-20240118021131238"></p>
 <h4 id="列表显示指令"><a href="#列表显示指令" class="headerlink" title="列表显示指令"></a>列表显示指令</h4><p>遍历数组: v-for &#x2F; index </p>
 <p>遍历对象: v-for &#x2F; key</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240118025029030.png" alt="image-20240118025029030" class="lazyload"></p>
-<h4 id="key的原理"><a href="#key的原理" class="headerlink" title="key的原理"></a>key的原理</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240118231007852.png" alt="image-20240118231007852" class="lazyload"></p>
-<h4 id="Vue监测数据"><a href="#Vue监测数据" class="headerlink" title="Vue监测数据"></a>Vue监测数据</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240119221532211.png" alt="image-20240119221532211" class="lazyload"></p>
-<h3 id="10-收集表单数据"><a href="#10-收集表单数据" class="headerlink" title="10.收集表单数据"></a>10.收集表单数据</h3><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240120184426141.png" alt="image-20240120184426141" class="lazyload"></p>
+<p><img src="/../images/image-20240118025029030.png" alt="image-20240118025029030"></p>
+<h4 id="key的原理"><a href="#key的原理" class="headerlink" title="key的原理"></a>key的原理</h4><p><img src="/../images/image-20240118231007852.png" alt="image-20240118231007852"></p>
+<h4 id="Vue监测数据"><a href="#Vue监测数据" class="headerlink" title="Vue监测数据"></a>Vue监测数据</h4><p><img src="/../images/image-20240119221532211.png" alt="image-20240119221532211"></p>
+<h3 id="10-收集表单数据"><a href="#10-收集表单数据" class="headerlink" title="10.收集表单数据"></a>10.收集表单数据</h3><p><img src="/../images/image-20240120184426141.png" alt="image-20240120184426141"></p>
 <h3 id="11-过滤器"><a href="#11-过滤器" class="headerlink" title="11.过滤器"></a>11.过滤器</h3><ol>
 <li>功能: 对要显示的数据进行特定格式化后再显示 </li>
 <li>注意: 并没有改变原本的数据, 是产生新的对应的数据</li>
 </ol>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240120235000192.png" alt="image-20240120235000192" class="lazyload"></p>
+<p><img src="/../images/image-20240120235000192.png" alt="image-20240120235000192"></p>
 <h3 id="12-内置指令与自定义指令"><a href="#12-内置指令与自定义指令" class="headerlink" title="12.内置指令与自定义指令"></a>12.内置指令与自定义指令</h3><h4 id="常用内置指令"><a href="#常用内置指令" class="headerlink" title="常用内置指令"></a>常用内置指令</h4><ol>
 <li><p>v-text : 更新元素的 textContent </p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240121000046222.png" alt="image-20240121000046222" class="lazyload"></p>
+<p><img src="/../images/image-20240121000046222.png" alt="image-20240121000046222"></p>
 </li>
 <li><p>v-html : 更新元素的 innerHTML </p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240121005913414.png" alt="image-20240121005913414" class="lazyload"></p>
+<p><img src="/../images/image-20240121005913414.png" alt="image-20240121005913414"></p>
 </li>
 <li><p>v-if : 如果为 true, 当前标签才会输出到页面 </p>
 </li>
@@ -473,16 +288,16 @@
 <li><p>v-model : 双向数据绑定 </p>
 </li>
 <li><p>v-cloak : 防止闪现, 与 css 配合: [v-cloak] { display: none }</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240121013550099.png" alt="image-20240121013550099" class="lazyload"></p>
+<p><img src="/../images/image-20240121013550099.png" alt="image-20240121013550099"></p>
 </li>
 <li><p>v-once：</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240121013752275.png" alt="image-20240121013752275" class="lazyload"></p>
+<p><img src="/../images/image-20240121013752275.png" alt="image-20240121013752275"></p>
 </li>
 <li><p>v-pre：</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240121014142921.png" alt="image-20240121014142921" class="lazyload"></p>
+<p><img src="/../images/image-20240121014142921.png" alt="image-20240121014142921"></p>
 </li>
 </ol>
-<h4 id="自定义指令"><a href="#自定义指令" class="headerlink" title="自定义指令"></a>自定义指令</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240121234452910.png" alt="image-20240121234452910" class="lazyload"></p>
+<h4 id="自定义指令"><a href="#自定义指令" class="headerlink" title="自定义指令"></a>自定义指令</h4><p><img src="/../images/image-20240121234452910.png" alt="image-20240121234452910"></p>
 <ol>
 <li><p>注册全局指令 </p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vue.directive(&#x27;my-directive&#x27;, function(el, binding)&#123;</span><br><span class="line">	el.innerHTML = binding.value.toupperCase()</span><br><span class="line">&#125;) </span><br></pre></td></tr></table></figure>
@@ -501,8 +316,8 @@
 </ul>
 </li>
 </ol>
-<h3 id="13-Vue实例生命周期"><a href="#13-Vue实例生命周期" class="headerlink" title="13.Vue实例生命周期"></a>13.Vue实例生命周期</h3><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240122004725444.png" alt="image-20240122004725444" class="lazyload"></p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F-1705856081273-6.png" alt="生命周期" class="lazyload"></p>
+<h3 id="13-Vue实例生命周期"><a href="#13-Vue实例生命周期" class="headerlink" title="13.Vue实例生命周期"></a>13.Vue实例生命周期</h3><p><img src="/../images/image-20240122004725444.png" alt="image-20240122004725444"></p>
+<p><img src="/../images/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F-1705856081273-6.png" alt="生命周期"></p>
 <h4 id="vue生命周期分析"><a href="#vue生命周期分析" class="headerlink" title="vue生命周期分析"></a>vue生命周期分析</h4><ol>
 <li><p>初始化显示 </p>
 <ul>
@@ -525,8 +340,8 @@
 <li>mounted(): 发送 ajax 请求, 启动定时器等异步任务 </li>
 <li>beforeDestory(): 做收尾工作, 如: 清除定时器</li>
 </ol>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240122221016414.png" alt="image-20240122221016414" class="lazyload"></p>
-<h2 id="第2章：Vue组件化编程"><a href="#第2章：Vue组件化编程" class="headerlink" title="第2章：Vue组件化编程"></a>第2章：Vue组件化编程</h2><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240123010514898.png" alt="image-20240123010514898" class="lazyload"></p>
+<p><img src="/../images/image-20240122221016414.png" alt="image-20240122221016414"></p>
+<h2 id="第2章：Vue组件化编程"><a href="#第2章：Vue组件化编程" class="headerlink" title="第2章：Vue组件化编程"></a>第2章：Vue组件化编程</h2><p><img src="/../images/image-20240123010514898.png" alt="image-20240123010514898"></p>
 <h3 id="1-模块与组件、模块化与组件化"><a href="#1-模块与组件、模块化与组件化" class="headerlink" title="1.模块与组件、模块化与组件化"></a>1.模块与组件、模块化与组件化</h3><h4 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h4><ol>
 <li>理解: 向外提供特定功能的 js 程序, 一般就是一个 js 文件 </li>
 <li>为什么: js 文件很多很复杂 </li>
@@ -539,10 +354,10 @@
 </ol>
 <h4 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h4><p>当应用中的 js 都以模块来编写的, 那这个应用就是一个模块化的应用。</p>
 <h4 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h4><p>当应用中的功能都是多组件的方式来编写的, 那这个应用就是一个组件化的应用。</p>
-<h3 id="2-非单文件组件"><a href="#2-非单文件组件" class="headerlink" title="2.非单文件组件"></a>2.非单文件组件</h3><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240123010008796.png" alt="image-20240123010008796" class="lazyload"></p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240123204047752.png" alt="image-20240123204047752" class="lazyload"></p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240123210856438.png" alt="image-20240123210856438" class="lazyload"></p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240123212747557.png" alt="image-20240123212747557" class="lazyload"></p>
+<h3 id="2-非单文件组件"><a href="#2-非单文件组件" class="headerlink" title="2.非单文件组件"></a>2.非单文件组件</h3><p><img src="/../images/image-20240123010008796.png" alt="image-20240123010008796"></p>
+<p><img src="/../images/image-20240123204047752.png" alt="image-20240123204047752"></p>
+<p><img src="/../images/image-20240123210856438.png" alt="image-20240123210856438"></p>
+<p><img src="/../images/image-20240123212747557.png" alt="image-20240123212747557"></p>
 <ol>
 <li>模板编写没有提示</li>
 <li>没有构建过程, 无法将 ES6 转换成 ES5 </li>
@@ -575,7 +390,7 @@
 <li>如出现下载缓慢请配置 npm 淘宝镜像：npm config set registry <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a></li>
 <li>Vue 脚手架隐藏了所有 webpack 相关的配置，若想查看具体的 webpakc 配置， 请执行：vue inspect &gt; output.js</li>
 </ol>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240124215713958.png" alt="image-20240124215713958" class="lazyload"></p>
+<p><img src="/../images/image-20240124215713958.png" alt="image-20240124215713958"></p>
 <h4 id="模块项目的结构"><a href="#模块项目的结构" class="headerlink" title="模块项目的结构"></a>模块项目的结构</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">├── node_modules</span><br><span class="line">├── public</span><br><span class="line">│ ├── favicon.ico: 页签图标</span><br><span class="line">│ └── index.html: 主页面</span><br><span class="line">├── src</span><br><span class="line">│ ├── assets: 存放静态资源</span><br><span class="line">│ │ └── logo.png</span><br><span class="line">│ │── component: 存放组件</span><br><span class="line">│ │ └── HelloWorld.vue</span><br><span class="line">│ │── App.vue: 汇总所有组件</span><br><span class="line">│ │── main.js: 入口文件</span><br><span class="line">├── .gitignore: git 版本管制忽略的配置</span><br><span class="line">├── babel.config.js: babel 的配置文件</span><br><span class="line">├── package.json: 应用包配置文件</span><br><span class="line">├── README.md: 应用描述文件</span><br><span class="line">├── package-lock.json：包版本控制文件</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h3 id="2-ref-与-props"><a href="#2-ref-与-props" class="headerlink" title="2.ref 与 props"></a>2.ref 与 props</h3><p><strong>ref</strong></p>
@@ -583,7 +398,7 @@
 <li><p><strong>作用</strong>：用于给节点打标识</p>
 </li>
 <li><p><strong>读取方式</strong>：this.$refs.xxxxxx</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240126012315311.png" alt="image-20240126012315311" class="lazyload"></p>
+<p><img src="/../images/image-20240126012315311.png" alt="image-20240126012315311"></p>
 </li>
 </ol>
 <p><strong>props</strong></p>
@@ -599,19 +414,19 @@
 <li><p><strong>读取方式三: 指定名称&#x2F;类型&#x2F;必要性&#x2F;默认值</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">props: &#123;</span><br><span class="line">	name: &#123;type: String, required: true, default:xxx&#125;, </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240126160705074.png" alt="image-20240126160705074" class="lazyload"></p>
+<p><img src="/../images/image-20240126160705074.png" alt="image-20240126160705074"></p>
 </li>
 </ol>
-<h3 id="3-混入"><a href="#3-混入" class="headerlink" title="3.混入"></a>3.混入</h3><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240127012207047.png" alt="image-20240127012207047" class="lazyload"></p>
+<h3 id="3-混入"><a href="#3-混入" class="headerlink" title="3.混入"></a>3.混入</h3><p><img src="/../images/image-20240127012207047.png" alt="image-20240127012207047"></p>
 <h3 id="4-插件"><a href="#4-插件" class="headerlink" title="4.插件"></a>4.插件</h3><ol>
 <li><p>Vue 插件是一个包含 install 方法的对象 </p>
 </li>
 <li><p>通过 install 方法给 Vue 或 Vue 实例添加方法, 定义全局指令等</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240127014802582.png" alt="image-20240127014802582" class="lazyload"></p>
+<p><img src="/../images/image-20240127014802582.png" alt="image-20240127014802582"></p>
 </li>
 </ol>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240127022111474.png" alt="image-20240127022111474" class="lazyload"></p>
-<h3 id="5-Todo-list-案例"><a href="#5-Todo-list-案例" class="headerlink" title="5.Todo-list 案例"></a>5.Todo-list 案例</h3><h4 id="效果-3"><a href="#效果-3" class="headerlink" title="效果"></a>效果</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240128161844002.png" alt="image-20240128161844002" class="lazyload"></p>
+<p><img src="/../images/image-20240127022111474.png" alt="image-20240127022111474"></p>
+<h3 id="5-Todo-list-案例"><a href="#5-Todo-list-案例" class="headerlink" title="5.Todo-list 案例"></a>5.Todo-list 案例</h3><h4 id="效果-3"><a href="#效果-3" class="headerlink" title="效果"></a>效果</h4><p><img src="/../images/image-20240128161844002.png" alt="image-20240128161844002"></p>
 <h4 id="组件化编码流程（通用）"><a href="#组件化编码流程（通用）" class="headerlink" title="组件化编码流程（通用）"></a>组件化编码流程（通用）</h4><ol>
 <li>实现静态组件：抽取组件，使用组件实现静态页面效果 </li>
 <li>展示动态数据： <ol>
@@ -621,13 +436,13 @@
 </li>
 <li>交互——从绑定事件监听开始</li>
 </ol>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240128161829392.png" alt="image-20240128161829392" class="lazyload"></p>
-<h3 id="webStoragre"><a href="#webStoragre" class="headerlink" title="webStoragre"></a>webStoragre</h3><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240128170132012.png" alt="image-20240128170132012" class="lazyload"></p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p><img src="/../images/image-20240128161829392.png" alt="image-20240128161829392"></p>
+<h3 id="webStoragre"><a href="#webStoragre" class="headerlink" title="webStoragre"></a>webStoragre</h3><p><img src="/../images/image-20240128170132012.png" alt="image-20240128170132012"></p>
 <h3 id="6-Vue中的自定义事件"><a href="#6-Vue中的自定义事件" class="headerlink" title="6. Vue中的自定义事件"></a>6. Vue中的自定义事件</h3><h4 id="绑定事件监听"><a href="#绑定事件监听" class="headerlink" title="绑定事件监听"></a>绑定事件监听</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;Header @addTodo=&quot;addTodo&quot;/&gt;</span><br><span class="line">或者</span><br><span class="line">&lt;Header ref=&quot;header&quot;/&gt;</span><br><span class="line">this.$refs.header.$on(&#x27;addTodo&#x27;, this.addTodo)</span><br></pre></td></tr></table></figure>
 
 <h4 id="触发事件"><a href="#触发事件" class="headerlink" title="触发事件"></a>触发事件</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$emit(&#x27;addTodo&#x27;, todo)</span><br></pre></td></tr></table></figure>
 
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240129231647841.png" alt="image-20240129231647841" class="lazyload"></p>
+<p><img src="/../images/image-20240129231647841.png" alt="image-20240129231647841"></p>
 <h3 id="7-全局事件总线"><a href="#7-全局事件总线" class="headerlink" title="7.全局事件总线"></a>7.全局事件总线</h3><h4 id="理解-1"><a href="#理解-1" class="headerlink" title="理解"></a>理解</h4><ol>
 <li>Vue 原型对象上包含事件处理的方法<ol>
 <li>$on(eventName, listener): 绑定自定义事件监听</li>
@@ -655,7 +470,7 @@
 
 <h4 id="解绑事件"><a href="#解绑事件" class="headerlink" title="解绑事件"></a>解绑事件</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$globalEventBus.$off(&#x27;deleteTodo&#x27;)</span><br></pre></td></tr></table></figure>
 
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240130200832530.png" alt="image-20240130200832530" class="lazyload"></p>
+<p><img src="/../images/image-20240130200832530.png" alt="image-20240130200832530"></p>
 <h3 id="8-消息订阅与发布"><a href="#8-消息订阅与发布" class="headerlink" title="8.消息订阅与发布"></a>8.消息订阅与发布</h3><h4 id="理解-2"><a href="#理解-2" class="headerlink" title="理解"></a>理解</h4><ol>
 <li>这种方式的思想与全局事件总线很相似 </li>
 <li>它包含以下操作: <ol>
@@ -678,9 +493,9 @@
 <p>(4) PubSub.unsubscribe(token): 取消消息的订阅</p>
 </li>
 </ol>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240202000315263.png" alt="image-20240202000315263" class="lazyload"></p>
-<h3 id="nextTick"><a href="#nextTick" class="headerlink" title="nextTick"></a>nextTick</h3><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240202013312536.png" alt="image-20240202013312536" class="lazyload"></p>
-<h3 id="9-过渡与动画"><a href="#9-过渡与动画" class="headerlink" title="9.过渡与动画"></a>9.过渡与动画</h3><h4 id="效果-4"><a href="#效果-4" class="headerlink" title="效果"></a>效果</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240203004644535.png" alt="image-20240203004644535" class="lazyload"></p>
+<p><img src="/../images/image-20240202000315263.png" alt="image-20240202000315263"></p>
+<h3 id="nextTick"><a href="#nextTick" class="headerlink" title="nextTick"></a>nextTick</h3><p><img src="/../images/image-20240202013312536.png" alt="image-20240202013312536"></p>
+<h3 id="9-过渡与动画"><a href="#9-过渡与动画" class="headerlink" title="9.过渡与动画"></a>9.过渡与动画</h3><h4 id="效果-4"><a href="#效果-4" class="headerlink" title="效果"></a>效果</h4><p><img src="/../images/image-20240203004644535.png" alt="image-20240203004644535"></p>
 <h4 id="vue动画的理解"><a href="#vue动画的理解" class="headerlink" title="vue动画的理解"></a>vue动画的理解</h4><ol>
 <li>操作 css 的 trasition 或 animation </li>
 <li>vue 会给目标元素添加&#x2F;移除特定的 class </li>
@@ -691,7 +506,7 @@
 </ol>
 </li>
 </ol>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240203004731445.png" alt="image-20240203004731445" class="lazyload"></p>
+<p><img src="/../images/image-20240203004731445.png" alt="image-20240203004731445"></p>
 <h4 id="基本过渡动画的编码"><a href="#基本过渡动画的编码" class="headerlink" title="基本过渡动画的编码"></a>基本过渡动画的编码</h4><ol>
 <li><p>在目标元素外包裹 </p>
 </li>
@@ -700,28 +515,28 @@
 <p>b) 指定隐藏时的样式: opacity &#x2F; 其它</p>
 </li>
 </ol>
-<h4 id="写法"><a href="#写法" class="headerlink" title="写法"></a>写法</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240203004827642.png" alt="image-20240203004827642" class="lazyload"></p>
+<h4 id="写法"><a href="#写法" class="headerlink" title="写法"></a>写法</h4><p><img src="/../images/image-20240203004827642.png" alt="image-20240203004827642"></p>
 <h2 id="第4章Vue中的-ajax"><a href="#第4章Vue中的-ajax" class="headerlink" title="第4章Vue中的 ajax"></a>第4章Vue中的 ajax</h2><h3 id="1-解决开发环境Ajax跨域问题"><a href="#1-解决开发环境Ajax跨域问题" class="headerlink" title="1.解决开发环境Ajax跨域问题"></a>1.解决开发环境Ajax跨域问题</h3><p>使用代理服务器</p>
 <p><strong>Vue脚手架配置代理</strong></p>
-<h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240204182927903.png" alt="image-20240204182927903" class="lazyload"></p>
-<h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240204183000877.png" alt="image-20240204183000877" class="lazyload"></p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240204183019912.png" alt="image-20240204183019912" class="lazyload"></p>
-<h3 id="2-github用户搜索案例"><a href="#2-github用户搜索案例" class="headerlink" title="2.github用户搜索案例"></a>2.github用户搜索案例</h3><h4 id="效果-5"><a href="#效果-5" class="headerlink" title="效果"></a>效果</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240205212000277.png" alt="image-20240205212000277" class="lazyload"></p>
+<h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><p><img src="/../images/image-20240204182927903.png" alt="image-20240204182927903"></p>
+<h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4><p><img src="/../images/image-20240204183000877.png" alt="image-20240204183000877"></p>
+<p><img src="/../images/image-20240204183019912.png" alt="image-20240204183019912"></p>
+<h3 id="2-github用户搜索案例"><a href="#2-github用户搜索案例" class="headerlink" title="2.github用户搜索案例"></a>2.github用户搜索案例</h3><h4 id="效果-5"><a href="#效果-5" class="headerlink" title="效果"></a>效果</h4><p><img src="/../images/image-20240205212000277.png" alt="image-20240205212000277"></p>
 <h4 id="接口地址"><a href="#接口地址" class="headerlink" title="接口地址"></a>接口地址</h4><p><a target="_blank" rel="noopener" href="https://api.github.com/search/users?q=xxx">https://api.github.com/search/users?q=xxx</a></p>
 <h3 id="3-vue-项目中常用的-2-个-Ajax-库"><a href="#3-vue-项目中常用的-2-个-Ajax-库" class="headerlink" title="3.vue 项目中常用的 2 个 Ajax 库"></a>3.vue 项目中常用的 2 个 Ajax 库</h3><h4 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h4><p>通用的 Ajax 请求库, 官方推荐，使用广泛</p>
 <h4 id="vue-resource"><a href="#vue-resource" class="headerlink" title="vue-resource"></a>vue-resource</h4><p>vue 插件库, vue1.x 使用广泛，官方已不维护。</p>
-<h3 id="4-slot插槽"><a href="#4-slot插槽" class="headerlink" title="4.slot插槽"></a>4.slot插槽</h3><h4 id="效果-6"><a href="#效果-6" class="headerlink" title="效果"></a>效果</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240205212325262.png" alt="image-20240205212325262" class="lazyload"></p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240205212349454.png" alt="image-20240205212349454" class="lazyload"></p>
+<h3 id="4-slot插槽"><a href="#4-slot插槽" class="headerlink" title="4.slot插槽"></a>4.slot插槽</h3><h4 id="效果-6"><a href="#效果-6" class="headerlink" title="效果"></a>效果</h4><p><img src="/../images/image-20240205212325262.png" alt="image-20240205212325262"></p>
+<p><img src="/../images/image-20240205212349454.png" alt="image-20240205212349454"></p>
 <h4 id="理解-3"><a href="#理解-3" class="headerlink" title="理解"></a>理解</h4><p>父组件向子组件传递带数据的标签，当一个组件有不确定的结构时, 就需要使用 slot 技术，注意：插槽内容是在父组件中编译后, 再传递给子组件的。</p>
 <h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><ol>
 <li>默认插槽 </li>
 <li>命名插槽 </li>
 <li>作用域插槽</li>
 </ol>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240207145822733.png" alt="image-20240207145822733" class="lazyload"></p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240207150112742.png" alt="image-20240207150112742" class="lazyload"></p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240207150341962.png" alt="image-20240207150341962" class="lazyload"></p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240207150356947.png" alt="image-20240207150356947" class="lazyload"></p>
+<p><img src="/../images/image-20240207145822733.png" alt="image-20240207145822733"></p>
+<p><img src="/../images/image-20240207150112742.png" alt="image-20240207150112742"></p>
+<p><img src="/../images/image-20240207150341962.png" alt="image-20240207150341962"></p>
+<p><img src="/../images/image-20240207150356947.png" alt="image-20240207150356947"></p>
 <h2 id="第5章：vuex"><a href="#第5章：vuex" class="headerlink" title="第5章：vuex"></a>第5章：vuex</h2><h3 id="1-理解vuex"><a href="#1-理解vuex" class="headerlink" title="1.理解vuex"></a>1.理解vuex</h3><h4 id="vuex是什么"><a href="#vuex是什么" class="headerlink" title="vuex是什么"></a>vuex是什么</h4><ol>
 <li>概念：专门在 Vue 中实现集中式状态（数据）管理的一个 Vue 插件，对 vue 应 用中多个组件的共享状态进行集中式的管理（读&#x2F;写），也是一种组件间通信的方 式，且适用于任意组件间通信。 </li>
 <li>Github 地址: <a target="_blank" rel="noopener" href="https://github.com/vuejs/vuex">https://github.com/vuejs/vuex</a></li>
@@ -730,9 +545,9 @@
 <li>多个组件依赖于同一状态 </li>
 <li>来自不同组件的行为需要变更同一状态</li>
 </ol>
-<h4 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240207151018560.png" alt="image-20240207151018560" class="lazyload"></p>
-<h4 id="Vuex工作原理图"><a href="#Vuex工作原理图" class="headerlink" title="Vuex工作原理图"></a>Vuex工作原理图</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240207151052510.png" alt="image-20240207151052510" class="lazyload"></p>
-<img data-fancybox="gallery" data-sizes="auto" data-src="../images/image-20240207172438191.png" alt="image-20240207172438191" class="lazyload">
+<h4 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h4><p><img src="/../images/image-20240207151018560.png" alt="image-20240207151018560"></p>
+<h4 id="Vuex工作原理图"><a href="#Vuex工作原理图" class="headerlink" title="Vuex工作原理图"></a>Vuex工作原理图</h4><p><img src="/../images/image-20240207151052510.png" alt="image-20240207151052510"></p>
+<img src="../images/image-20240207172438191.png" alt="image-20240207172438191" style="zoom:25%;" />
 
 <h3 id="2-vuex-核心概念和API"><a href="#2-vuex-核心概念和API" class="headerlink" title="2.vuex 核心概念和API"></a>2.vuex 核心概念和API</h3><h4 id="state"><a href="#state" class="headerlink" title="state"></a>state</h4><ol>
 <li><p>vuex 管理的状态对象 </p>
@@ -779,30 +594,30 @@
 <li>一个 module 是一个 store 的配置对象 </li>
 <li>与一个组件（包含有共享数据）对应</li>
 </ol>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240207212858916.png" alt="image-20240207212858916" class="lazyload"></p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240207212912199.png" alt="image-20240207212912199" class="lazyload"></p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240208222830891.png" alt="image-20240208222830891" class="lazyload"></p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240208222850905.png" alt="image-20240208222850905" class="lazyload"></p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240208231348503.png" alt="image-20240208231348503" class="lazyload"></p>
+<p><img src="/../images/image-20240207212858916.png" alt="image-20240207212858916"></p>
+<p><img src="/../images/image-20240207212912199.png" alt="image-20240207212912199"></p>
+<p><img src="/../images/image-20240208222830891.png" alt="image-20240208222830891"></p>
+<p><img src="/../images/image-20240208222850905.png" alt="image-20240208222850905"></p>
+<p><img src="/../images/image-20240208231348503.png" alt="image-20240208231348503"></p>
 <h3 id="3-四个map方法的使用"><a href="#3-四个map方法的使用" class="headerlink" title="3.四个map方法的使用"></a>3.四个map方法的使用</h3><ol>
 <li><p>mapState方法</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240209005658356.png" alt="image-20240209005658356" class="lazyload"></p>
+<p><img src="/../images/image-20240209005658356.png" alt="image-20240209005658356"></p>
 </li>
 <li><p>mapGetters方法</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240209005720845.png" alt="image-20240209005720845" class="lazyload"></p>
+<p><img src="/../images/image-20240209005720845.png" alt="image-20240209005720845"></p>
 </li>
 <li><p>mapActions方法</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240209005745922.png" alt="image-20240209005745922" class="lazyload"></p>
+<p><img src="/../images/image-20240209005745922.png" alt="image-20240209005745922"></p>
 </li>
 <li><p>mapMutations方法</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240210224233386.png" alt="image-20240210224233386" class="lazyload"></p>
+<p><img src="/../images/image-20240210224233386.png" alt="image-20240210224233386"></p>
 </li>
 <li><p>备注</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240210224249275.png" alt="image-20240210224249275" class="lazyload"></p>
+<p><img src="/../images/image-20240210224249275.png" alt="image-20240210224249275"></p>
 </li>
 </ol>
-<h3 id="4-模块化-命名空间"><a href="#4-模块化-命名空间" class="headerlink" title="4.模块化+命名空间"></a>4.模块化+命名空间</h3><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240211165023166.png" alt="image-20240211165023166" class="lazyload"></p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240211165048580.png" alt="image-20240211165048580" class="lazyload"></p>
+<h3 id="4-模块化-命名空间"><a href="#4-模块化-命名空间" class="headerlink" title="4.模块化+命名空间"></a>4.模块化+命名空间</h3><p><img src="/../images/image-20240211165023166.png" alt="image-20240211165023166"></p>
+<p><img src="/../images/image-20240211165048580.png" alt="image-20240211165048580"></p>
 <h2 id="第6章：vue-router"><a href="#第6章：vue-router" class="headerlink" title="第6章：vue-router"></a>第6章：vue-router</h2><h3 id="1-相关理解"><a href="#1-相关理解" class="headerlink" title="1.相关理解"></a>1.相关理解</h3><h4 id="vue-router的理解"><a href="#vue-router的理解" class="headerlink" title="vue-router的理解"></a>vue-router的理解</h4><p>vue 的一个插件库，专门用来实现 <strong>SPA 应用</strong></p>
 <h4 id="对-SPA-应用的理解"><a href="#对-SPA-应用的理解" class="headerlink" title="对 SPA 应用的理解"></a>对 SPA 应用的理解</h4><ol>
 <li>单页 Web 应用（single page web application，SPA）。 </li>
@@ -826,26 +641,26 @@
 </ul>
 </li>
 </ol>
-<h3 id="2-基本路由"><a href="#2-基本路由" class="headerlink" title="2.基本路由"></a>2.基本路由</h3><h4 id="效果-7"><a href="#效果-7" class="headerlink" title="效果"></a>效果</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240211184938720.png" alt="image-20240211184938720" class="lazyload"></p>
+<h3 id="2-基本路由"><a href="#2-基本路由" class="headerlink" title="2.基本路由"></a>2.基本路由</h3><h4 id="效果-7"><a href="#效果-7" class="headerlink" title="效果"></a>效果</h4><p><img src="/../images/image-20240211184938720.png" alt="image-20240211184938720"></p>
 <h4 id="总结：编写使用路由的-3-步"><a href="#总结：编写使用路由的-3-步" class="headerlink" title="总结：编写使用路由的 3 步"></a>总结：编写使用路由的 3 步</h4><ol>
 <li>定义路由组件 </li>
 <li>注册路由 </li>
 <li>使用路由</li>
 </ol>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240212005415421.png" alt="image-20240212005415421" class="lazyload"></p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240212005434738.png" alt="image-20240212005434738" class="lazyload"></p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240212005455861.png" alt="image-20240212005455861" class="lazyload"></p>
-<h3 id="3-嵌套（多级）路由"><a href="#3-嵌套（多级）路由" class="headerlink" title="3.嵌套（多级）路由"></a>3.嵌套（多级）路由</h3><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240213002229379.png" alt="image-20240213002229379" class="lazyload"></p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240213011515577.png" alt="image-20240213011515577" class="lazyload"></p>
-<h3 id="4-路由传参"><a href="#4-路由传参" class="headerlink" title="4.路由传参"></a>4.路由传参</h3><h4 id="query传参"><a href="#query传参" class="headerlink" title="query传参"></a>query传参</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240213014803663.png" alt="image-20240213014803663" class="lazyload"></p>
-<h4 id="params传参"><a href="#params传参" class="headerlink" title="params传参"></a>params传参</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240214002414834.png" alt="image-20240214002414834" class="lazyload"></p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240214002431847.png" alt="image-20240214002431847" class="lazyload"></p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240214002504474.png" alt="image-20240214002504474" class="lazyload"></p>
-<h4 id="props传参"><a href="#props传参" class="headerlink" title="props传参"></a>props传参</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240214005428614.png" alt="image-20240214005428614" class="lazyload"></p>
-<h3 id="命名路由"><a href="#命名路由" class="headerlink" title="命名路由"></a>命名路由</h3><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240213015354269.png" alt="image-20240213015354269" class="lazyload"></p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240213015406935.png" alt="image-20240213015406935" class="lazyload"></p>
-<h3 id="replace属性"><a href="#replace属性" class="headerlink" title="replace属性"></a>replace属性</h3><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240214010009289.png" alt="image-20240214010009289" class="lazyload"></p>
-<h3 id="5-编程式路由导航"><a href="#5-编程式路由导航" class="headerlink" title="5.编程式路由导航"></a>5.编程式路由导航</h3><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240213002334497.png" alt="image-20240213002334497" class="lazyload"></p>
+<p><img src="/../images/image-20240212005415421.png" alt="image-20240212005415421"></p>
+<p><img src="/../images/image-20240212005434738.png" alt="image-20240212005434738"></p>
+<p><img src="/../images/image-20240212005455861.png" alt="image-20240212005455861"></p>
+<h3 id="3-嵌套（多级）路由"><a href="#3-嵌套（多级）路由" class="headerlink" title="3.嵌套（多级）路由"></a>3.嵌套（多级）路由</h3><p><img src="/../images/image-20240213002229379.png" alt="image-20240213002229379"></p>
+<p><img src="/../images/image-20240213011515577.png" alt="image-20240213011515577"></p>
+<h3 id="4-路由传参"><a href="#4-路由传参" class="headerlink" title="4.路由传参"></a>4.路由传参</h3><h4 id="query传参"><a href="#query传参" class="headerlink" title="query传参"></a>query传参</h4><p><img src="/../images/image-20240213014803663.png" alt="image-20240213014803663"></p>
+<h4 id="params传参"><a href="#params传参" class="headerlink" title="params传参"></a>params传参</h4><p><img src="/../images/image-20240214002414834.png" alt="image-20240214002414834"></p>
+<p><img src="/../images/image-20240214002431847.png" alt="image-20240214002431847"></p>
+<p><img src="/../images/image-20240214002504474.png" alt="image-20240214002504474"></p>
+<h4 id="props传参"><a href="#props传参" class="headerlink" title="props传参"></a>props传参</h4><p><img src="/../images/image-20240214005428614.png" alt="image-20240214005428614"></p>
+<h3 id="命名路由"><a href="#命名路由" class="headerlink" title="命名路由"></a>命名路由</h3><p><img src="/../images/image-20240213015354269.png" alt="image-20240213015354269"></p>
+<p><img src="/../images/image-20240213015406935.png" alt="image-20240213015406935"></p>
+<h3 id="replace属性"><a href="#replace属性" class="headerlink" title="replace属性"></a>replace属性</h3><p><img src="/../images/image-20240214010009289.png" alt="image-20240214010009289"></p>
+<h3 id="5-编程式路由导航"><a href="#5-编程式路由导航" class="headerlink" title="5.编程式路由导航"></a>5.编程式路由导航</h3><p><img src="/../images/image-20240213002334497.png" alt="image-20240213002334497"></p>
 <p><strong>相关API：</strong></p>
 <ol>
 <li>this.$router.push(path): 相当于点击路由链接(可以返回到当前路由界面) </li>
@@ -854,14 +669,14 @@
 <li>this.$router.go(-1): 请求(返回)上一个记录路由 </li>
 <li>this.$router.go(1): 请求下一个记录路由</li>
 </ol>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240215013803520.png" alt="image-20240215013803520" class="lazyload"></p>
-<h3 id="缓存路由组件"><a href="#缓存路由组件" class="headerlink" title="缓存路由组件"></a>缓存路由组件</h3><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240215014614504.png" alt="image-20240215014614504" class="lazyload"></p>
+<p><img src="/../images/image-20240215013803520.png" alt="image-20240215013803520"></p>
+<h3 id="缓存路由组件"><a href="#缓存路由组件" class="headerlink" title="缓存路由组件"></a>缓存路由组件</h3><p><img src="/../images/image-20240215014614504.png" alt="image-20240215014614504"></p>
 <p>include里面的是组件名。</p>
-<h3 id="两个新的生命周期钩子"><a href="#两个新的生命周期钩子" class="headerlink" title="两个新的生命周期钩子"></a>两个新的生命周期钩子</h3><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240215020159584.png" alt="image-20240215020159584" class="lazyload"></p>
-<h3 id="路由守卫"><a href="#路由守卫" class="headerlink" title="路由守卫"></a>路由守卫</h3><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240216001843301.png" alt="image-20240216001843301" class="lazyload"></p>
-<h4 id="独享守卫"><a href="#独享守卫" class="headerlink" title="独享守卫"></a>独享守卫</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240216002341727.png" alt="image-20240216002341727" class="lazyload"></p>
-<h4 id="组件内守卫"><a href="#组件内守卫" class="headerlink" title="组件内守卫"></a>组件内守卫</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240216011554863.png" alt="image-20240216011554863" class="lazyload"></p>
-<h3 id="路由的两种工作模式"><a href="#路由的两种工作模式" class="headerlink" title="路由的两种工作模式"></a>路由的两种工作模式</h3><p><img data-fancybox="gallery" data-sizes="auto" data-src="/../images/image-20240216152751951.png" alt="image-20240216152751951" class="lazyload"></p>
+<h3 id="两个新的生命周期钩子"><a href="#两个新的生命周期钩子" class="headerlink" title="两个新的生命周期钩子"></a>两个新的生命周期钩子</h3><p><img src="/../images/image-20240215020159584.png" alt="image-20240215020159584"></p>
+<h3 id="路由守卫"><a href="#路由守卫" class="headerlink" title="路由守卫"></a>路由守卫</h3><p><img src="/../images/image-20240216001843301.png" alt="image-20240216001843301"></p>
+<h4 id="独享守卫"><a href="#独享守卫" class="headerlink" title="独享守卫"></a>独享守卫</h4><p><img src="/../images/image-20240216002341727.png" alt="image-20240216002341727"></p>
+<h4 id="组件内守卫"><a href="#组件内守卫" class="headerlink" title="组件内守卫"></a>组件内守卫</h4><p><img src="/../images/image-20240216011554863.png" alt="image-20240216011554863"></p>
+<h3 id="路由的两种工作模式"><a href="#路由的两种工作模式" class="headerlink" title="路由的两种工作模式"></a>路由的两种工作模式</h3><p><img src="/../images/image-20240216152751951.png" alt="image-20240216152751951"></p>
 <h2 id="第7章：Vue-UI组件库"><a href="#第7章：Vue-UI组件库" class="headerlink" title="第7章：Vue UI组件库"></a>第7章：Vue UI组件库</h2><h3 id="1-移动端常用-UI-组件库"><a href="#1-移动端常用-UI-组件库" class="headerlink" title="1.移动端常用 UI 组件库"></a>1.移动端常用 UI 组件库</h3><ol>
 <li>Vant <a target="_blank" rel="noopener" href="https://youzan.github.io/vant">https://youzan.github.io/vant</a> </li>
 <li>Cube UI <a target="_blank" rel="noopener" href="https://didi.github.io/cube-ui">https://didi.github.io/cube-ui</a> </li>
@@ -1019,806 +834,4 @@
 </ul>
 </li>
 </ul>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
-        </article>
-
-        
-            
-  <div class="nexmoe-post-copyright">
-    <strong>Author：</strong>John Doe<br>
-    
-    <strong>Link：</strong><a href="http://example.com/2023/12/05/vue/" title="http:&#x2F;&#x2F;example.com&#x2F;2023&#x2F;12&#x2F;05&#x2F;vue&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;example.com&#x2F;2023&#x2F;12&#x2F;05&#x2F;vue&#x2F;</a><br>
-
-    
-      <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
-    
-  </div>
-
-
-        
-
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-    
-        <a class="nexmoefont icon-appstore-fill -link" href="/categories/web%E5%89%8D%E7%AB%AF/">web前端</a>
-    
-    
-        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/vue/" rel="tag">vue</a>
-    
-</div>
-
-    <div class="nexmoe-post-footer">
-        <section class="nexmoe-comment">
-    <div class="valine"></div>
-<script src='https://lib.baomitu.com/valine/1.3.9/Valine.min.js'></script>
-<script>
-    // 使用方法 https://valine.js.org/quickstart.html
-    new Valine({
-        el: '.valine',
-        appId: 'r5zxC0st0DDjPA9auXzMV7HY-gzGzoHsz',
-        appKey: '3bqCsovpyfTPHUzTHovd3V3V'
-    })
-</script>
-</section>
-    </div>
-</div>
-
-
-        <div class="nexmoe-post-right">
-          
-            <div class="nexmoe-fixed">
-              <div class="nexmoe-tool">
-                <a href="#" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
-              </div>
-            </div>
-          
-        </div>
-    </div>
-  </div>
-  <div id="nexmoe-pendant">
-    <div class="nexmoe-drawer mdui-drawer nexmoe-pd" id="drawer">
-        
-            <div class="nexmoe-pd-item">
-                <div class="clock">
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="needle" id="hours"></div>
-        <div class="needle" id="minutes"></div>
-        <div class="needle" id="seconds"></div>
-        <div class="clock_logo">
-
-        </div>
-
-    </div>
-<style>
-    .clock {
-        background-color: #ffffff;
-        width: 70vw;
-        height: 70vw;
-        max-width: 70vh;
-        max-height: 70vh;
-        border: solid 2.8vw #242424;
-        position: relative;
-        overflow: hidden;
-        border-radius: 50%;
-        box-sizing: border-box;
-        box-shadow: 0 1.4vw 2.8vw rgba(0, 0, 0, 0.8);
-        zoom:0.2
-    }
-
-    .memory {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform-origin: center;
-    }
-
-    .memory:nth-child(1) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(0deg) translateY(-520%);
-    }
-
-    .memory:nth-child(2) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(6deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(3) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(12deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(4) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(18deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(5) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(24deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(6) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(30deg) translateY(-520%);
-    }
-
-    .memory:nth-child(7) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(36deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(8) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(42deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(9) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(48deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(10) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(54deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(11) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(60deg) translateY(-520%);
-    }
-
-    .memory:nth-child(12) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(66deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(13) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(72deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(14) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(78deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(15) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(84deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(16) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(90deg) translateY(-520%);
-    }
-
-    .memory:nth-child(17) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(96deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(18) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(102deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(19) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(108deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(20) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(114deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(21) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(120deg) translateY(-520%);
-    }
-
-    .memory:nth-child(22) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(126deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(23) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(132deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(24) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(138deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(25) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(144deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(26) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(150deg) translateY(-520%);
-    }
-
-    .memory:nth-child(27) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(156deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(28) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(162deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(29) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(168deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(30) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(174deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(31) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(180deg) translateY(-520%);
-    }
-
-    .memory:nth-child(32) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(186deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(33) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(192deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(34) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(198deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(35) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(204deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(36) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(210deg) translateY(-520%);
-    }
-
-    .memory:nth-child(37) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(216deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(38) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(222deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(39) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(228deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(40) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(234deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(41) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(240deg) translateY(-520%);
-    }
-
-    .memory:nth-child(42) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(246deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(43) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(252deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(44) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(258deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(45) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(264deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(46) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(270deg) translateY(-520%);
-    }
-
-    .memory:nth-child(47) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(276deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(48) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(282deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(49) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(288deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(50) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(294deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(51) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(300deg) translateY(-520%);
-    }
-
-    .memory:nth-child(52) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(306deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(53) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(312deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(54) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(318deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(55) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(324deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(56) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(330deg) translateY(-520%);
-    }
-
-    .memory:nth-child(57) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(336deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(58) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(342deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(59) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(348deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(60) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(354deg) translateY(-1461%);
-    }
-
-    .needle {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform-origin: center;
-    }
-
-    .needle#hours {
-        background-color: #1f1f1f;
-        width: 4%;
-        height: 30%;
-        transform-origin: center 75%;
-        transform: translate(-50%, -75%);
-    }
-
-    .needle#hours.moving {
-        transition: transform 150ms ease-out;
-    }
-
-    .needle#hours:after {
-        content: '';
-        background-color: #1f1f1f;
-        width: 4vw;
-        height: 4vw;
-        max-width: 4vh;
-        max-height: 4vh;
-        display: block;
-        position: absolute;
-        top: 75%;
-        left: 50%;
-        box-sizing: border-box;
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .needle#minutes {
-        background-color: #1f1f1f;
-        width: 2%;
-        height: 45%;
-        transform-origin: center 75%;
-        transform: translate(-50%, -75%);
-    }
-
-    .needle#minutes.moving {
-        transition: transform 150ms ease-out;
-    }
-
-    .needle#minutes:after {
-        content: '';
-        background-color: #1f1f1f;
-        width: 4vw;
-        height: 4vw;
-        max-width: 4vh;
-        max-height: 4vh;
-        display: block;
-        position: absolute;
-        top: 75%;
-        left: 50%;
-        box-sizing: border-box;
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .needle#seconds {
-        background-color: #cb2f2f;
-        width: 1%;
-        height: 50%;
-        transform-origin: center 75%;
-        transform: translate(-50%, -75%);
-    }
-
-    .needle#seconds.moving {
-        transition: transform 150ms ease-out;
-    }
-
-    .needle#seconds:after {
-        content: '';
-        background-color: #cb2f2f;
-        width: 2.5vw;
-        height: 2.5vw;
-        max-width: 2.5vh;
-        max-height: 2.5vh;
-        display: block;
-        position: absolute;
-        top: 75%;
-        left: 50%;
-        box-sizing: border-box;
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-    }
-    .clock_logo{
-        width: 10vw;
-        height: 10vw;
-        max-width: 10vh;
-        max-height: 10vh;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        box-sizing: border-box;
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-    }
-    @media (min-width: 100vh) {
-        .clock {
-            border: solid 2.8vh #242424;
-            box-shadow: 0 1.4vh 2.8vh rgba(0, 0, 0, 0.8);
-        }
-    }
-
-</style>
-
-
-
-
-
-            </div>
-        
-            <div class="nexmoe-pd-item">
-                <div class="qweather" >
-    <div id="he-plugin-standard"></div>
-    <div class="qweather-logo">
-
-    </div>
-
-</div>
-<style>
-    .qweather{
-        position: relative;
-    }
-    .qweather-logo{
-        position: absolute;
-        right: 0;
-        top: -15px;
-        width: 40px;
-        height: 40px;
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-    }
-</style>
-<script>
-  WIDGET = {
-    "CONFIG": {
-      "layout": "2",
-      "width": "260",
-      "height": "220",
-      "background": "5",
-      "dataColor": "e67249",
-      "borderRadius": "15",
-      "key": "f74d1e1690e6432d801e97fa2f05a162"
-    }
-  }
-</script>
-<script src="https://widget.qweather.net/standard/static/js/he-standard-common.js?v=2.0"></script>
-
-            </div>
-        
-</div>
-<style>
-    .nexmoe-pd {
-        left: auto;
-        top: 40px;
-        right: 0;
-    }
-    .nexmoe-pd-item{
-       display: flex;
-        justify-content: center;
-        margin-bottom: 30px;
-    }
-</style>
-
-  </div>
-  <script src="https://lib.baomitu.com/lazysizes/5.1.0/lazysizes.min.js"></script>
-<script src="https://lib.baomitu.com/highlight.js/10.0.0/highlight.min.js"></script>
-<script src="https://lib.baomitu.com/mdui/0.4.3/js/mdui.min.js"></script>
-
-<script>
-	hljs.initHighlightingOnLoad();
-</script>
-
-<script src="https://lib.baomitu.com/jquery/3.5.1/jquery.slim.min.js"></script>
-<script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
-
-
-<script src="/js/app.js?v=1709382268344"></script>
-
-<script src="https://lib.baomitu.com/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
-<script>
-	$(".justified-gallery").justifiedGallery({
-		rowHeight: 160,
-		margins: 10,
-	});
-</script>
-
-  
-
-
-
-
-
-<!-- hexo injector body_end start -->
-<script src="/js/clock.js"></script>
-
-<script src="https://lib.baomitu.com/clipboard.js/2.0.8/clipboard.min.js"></script>
-
-<script src="/lib/codeBlock/codeBlockFuction.js"></script>
-
-<script src="/lib/codeBlock/codeLang.js"></script>
-
-<script src="/lib/codeBlock/codeCopy.js"></script>
-
-<script src="/lib/codeBlock/codeShrink.js"></script>
-
-<link rel="stylesheet" href="/lib/codeBlock/matery.css">
-
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-
-<script src="/js/search.js"></script>
-
-<script src="/js/webapp.js"></script>
-<!-- hexo injector body_end end --></body>
-</html>
-
-<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/250cb4aa.js","daovoice")</script>
-<script>
-  daovoice('init', {
-    app_id: "250cb4aa"
-  });
-  daovoice('update');
-</script>
-
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://wakuwaku233.gitee.io">wakuwaku233</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://wakuwaku233.gitee.io/2023/12/05/vue/">https://wakuwaku233.gitee.io/2023/12/05/vue/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://wakuwaku233.gitee.io" target="_blank">Hexo</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/vue/">vue</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/04/08/dailyProblem/" title="日常问题"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">日常问题</div></div></a></div><div class="next-post pull-right"><a href="/2023/10/25/ES6/" title="ES"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">ES</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">wakuwaku233</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81vue2"><span class="toc-number">1.</span> <span class="toc-text">一、vue2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC1%E7%AB%A0%EF%BC%9AVue%E6%A0%B8%E5%BF%83"><span class="toc-number">1.1.</span> <span class="toc-text">第1章：Vue核心</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A8%A1%E5%9D%97%E8%AF%AD%E6%B3%95"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.模块语法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%92%E5%80%BC%E8%AF%AD%E6%B3%95%EF%BC%9A"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">插值语法：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E8%AF%AD%E6%B3%95%EF%BC%9A"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">指令语法：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.数据绑定</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">单向数据绑定</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">双向数据绑定</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-MVVM%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.1.3.</span> <span class="toc-text">3.MVVM模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%90%86"><span class="toc-number">1.1.4.</span> <span class="toc-text">4.数据代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86"><span class="toc-number">1.1.5.</span> <span class="toc-text">5.事件处理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%88%E6%9E%9C"><span class="toc-number">1.1.5.1.</span> <span class="toc-text">效果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%91%E5%AE%9A%E6%8E%A5%E5%90%AC"><span class="toc-number">1.1.5.2.</span> <span class="toc-text">绑定接听</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">1.1.5.3.</span> <span class="toc-text">基本使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">1.1.5.4.</span> <span class="toc-text">事件修饰符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%89%E9%94%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">1.1.5.5.</span> <span class="toc-text">按键修饰符</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E4%B8%8E%E7%9B%91%E8%A7%86"><span class="toc-number">1.1.6.</span> <span class="toc-text">6.计算属性与监视</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%88%E6%9E%9C-1"><span class="toc-number">1.1.6.1.</span> <span class="toc-text">效果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7-computed"><span class="toc-number">1.1.6.2.</span> <span class="toc-text">计算属性-computed</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%91%E8%A7%86%E5%B1%9E%E6%80%A7-watch"><span class="toc-number">1.1.6.3.</span> <span class="toc-text">监视属性-watch</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-class%E4%B8%8Estyle%E7%BB%91%E5%AE%9A"><span class="toc-number">1.1.7.</span> <span class="toc-text">7.class与style绑定</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%90%86%E8%A7%A3"><span class="toc-number">1.1.7.1.</span> <span class="toc-text">理解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#class%E7%BB%91%E5%AE%9A"><span class="toc-number">1.1.7.2.</span> <span class="toc-text">class绑定</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#style%E7%BB%91%E5%AE%9A"><span class="toc-number">1.1.7.3.</span> <span class="toc-text">style绑定</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E6%9D%A1%E4%BB%B6%E6%B8%B2%E6%9F%93"><span class="toc-number">1.1.8.</span> <span class="toc-text">8.条件渲染</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E6%B8%B2%E6%9F%93%E6%8C%87%E4%BB%A4"><span class="toc-number">1.1.8.1.</span> <span class="toc-text">条件渲染指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AF%94%E8%BE%83v-if-%E4%B8%8E-v-show"><span class="toc-number">1.1.8.2.</span> <span class="toc-text">比较v-if 与 v-show</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-%E5%88%97%E8%A1%A8%E6%B8%B2%E6%9F%93"><span class="toc-number">1.1.9.</span> <span class="toc-text">9.列表渲染</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%88%E6%9E%9C-2"><span class="toc-number">1.1.9.1.</span> <span class="toc-text">效果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%97%E8%A1%A8%E6%98%BE%E7%A4%BA%E6%8C%87%E4%BB%A4"><span class="toc-number">1.1.9.2.</span> <span class="toc-text">列表显示指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#key%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-number">1.1.9.3.</span> <span class="toc-text">key的原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vue%E7%9B%91%E6%B5%8B%E6%95%B0%E6%8D%AE"><span class="toc-number">1.1.9.4.</span> <span class="toc-text">Vue监测数据</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-%E6%94%B6%E9%9B%86%E8%A1%A8%E5%8D%95%E6%95%B0%E6%8D%AE"><span class="toc-number">1.1.10.</span> <span class="toc-text">10.收集表单数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-number">1.1.11.</span> <span class="toc-text">11.过滤器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-%E5%86%85%E7%BD%AE%E6%8C%87%E4%BB%A4%E4%B8%8E%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4"><span class="toc-number">1.1.12.</span> <span class="toc-text">12.内置指令与自定义指令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%86%85%E7%BD%AE%E6%8C%87%E4%BB%A4"><span class="toc-number">1.1.12.1.</span> <span class="toc-text">常用内置指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4"><span class="toc-number">1.1.12.2.</span> <span class="toc-text">自定义指令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-Vue%E5%AE%9E%E4%BE%8B%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">1.1.13.</span> <span class="toc-text">13.Vue实例生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%88%86%E6%9E%90"><span class="toc-number">1.1.13.1.</span> <span class="toc-text">vue生命周期分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.13.2.</span> <span class="toc-text">常用的生命周期方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC2%E7%AB%A0%EF%BC%9AVue%E7%BB%84%E4%BB%B6%E5%8C%96%E7%BC%96%E7%A8%8B"><span class="toc-number">1.2.</span> <span class="toc-text">第2章：Vue组件化编程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A8%A1%E5%9D%97%E4%B8%8E%E7%BB%84%E4%BB%B6%E3%80%81%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%8E%E7%BB%84%E4%BB%B6%E5%8C%96"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.模块与组件、模块化与组件化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">模块化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E5%8C%96"><span class="toc-number">1.2.1.4.</span> <span class="toc-text">组件化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%9D%9E%E5%8D%95%E6%96%87%E4%BB%B6%E7%BB%84%E4%BB%B6"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.非单文件组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%8D%95%E6%96%87%E4%BB%B6%E7%BB%84%E4%BB%B6"><span class="toc-number">1.2.3.</span> <span class="toc-text">3.单文件组件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA-vue-%E6%96%87%E4%BB%B6%E7%9A%84%E7%BB%84%E6%88%90%EF%BC%883%E4%B8%AA%E9%83%A8%E5%88%86%EF%BC%89"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">一个 .vue 文件的组成（3个部分）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8-1"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">基本使用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC3%E7%AB%A0%EF%BC%9A%E4%BD%BF%E7%94%A8Vue%E8%84%9A%E6%89%8B%E6%9E%B6"><span class="toc-number">1.3.</span> <span class="toc-text">第3章：使用Vue脚手架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%88%9D%E5%A7%8B%E5%8C%96%E8%84%9A%E6%89%8B%E6%9E%B6"><span class="toc-number">1.3.1.</span> <span class="toc-text">1.初始化脚手架</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">具体步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E9%A1%B9%E7%9B%AE%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-number">1.3.1.3.</span> <span class="toc-text">模块项目的结构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-ref-%E4%B8%8E-props"><span class="toc-number">1.3.2.</span> <span class="toc-text">2.ref 与 props</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%B7%B7%E5%85%A5"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.混入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%8F%92%E4%BB%B6"><span class="toc-number">1.3.4.</span> <span class="toc-text">4.插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Todo-list-%E6%A1%88%E4%BE%8B"><span class="toc-number">1.3.5.</span> <span class="toc-text">5.Todo-list 案例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%88%E6%9E%9C-3"><span class="toc-number">1.3.5.1.</span> <span class="toc-text">效果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E5%8C%96%E7%BC%96%E7%A0%81%E6%B5%81%E7%A8%8B%EF%BC%88%E9%80%9A%E7%94%A8%EF%BC%89"><span class="toc-number">1.3.5.2.</span> <span class="toc-text">组件化编码流程（通用）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.3.5.3.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webStoragre"><span class="toc-number">1.3.6.</span> <span class="toc-text">webStoragre</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Vue%E4%B8%AD%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.3.7.</span> <span class="toc-text">6. Vue中的自定义事件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%91%E5%AE%9A%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC"><span class="toc-number">1.3.7.1.</span> <span class="toc-text">绑定事件监听</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A6%E5%8F%91%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.3.7.2.</span> <span class="toc-text">触发事件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E5%85%A8%E5%B1%80%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF"><span class="toc-number">1.3.8.</span> <span class="toc-text">7.全局事件总线</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%90%86%E8%A7%A3-1"><span class="toc-number">1.3.8.1.</span> <span class="toc-text">理解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E5%AE%9A%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.3.8.2.</span> <span class="toc-text">指定事件总线对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%91%E5%AE%9A%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.3.8.3.</span> <span class="toc-text">绑定事件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E5%8F%91%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.3.8.4.</span> <span class="toc-text">分发事件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E7%BB%91%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.3.8.5.</span> <span class="toc-text">解绑事件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E6%B6%88%E6%81%AF%E8%AE%A2%E9%98%85%E4%B8%8E%E5%8F%91%E5%B8%83"><span class="toc-number">1.3.9.</span> <span class="toc-text">8.消息订阅与发布</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%90%86%E8%A7%A3-2"><span class="toc-number">1.3.9.1.</span> <span class="toc-text">理解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8PubSubJS"><span class="toc-number">1.3.9.2.</span> <span class="toc-text">使用PubSubJS</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nextTick"><span class="toc-number">1.3.10.</span> <span class="toc-text">nextTick</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-%E8%BF%87%E6%B8%A1%E4%B8%8E%E5%8A%A8%E7%94%BB"><span class="toc-number">1.3.11.</span> <span class="toc-text">9.过渡与动画</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%88%E6%9E%9C-4"><span class="toc-number">1.3.11.1.</span> <span class="toc-text">效果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vue%E5%8A%A8%E7%94%BB%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">1.3.11.2.</span> <span class="toc-text">vue动画的理解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%BF%87%E6%B8%A1%E5%8A%A8%E7%94%BB%E7%9A%84%E7%BC%96%E7%A0%81"><span class="toc-number">1.3.11.3.</span> <span class="toc-text">基本过渡动画的编码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%99%E6%B3%95"><span class="toc-number">1.3.11.4.</span> <span class="toc-text">写法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC4%E7%AB%A0Vue%E4%B8%AD%E7%9A%84-ajax"><span class="toc-number">1.4.</span> <span class="toc-text">第4章Vue中的 ajax</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%A7%A3%E5%86%B3%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83Ajax%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98"><span class="toc-number">1.4.1.</span> <span class="toc-text">1.解决开发环境Ajax跨域问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">方法一</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C"><span class="toc-number">1.4.1.2.</span> <span class="toc-text">方法二</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-github%E7%94%A8%E6%88%B7%E6%90%9C%E7%B4%A2%E6%A1%88%E4%BE%8B"><span class="toc-number">1.4.2.</span> <span class="toc-text">2.github用户搜索案例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%88%E6%9E%9C-5"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">效果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E5%9C%B0%E5%9D%80"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">接口地址</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-vue-%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84-2-%E4%B8%AA-Ajax-%E5%BA%93"><span class="toc-number">1.4.3.</span> <span class="toc-text">3.vue 项目中常用的 2 个 Ajax 库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#axios"><span class="toc-number">1.4.3.1.</span> <span class="toc-text">axios</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vue-resource"><span class="toc-number">1.4.3.2.</span> <span class="toc-text">vue-resource</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-slot%E6%8F%92%E6%A7%BD"><span class="toc-number">1.4.4.</span> <span class="toc-text">4.slot插槽</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%88%E6%9E%9C-6"><span class="toc-number">1.4.4.1.</span> <span class="toc-text">效果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%90%86%E8%A7%A3-3"><span class="toc-number">1.4.4.2.</span> <span class="toc-text">理解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E7%B1%BB"><span class="toc-number">1.4.4.3.</span> <span class="toc-text">分类</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC5%E7%AB%A0%EF%BC%9Avuex"><span class="toc-number">1.5.</span> <span class="toc-text">第5章：vuex</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%90%86%E8%A7%A3vuex"><span class="toc-number">1.5.1.</span> <span class="toc-text">1.理解vuex</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#vuex%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.5.1.1.</span> <span class="toc-text">vuex是什么</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BD%BF%E7%94%A8Vuex"><span class="toc-number">1.5.1.2.</span> <span class="toc-text">什么时候使用Vuex</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B"><span class="toc-number">1.5.1.3.</span> <span class="toc-text">案例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vuex%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%9B%BE"><span class="toc-number">1.5.1.4.</span> <span class="toc-text">Vuex工作原理图</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-vuex-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5%E5%92%8CAPI"><span class="toc-number">1.5.2.</span> <span class="toc-text">2.vuex 核心概念和API</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#state"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">state</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#actions"><span class="toc-number">1.5.2.2.</span> <span class="toc-text">actions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mutations"><span class="toc-number">1.5.2.3.</span> <span class="toc-text">mutations</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#getters"><span class="toc-number">1.5.2.4.</span> <span class="toc-text">getters</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#modules"><span class="toc-number">1.5.2.5.</span> <span class="toc-text">modules</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%9B%9B%E4%B8%AAmap%E6%96%B9%E6%B3%95%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.5.3.</span> <span class="toc-text">3.四个map方法的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%A8%A1%E5%9D%97%E5%8C%96-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="toc-number">1.5.4.</span> <span class="toc-text">4.模块化+命名空间</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC6%E7%AB%A0%EF%BC%9Avue-router"><span class="toc-number">1.6.</span> <span class="toc-text">第6章：vue-router</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%9B%B8%E5%85%B3%E7%90%86%E8%A7%A3"><span class="toc-number">1.6.1.</span> <span class="toc-text">1.相关理解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#vue-router%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">1.6.1.1.</span> <span class="toc-text">vue-router的理解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9-SPA-%E5%BA%94%E7%94%A8%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">1.6.1.2.</span> <span class="toc-text">对 SPA 应用的理解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">1.6.1.3.</span> <span class="toc-text">路由的理解</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E8%B7%AF%E7%94%B1%EF%BC%9F"><span class="toc-number">1.6.1.3.1.</span> <span class="toc-text">1.什么是路由？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E8%B7%AF%E7%94%B1%E5%88%86%E7%B1%BB"><span class="toc-number">1.6.1.3.2.</span> <span class="toc-text">2.路由分类</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%9F%BA%E6%9C%AC%E8%B7%AF%E7%94%B1"><span class="toc-number">1.6.2.</span> <span class="toc-text">2.基本路由</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%88%E6%9E%9C-7"><span class="toc-number">1.6.2.1.</span> <span class="toc-text">效果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A%E7%BC%96%E5%86%99%E4%BD%BF%E7%94%A8%E8%B7%AF%E7%94%B1%E7%9A%84-3-%E6%AD%A5"><span class="toc-number">1.6.2.2.</span> <span class="toc-text">总结：编写使用路由的 3 步</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%B5%8C%E5%A5%97%EF%BC%88%E5%A4%9A%E7%BA%A7%EF%BC%89%E8%B7%AF%E7%94%B1"><span class="toc-number">1.6.3.</span> <span class="toc-text">3.嵌套（多级）路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%B7%AF%E7%94%B1%E4%BC%A0%E5%8F%82"><span class="toc-number">1.6.4.</span> <span class="toc-text">4.路由传参</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#query%E4%BC%A0%E5%8F%82"><span class="toc-number">1.6.4.1.</span> <span class="toc-text">query传参</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#params%E4%BC%A0%E5%8F%82"><span class="toc-number">1.6.4.2.</span> <span class="toc-text">params传参</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#props%E4%BC%A0%E5%8F%82"><span class="toc-number">1.6.4.3.</span> <span class="toc-text">props传参</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E5%90%8D%E8%B7%AF%E7%94%B1"><span class="toc-number">1.6.5.</span> <span class="toc-text">命名路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#replace%E5%B1%9E%E6%80%A7"><span class="toc-number">1.6.6.</span> <span class="toc-text">replace属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E7%BC%96%E7%A8%8B%E5%BC%8F%E8%B7%AF%E7%94%B1%E5%AF%BC%E8%88%AA"><span class="toc-number">1.6.7.</span> <span class="toc-text">5.编程式路由导航</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E8%B7%AF%E7%94%B1%E7%BB%84%E4%BB%B6"><span class="toc-number">1.6.8.</span> <span class="toc-text">缓存路由组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%A4%E4%B8%AA%E6%96%B0%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90"><span class="toc-number">1.6.9.</span> <span class="toc-text">两个新的生命周期钩子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E5%AE%88%E5%8D%AB"><span class="toc-number">1.6.10.</span> <span class="toc-text">路由守卫</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8B%AC%E4%BA%AB%E5%AE%88%E5%8D%AB"><span class="toc-number">1.6.10.1.</span> <span class="toc-text">独享守卫</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E5%86%85%E5%AE%88%E5%8D%AB"><span class="toc-number">1.6.10.2.</span> <span class="toc-text">组件内守卫</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.6.11.</span> <span class="toc-text">路由的两种工作模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC7%E7%AB%A0%EF%BC%9AVue-UI%E7%BB%84%E4%BB%B6%E5%BA%93"><span class="toc-number">1.7.</span> <span class="toc-text">第7章：Vue UI组件库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%B8%B8%E7%94%A8-UI-%E7%BB%84%E4%BB%B6%E5%BA%93"><span class="toc-number">1.7.1.</span> <span class="toc-text">1.移动端常用 UI 组件库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-PC-%E7%AB%AF%E5%B8%B8%E7%94%A8-UI-%E7%BB%84%E4%BB%B6%E5%BA%93"><span class="toc-number">1.7.2.</span> <span class="toc-text">2. PC 端常用 UI 组件库</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue3%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B"><span class="toc-number">2.</span> <span class="toc-text">Vue3快速上手</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Vue3%E7%AE%80%E4%BB%8B"><span class="toc-number">2.1.</span> <span class="toc-text">1.Vue3简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Vue3%E5%B8%A6%E6%9D%A5%E4%BA%86%E4%BB%80%E4%B9%88"><span class="toc-number">2.2.</span> <span class="toc-text">2.Vue3带来了什么</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%80%A7%E8%83%BD%E7%9A%84%E6%8F%90%E5%8D%87"><span class="toc-number">2.2.1.</span> <span class="toc-text">1.性能的提升</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%BA%90%E7%A0%81%E7%9A%84%E5%8D%87%E7%BA%A7"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.源码的升级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%8B%A5%E6%8A%B1TypeScript"><span class="toc-number">2.2.3.</span> <span class="toc-text">3.拥抱TypeScript</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%96%B0%E7%9A%84%E7%89%B9%E6%80%A7"><span class="toc-number">2.2.4.</span> <span class="toc-text">4.新的特性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%88%9B%E5%BB%BAVue3-0%E5%B7%A5%E7%A8%8B"><span class="toc-number">2.3.</span> <span class="toc-text">一、创建Vue3.0工程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8-vue-cli-%E5%88%9B%E5%BB%BA"><span class="toc-number">2.3.1.</span> <span class="toc-text">1.使用 vue-cli 创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8-vite-%E5%88%9B%E5%BB%BA"><span class="toc-number">2.3.2.</span> <span class="toc-text">2.使用 vite 创建</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%B8%B8%E7%94%A8-Composition-API"><span class="toc-number">2.4.</span> <span class="toc-text">二、常用 Composition API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%8B%89%E5%BC%80%E5%BA%8F%E5%B9%95%E7%9A%84setup"><span class="toc-number">2.4.1.</span> <span class="toc-text">1.拉开序幕的setup</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-ref%E5%87%BD%E6%95%B0"><span class="toc-number">2.4.2.</span> <span class="toc-text">2.ref函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-reactive%E5%87%BD%E6%95%B0"><span class="toc-number">2.4.3.</span> <span class="toc-text">3.reactive函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Vue3-0%E4%B8%AD%E7%9A%84%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86"><span class="toc-number">2.4.4.</span> <span class="toc-text">4.Vue3.0中的响应式原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#vue2-x%E7%9A%84%E5%93%8D%E5%BA%94%E5%BC%8F"><span class="toc-number">2.4.4.1.</span> <span class="toc-text">vue2.x的响应式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vue3-0%E7%9A%84%E5%93%8D%E5%BA%94%E5%BC%8F"><span class="toc-number">2.4.4.2.</span> <span class="toc-text">Vue3.0的响应式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.5.</span> <span class="toc-text"></span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/15/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/" title="无题">无题</a><time datetime="2024-06-15T07:36:04.644Z" title="发表于 2024-06-15 15:36:04">2024-06-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/05/webpack/" title="webpack">webpack</a><time datetime="2024-06-05T04:25:31.882Z" title="发表于 2024-06-05 12:25:31">2024-06-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/04/08/dailyProblem/" title="日常问题">日常问题</a><time datetime="2024-04-08T11:37:00.000Z" title="发表于 2024-04-08 19:37:00">2024-04-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/05/vue/" title="vue2+vue3">vue2+vue3</a><time datetime="2023-12-05T13:58:39.649Z" title="发表于 2023-12-05 21:58:39">2023-12-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/25/ES6/" title="ES">ES</a><time datetime="2023-10-25T11:47:46.413Z" title="发表于 2023-10-25 19:47:46">2023-10-25</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By wakuwaku233</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
