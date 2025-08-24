@@ -1,0 +1,285 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="author" content="薄苏"/><meta name="copyright" content="薄苏"/><meta name="theme-color" content="#FFB347"/><meta name="format-detection" content="telephone=no"/><meta name="keywords" content="跟渡一巩固"/><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-touch-fullscreen" content="yes"/><meta name="application-name" content="知识巩固 | 薄苏的桃花坞"/><meta name="apple-mobile-web-app-title" content="知识巩固 | 薄苏的桃花坞"/><meta name="apple-mobile-web-app-status-bar-style" content="#FFB347"/><link rel="canonical" href="https://wakuwaku233.github.io/2024/09/24/知识巩固/知识巩固/"/><meta name="description" content="1. 事件循环单线程是异步产生的原因，事件循环是异步的实现方式。浏览器的进程模型何为进程？程序运行需要他自己专属的内存空间，可以把这块内存空间简单的理解为进程。 何为线程？有了进程，就可以运行程序的代码了。 一个进程至少有一个线程，所以在进程开启后会自动创建一个线程来运行代码，该线程称之为主线...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="知识巩固 | 薄苏的桃花坞">
+<meta property="og:url" content="https://wakuwaku233.github.io/2024/09/24/%E7%9F%A5%E8%AF%86%E5%B7%A9%E5%9B%BA/%E7%9F%A5%E8%AF%86%E5%B7%A9%E5%9B%BA/index.html">
+<meta property="og:site_name" content="薄苏的桃花坞">
+<meta property="og:description" content="1. 事件循环单线程是异步产生的原因，事件循环是异步的实现方式。浏览器的进程模型何为进程？程序运行需要他自己专属的内存空间，可以把这块内存空间简单的理解为进程。 何为线程？有了进程，就可以运行程序的代码了。 一个进程至少有一个线程，所以在进程开启后会自动创建一个线程来运行代码，该线程称之为主线...">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wakuwaku233.github.io/images/bg3.jpg">
+<meta property="article:published_time" content="2024-09-24T11:20:27.156Z">
+<meta property="article:modified_time" content="2025-04-26T03:05:31.327Z">
+<meta property="article:author" content="薄苏">
+<meta property="article:tag" content="跟渡一巩固">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://wakuwaku233.github.io/images/bg3.jpg"><meta name="robots" content="index,follow"/><meta name="googlebot" content="index,follow"/><meta name="revisit-after" content="1 days"/><title>知识巩固 | 薄苏的桃花坞</title><link rel="shortcut icon" href="/assets/images/Hexo-Theme-MEOW.ico"><link rel="preconnect" href="/assets"/><link rel="preconnect" href="assets"/>
+<link rel="stylesheet" href="/css/style.css">
+<link rel="prefetch" href="/"/><link rel="prefetch" href="/archives"/><link rel="prefetch" href="/tags"/><meta name="generator" content="Hexo 6.3.0"></head><body bg-style="none"><header><div id="navbar"><div id="nav-info"><a id="site-icon" href="/" title="主页"><img src="/assets/images/Hexo-Theme-MEOW.png" alt="Logo"/></a><a id="site-name" href="/" title="主页"><div>薄苏的桃花坞</div><img src="/assets/images/svg/uc/uc-home.svg" class="icon noview" alt="Icon"></a></div><div id="nav-menu"><div class="menu-item"><a href="javascript:void(0);"><img src="/assets/images/svg/uc/uc-article.svg" class="icon noview" alt="Icon"><span>文章</span></a><ul class="sub-menu-item"><li><a href="/archives"><img src="/assets/images/svg/uc/uc-archive.svg" class="icon noview" alt="Icon"><span>归档</span></a></li><li><a href="/categories"><img src="/assets/images/svg/uc/uc-category.svg" class="icon noview" alt="Icon"><span>分类</span></a></li><li><a href="/tags"><img src="/assets/images/svg/uc/uc-tag.svg" class="icon noview" alt="Icon"><span>标签</span></a></li></ul></div><div class="menu-item"><a href="/comments"><img src="/assets/images/svg/uc/uc-comment.svg" class="icon noview" alt="Icon"><span>留言</span></a></div></div><div id="nav-function"><div id="menu-btn"><a href="javascript:void(0);" title="打开菜单"><img src="/assets/images/svg/uc/uc-menu.svg" class="icon noview" alt="Icon"></a></div></div></div></header><div id="menu-aside"><div id="menu-aside-container"><div id="menu-aside-info"><a href="/" title="主页"><img src="/assets/images/Hexo-Theme-MEOW.png" alt="Logo"/></a><a href="/" title="主页">薄苏的桃花坞</a></div><div class="menu-aside-item"><a href="javascript:void(0);"><img src="/assets/images/svg/uc/uc-article.svg" class="icon noview" alt="Icon"><span>文章</span></a><ul class="menu-aside-sub-item"><li><a href="/archives"><img src="/assets/images/svg/uc/uc-archive.svg" class="icon noview" alt="Icon"><span>归档</span></a></li><li><a href="/categories"><img src="/assets/images/svg/uc/uc-category.svg" class="icon noview" alt="Icon"><span>分类</span></a></li><li><a href="/tags"><img src="/assets/images/svg/uc/uc-tag.svg" class="icon noview" alt="Icon"><span>标签</span></a></li></ul></div><div class="menu-aside-item"><a href="/comments"><img src="/assets/images/svg/uc/uc-comment.svg" class="icon noview" alt="Icon"><span>留言</span></a></div><hr/></div></div><main><div class="banner"><div class="banner-info"><div class="banner-avatar"><img src="/assets/images/Hexo-Theme-MEOW.png" alt="Avatar"/></div><div class="banner-title">「 MEOW 」</div></div></div><div class="post-container"><div class="post-main"><div class="post-content"><h1 class="post-title">知识巩固</h1><div class="post-author"><span>作者: 薄苏</span></div><div class="post-meta"><div class="post-info"><div class="post-date"><div class="post-pubdate"><img src="/assets/images/svg/ta/ta-pubdate.svg" class="icon noview" alt="Icon"><span>发表于2024-09-24</span></div><div class="post-update"><img src="/assets/images/svg/ta/ta-update.svg" class="icon noview" alt="Icon"><span>更新于2025-08-24</span></div></div><div class="post-read"><div class="post-wordcount"><img src="/assets/images/svg/ta/ta-write.svg" class="icon noview" alt="Icon"><span>总字数: 3.5k字</span></div><div class="post-readtime"><img src="/assets/images/svg/ta/ta-time.svg" class="icon noview" alt="Icon"><span>阅读时长: 10分钟</span></div><div class="post-pageview"><img src="/assets/images/svg/ta/ta-fire.svg" class="icon noview" alt="Icon"><span>访问量: </span><span id="vercount_value_page_pv"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 6l0 -3" /><path d="M16.25 7.75l2.15 -2.15" /><path d="M18 12l3 0" /><path d="M16.25 16.25l2.15 2.15" /><path d="M12 18l0 3" /><path d="M7.75 16.25l-2.15 2.15" /><path d="M6 12l-3 0" /><path d="M7.75 7.75l-2.15 -2.15" /></svg></span></div></div></div><div class="post-attribute"><div class="post-categories"><img src="/assets/images/svg/ta/ta-category.svg" class="icon noview" alt="Icon"><span><a class="post-categories-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%B7%A9%E5%9B%BA/">知识巩固</a></span></div><div class="post-tags"><img src="/assets/images/svg/ta/ta-tag.svg" class="icon noview" alt="Icon"><span><a class="post-tags-link" href="/tags/%E8%B7%9F%E6%B8%A1%E4%B8%80%E5%B7%A9%E5%9B%BA/" rel="tag">跟渡一巩固</a></span></div></div></div><div class="post markdown" indent="false"><h1 id="1-事件循环"><a href="#1-事件循环" class="headerlink" title="1. 事件循环"></a>1. 事件循环</h1><h2 id="单线程是异步产生的原因，事件循环是异步的实现方式。"><a href="#单线程是异步产生的原因，事件循环是异步的实现方式。" class="headerlink" title="单线程是异步产生的原因，事件循环是异步的实现方式。"></a>单线程是异步产生的原因，事件循环是异步的实现方式。</h2><h2 id="浏览器的进程模型"><a href="#浏览器的进程模型" class="headerlink" title="浏览器的进程模型"></a>浏览器的进程模型</h2><h3 id="何为进程？"><a href="#何为进程？" class="headerlink" title="何为进程？"></a>何为进程？</h3><p>程序运行需要他自己专属的内存空间，可以把这块内存空间简单的理解为进程。</p>
+<h3 id="何为线程？"><a href="#何为线程？" class="headerlink" title="何为线程？"></a>何为线程？</h3><p>有了进程，就可以运行程序的代码了。</p>
+<p>一个进程至少有一个线程，所以在进程开启后会自动创建一个线程来运行代码，该线程称之为主线程。</p>
+<p>如果程序需要同时执行多块代码，主线程就会启动更多的线程来执行代码，所以一个进程中可以包含多个线程。</p>
+<h3 id="浏览器有哪些进程和线程"><a href="#浏览器有哪些进程和线程" class="headerlink" title="浏览器有哪些进程和线程?"></a>浏览器有哪些进程和线程?</h3><p><strong>浏览器是一个多进程多线程的应用程序</strong><br>浏览器内部工作极其复杂。<br>为了避免相互影响，为了减少连环崩溃的几率，当启动浏览器后，它会自动启动多个进程。</p>
+<p>其中，最主要的进程有:</p>
+<ol>
+<li><p>浏览器进程</p>
+<p>主要负责界面显示、用户交互、子进程管理等。浏览器进程内部会启动多个线程处理不同的任务。</p>
+</li>
+<li><p>网络进程</p>
+<p>负责加载网络资源。网络进程内部会启动多个线程来处理不同的网络任务。</p>
+</li>
+<li><p><strong>渲染进程</strong></p>
+<p>渲染进程启动后，会开启一个<strong>渲染主线程</strong>，主线程负责执行HTML、CSS、JS代码。</p>
+<p>默认情况下，浏览器会为每个标签页开启一个新的渲染进程，以保证不同的标签页之间不相互影响。</p>
+</li>
+</ol>
+<h2 id="渲染主线程是如何工作的？"><a href="#渲染主线程是如何工作的？" class="headerlink" title="渲染主线程是如何工作的？"></a>渲染主线程是如何工作的？</h2><p>渲染主线程是浏览器中最繁忙的线程，需要它处理的任务包括但不限于：</p>
+<ul>
+<li>解析 HTML</li>
+<li>解析 CSS</li>
+<li>计算样式</li>
+<li>布局</li>
+<li>处理图层</li>
+<li>每秒把页面画60次</li>
+<li>执行全局 JS 代码</li>
+<li>执行事件处理函数</li>
+<li>执行计时器的回调函数</li>
+<li>。。。</li>
+</ul>
+<p>要处理这么多的任务，主线程<strong>如何调度任务？</strong>：排队。</p>
+<p><img src="/../../images/image-20240924195005693.png" alt="image-20240924195005693"></p>
+<ol>
+<li><p>在最开始的时候，渲染主线程会进入一个无限循环</p>
+</li>
+<li><p>每一次循环会检查消息队列中是否有任务存在。如果有，就取出第一个任务执行，执行完一个后进入下一次循环；如果没有，则进入休眠状态</p>
+</li>
+<li><p>其他所有线程(包括其他进程的线程)可以随时向消息队列添加任务。新任务会加到<strong>消息队列的未尾</strong>。在添加新任务时，如果主线程是休眠状态，则会将其唤醒以继续循环拿取任务</p>
+</li>
+</ol>
+<p>这样一来，就可以让每个任务有条不紊的、持续的进行下去了。</p>
+<p><strong>整个过程，被称之为事件循环(消息循环)</strong></p>
+<h2 id="若干解释"><a href="#若干解释" class="headerlink" title="若干解释"></a>若干解释</h2><h3 id="何为异步？"><a href="#何为异步？" class="headerlink" title="何为异步？"></a>何为异步？</h3><p>代码在执行过程中，会遇到一些无法立即处理的任务，比如:</p>
+<ul>
+<li>计时完成后需要执行的任务–<code>setTimeout</code>、<code>setInterval</code></li>
+<li>网络通信完成后需要执行的任务–<code>XHR</code>、<code>Fetch</code></li>
+<li>用户操作后需要执行的任务–<code>addEventListener</code></li>
+</ul>
+<p>如果让渲染主线程等待这些任务的时机达到，就会导致主线程长期处于「阻塞」的状态，从而导致浏览<br>器「卡死」</p>
+<p><img src="/../../images/image-20240924195906470.png" alt="image-20240924195906470"></p>
+<p><strong>渲染主线程承担着极其重要的工作，无论如何都不能阻塞！</strong></p>
+<p>因此浏览器选择异步来解决这个问题</p>
+<p><img src="/../../images/image-20240924200320688.png" alt="image-20240924200320688"></p>
+<p><strong>使用异步的方式，渲染主线程用不阻塞</strong></p>
+<p><img src="/../../images/image-20240924200459286.png" alt="image-20240924200459286"></p>
+<h3 id="JS-为何会阻塞渲染？"><a href="#JS-为何会阻塞渲染？" class="headerlink" title="JS 为何会阻塞渲染？"></a>JS 为何会阻塞渲染？</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> h1 = <span class="variable language_">document</span>.<span class="title function_">querySelecror</span>(<span class="string">&#x27;h1&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> btn = <span class="variable language_">document</span>.<span class="title function_">querySelecror</span>(<span class="string">&#x27;button&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//死循环指定时间</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">delay</span>(<span class="params">duration</span>)&#123;&#125;</span><br><span class="line"></span><br><span class="line">btn.<span class="property">onclick</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    h1.<span class="property">textContent</span> = <span class="string">&#x27;hahaha&#x27;</span>;</span><br><span class="line">    <span class="title function_">delay</span>(<span class="number">3000</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//程序会等待三秒h1才会发生改变，如下图所示，当点击按钮时，fn进入消息队列中，再到渲染主线程，这时绘制进入消息队列中排队，需等待死循环结束后才能绘制，此时h1才发生改变。</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/../../images/image-20240925184356611.png" alt="image-20240925184356611"></p>
+<h3 id="任务有优先级吗？"><a href="#任务有优先级吗？" class="headerlink" title="任务有优先级吗？"></a>任务有优先级吗？</h3><p>任务没有优先级，在消息队列中先进先出</p>
+<p>但<strong>消息队列是有优先级</strong>的</p>
+<p>根据 W3C 的最新解释:</p>
+<ul>
+<li>每个任务都有一个任务类型，同一个类型的任务必须在一个队列，不同类型的任务可以分属于不同的队列。在一次事件循环中，浏览器可以根据实际情况从不同的队列中取出任务执行。</li>
+<li>浏览器必须准备好一个微队列，微队列中的任务优先所有其他任务执行</li>
+</ul>
+<p><em><strong>随着浏览器的复杂度急剧提升，W3C不再使用宏队列的说法</strong></em></p>
+<p>在目前 chrome 的实现中，至少包含了下面的队列:</p>
+<p>看输出的时候可以画主线程、微队列、交互队列、延时队列等辅助做题</p>
+<p><img src="/../../images/image-20240925191722291.png" alt="image-20240925191722291"></p>
+<ul>
+<li><strong>延时队列</strong>: 用于存放计时器到达后的回调任务，优先级「中」</li>
+<li><strong>交互队列</strong>: 用于存放用户操作后产生的事件处理任务，优先级「高」</li>
+<li><strong>微队列</strong>: 用户存放需要最快执行的任务，优先级「最高」</li>
+</ul>
+<p>添加任务到<strong>微队列</strong>的主要方式是使用<strong>Promise、MutationObserver</strong>。<strong>await</strong>之后的内容也是添加到<strong>微队列</strong>中。promise不是then的内容是直接输出。</p>
+<p>例子：</p>
+<p><img src="/../../images/image-20240925190312442.png" alt="image-20240925190312442"></p>
+<p>输出：2    1</p>
+<p><img src="/../../images/image-20240925190545008.png" alt="image-20240925190545008"></p>
+<p>输出：3	2	1</p>
+<p><img src="/../../images/image-20240925191106142.png" alt="image-20240925191106142"></p>
+<p>输出：5	4	3	1   2</p>
+<p><strong>面试题：</strong></p>
+<p><img src="/../../images/image-20240925192534899.png" alt="image-20240925192534899"></p>
+<p><img src="/../../images/image-20240925192518848.png" alt="image-20240925192518848"></p>
+<h1 id="2-浏览器渲染原理"><a href="#2-浏览器渲染原理" class="headerlink" title="2. 浏览器渲染原理"></a>2. 浏览器渲染原理</h1><p><img src="/../../images/image-20241216221755335.png" alt="image-20241216221755335"></p>
+<p>主线程：解析 -&gt; 样式计算 -&gt; 布局 -&gt; 分层 -&gt; 绘制</p>
+<p>合成线程：分块 -&gt; 光栅化 -&gt; 画</p>
+<blockquote>
+<p>css中的transform只影响合成线程中的<strong>画</strong>。</p>
+</blockquote>
+<p>  <img src="/../../images/image-20240926183136291.png" alt="image-20240926183136291"></p>
+<p><img src="/../../images/image-20240926183146424.png" alt="image-20240926183146424"></p>
+<p><img src="/../../images/image-20240926183220642.png" alt="image-20240926183220642"></p>
+<p><strong>当HTML解析过程中遇到CSS代码怎么办？</strong></p>
+<p><img src="/../../images/image-20240926183304435.png" alt="image-20240926183304435"></p>
+<p><strong>当HTML解析过程中遇到JS代码怎么办？</strong></p>
+<p><img src="/../../images/image-20240926183339051.png" alt="image-20240926183339051"></p>
+<p>当浏览器的网络线程收到 HTML 文档后，会产生一个渲染任务，并将其传递给渲染主线程的消息队列。</p>
+<p>在事件循环机制的作用下，渲染主线程取出消息队列中的渲染任务，开启渲染流程。</p>
+<hr>
+<p>整个渲染流程分为多个阶段，分别是： <strong>HTML 解析、样式计算、布局、分层、绘制、分块、光栅化、画</strong></p>
+<p>每个阶段都有明确的输入输出，上一个阶段的输出会成为下一个阶段的输入。</p>
+<p>这样，整个渲染流程就形成了一套组织严密的生产流水线。</p>
+<hr>
+<p>渲染的第一步是<strong>解析 HTML</strong>。</p>
+<p>解析过程中    遇到 CSS 解析 CSS，遇到 JS 执行 JS。为了提高解析效率，浏览器在开始解析前，会启动一个预解析的线程，率先下载 HTML 中的外部 CSS 文件和 外部的 JS 文件。</p>
+<p>如果主线程解析到<code>link</code>位置，此时外部的 CSS 文件还没有下载解析好，主线程不会等待，继续解析后续的 HTML。这是因为<em><strong>下载和解析 CSS 的工作是在预解析线程中进行</strong>的</em>。这就是 CSS 不会阻塞 HTML 解析的根本原因。</p>
+<p>如果主线程解析到<code>script</code>位置，会停止解析 HTML，转而等待 JS 文件下载好，并将全局代码解析执行完成后，才能继续解析 HTML。这是因为 JS 代码的执行过程可能会修改当前的 DOM 树，所以 DOM 树的生成必须暂停。这就是 JS 会阻塞 HTML 解析的根本原因。</p>
+<p>第一步完成后，会得到 DOM 树和 CSSOM 树，浏览器的默认样式、内部样式、外部样式、行内样式均会包含在 CSSOM 树中。</p>
+<hr>
+<p>渲染的下一步是<strong>样式计算</strong>。</p>
+<p>主线程会遍历得到的 DOM 树，依次为树中的每个节点计算出它最终的样式，称之为 Computed Style。</p>
+<p>在这一过程中，很多预设值会变成绝对值，比如<code>red</code>会变成<code>rgb(255,0,0)</code>；相对单位会变成绝对单位，比如<code>em</code>会变成<code>px</code></p>
+<p>这一步完成后，会得到一棵带有样式的 DOM 树。</p>
+<hr>
+<p>接下来是<strong>布局</strong>，布局完成后会得到布局树。</p>
+<p>布局阶段会依次遍历 DOM 树的每一个节点，计算每个节点的几何信息。例如节点的宽高、相对包含块的位置。</p>
+<p>大部分时候，DOM 树和布局树并非一一对应。</p>
+<p>比如<code>display:none</code>的节点<strong>没有几何信息</strong>，因此不会生成到布局树；又比如使用了伪元素选择器，虽然 DOM 树中不存在这些伪元素节点，但它们拥有几何信息，所以会生成到布局树中。还有匿名行盒、匿名块盒等等都会导致 DOM 树和布局树无法一一对应。</p>
+<hr>
+<p>下一步是<strong>分层</strong></p>
+<p>主线程会使用一套复杂的策略对整个布局树中进行分层。</p>
+<p>分层的好处在于，将来某一个层改变后，仅会对该层进行后续处理，从而提升效率。</p>
+<p>滚动条、堆叠上下文、transform、opacity 等样式都会或多或少的影响分层结果，也可以通过<code>will-change</code>属性更大程度的影响分层结果。（will-change不要滥用）</p>
+<hr>
+<p>再下一步是<strong>绘制</strong></p>
+<p>主线程会为每个层单独产生绘制指令集，用于描述这一层的内容该如何画出来。</p>
+<hr>
+<p>完成绘制后，主线程将每个图层的绘制信息提交给合成线程，剩余工作将由合成线程完成。</p>
+<p>合成线程首先对每个图层进行分块，将其划分为更多的小区域。</p>
+<p>它会从线程池中拿取多个线程来完成<strong>分块</strong>工作。</p>
+<hr>
+<p>分块完成后，进入<strong>光栅化</strong>阶段。</p>
+<p>合成线程会将块信息交给 GPU 进程，以极高的速度完成光栅化。</p>
+<p>GPU 进程会开启多个线程来完成光栅化，并且优先处理靠近视口区域的块。</p>
+<p>光栅化的结果，就是一块一块的<strong>位图</strong></p>
+<p><img src="/../../images/image-20240927194911090.png" alt="image-20240927194911090"></p>
+<hr>
+<p>最后一个阶段就是<strong>画</strong>了</p>
+<p>合成线程拿到每个层、每个块的位图后，生成一个个「指引（quad）」信息。</p>
+<p>指引会标识出每个位图应该画到屏幕的哪个位置，以及会考虑到旋转、缩放等变形。</p>
+<p>变形发生在合成线程，与渲染主线程无关，这就是<code>transform</code>效率高的本质原因。</p>
+<p>合成线程会把 quad 提交给 GPU 进程，由 GPU 进程产生系统调用，提交给 GPU 硬件，完成最终的屏幕成像。</p>
+<p><img src="/../../images/image-20240927195416220.png" alt="image-20240927195416220"></p>
+<h2 id="什么是-reflow？"><a href="#什么是-reflow？" class="headerlink" title="什么是 reflow？"></a>什么是 reflow？</h2><p>reflow 的本质就是<strong>重新计算 layout 树</strong>。（改变 dom 元素、宽高、padding、margin等等）</p>
+<p>当进行了<strong>会影响布局树的操作</strong>后，需要重新计算布局树，会引发 layout。</p>
+<p>为了避免连续的多次操作导致布局树反复计算，浏览器会合并这些操作，当 JS 代码全部完成后再进行统一计算。所以，改动属性造成的 reflow 是异步完成的。</p>
+<p>也同样因为如此，当 JS 获取布局属性时，就可能造成无法获取到最新的布局信息。</p>
+<p>浏览器在反复权衡下，最终决定获取属性立即 reflow。</p>
+<h2 id="什么是-repaint？"><a href="#什么是-repaint？" class="headerlink" title="什么是 repaint？"></a>什么是 repaint？</h2><p>repaint 的本质就是<strong>重新根据分层信息计算绘制指令</strong>。</p>
+<p>当改动了<strong>可见样式</strong>后，就需要重新计算，会引发 repaint。</p>
+<p>由于元素的布局信息也属于可见样式，所以 <strong>reflow 一定会引起 repaint</strong>。</p>
+<h2 id="为什么-transform-的效率高？"><a href="#为什么-transform-的效率高？" class="headerlink" title="为什么 transform 的效率高？"></a>为什么 transform 的效率高？</h2><p>因为 transform 既不会影响布局也不会影响绘制指令，它影响的只是渲染流程的最后一个「draw」阶段</p>
+<p>由于 draw 阶段在合成线程中，所以 transform 的变化几乎不会影响渲染主线程。反之，渲染主线程无论如何忙碌，也不会影响 transform 的变化。</p>
+<h1 id="3-前端工程化"><a href="#3-前端工程化" class="headerlink" title="3. 前端工程化"></a>3. 前端工程化</h1><h2 id="1-前端工程化的意义"><a href="#1-前端工程化的意义" class="headerlink" title="1. 前端工程化的意义"></a>1. 前端工程化的意义</h2><p>前端工程化：<strong>前端开发的管理工具</strong>。降低开发成本，提升开发效率。</p>
+<p>分类：宏观视角，微观视角</p>
+<h2 id="2-模块化和包管理"><a href="#2-模块化和包管理" class="headerlink" title="2.模块化和包管理"></a>2.模块化和包管理</h2><p><strong>模块化：</strong></p>
+<p>​	分解和聚合，分解契合的是主观规律，聚合契合的是客观规律</p>
+<p>​	函数</p>
+<p>​	文件（问题）：1. （分解）全局污染，2. （聚合）依赖混乱</p>
+<p>​	标准：例如CommonJS（CJS）、AMD、CMD、UMD、Ecmascript Module（ESM）等。都是用来提出一些方案，在<strong>分解</strong>的时候能够隐藏内部实现，不要污染全局，在<strong>聚合</strong>的时候能够明确的表达依赖关系。</p>
+<p>​		其中比较常用的就是</p>
+<ul>
+<li><p>CommonJS（CJS 社区标准）是在<strong>运行时</strong>确定依赖关系，</p>
+</li>
+<li><p>Evmascript Module（EMS 官方标准）是在<strong>编译时</strong>确定。</p>
+</li>
+</ul>
+<p><strong>包管理：</strong></p>
+<p>​	包：package，一系列模块的集合</p>
+<p>函数 -&gt; 文件 -&gt; 包</p>
+<p>​	包管理器：</p>
+<ul>
+<li>npm（包的属性、registry、cli）</li>
+<li>pnpm</li>
+<li>yarn</li>
+<li>cnpm</li>
+<li>bower</li>
+</ul>
+<h2 id="3-JS工具链"><a href="#3-JS工具链" class="headerlink" title="3.  JS工具链"></a>3.  JS工具链</h2><p>语言问题</p>
+<p>​	<strong>兼容性</strong></p>
+<ul>
+<li>API兼容	poliyfill：垫片（填充物） 最普遍的就是 core-js</li>
+<li>语法增强   syntax transformer（runtime 语法转换器）</li>
+</ul>
+<p>​	<strong>语言增强</strong></p>
+<p>​	整合工具：</p>
+<ul>
+<li>babel 预设（一堆插件）  @babel&#x2F;preset-env</li>
+<li>swc （转换速度更快）</li>
+</ul>
+<h2 id="4-CSS工具链"><a href="#4-CSS工具链" class="headerlink" title="4. CSS工具链"></a>4. CSS工具链</h2><p>缺陷：</p>
+<ol>
+<li>语法缺失 （循环、判断、拼接）</li>
+<li>功能缺失 （颜色函数、数学函数、自定义函数）</li>
+</ol>
+<p>用更强大的语言sass、less、stylus等等，但是需要<strong>转换</strong> </p>
+<p><img src="/../../images/image-20241015204008489.png" alt="image-20241015204008489"></p>
+<h2 id="5-构建工具和脚手架"><a href="#5-构建工具和脚手架" class="headerlink" title="5. 构建工具和脚手架"></a>5. 构建工具和脚手架</h2><p>工程级别的转换</p>
+<p><strong>构建工具</strong>需要考虑：</p>
+<ol>
+<li><p>哪种工具更适合开发和维护</p>
+</li>
+<li><p>哪种工程更适合运行</p>
+</li>
+<li><p>如何转换（打包）</p>
+<p><img src="/../../images/image-20241015205033828.png" alt="image-20241015205033828"></p>
+</li>
+</ol>
+<p>webpack的依赖关系图：</p>
+<p><img src="/../../images/image-20241015205221344.png" alt="image-20241015205221344"></p>
+<p><strong>脚手架：</strong> vue-cli、vite</p>
+<ol>
+<li>提供页面和交互</li>
+<li>工程模块</li>
+</ol>
+<h1 id="4-从源码到架构"><a href="#4-从源码到架构" class="headerlink" title="4.从源码到架构"></a>4.从源码到架构</h1><h2 id="1-像架构师一样思考"><a href="#1-像架构师一样思考" class="headerlink" title="1. 像架构师一样思考"></a>1. 像架构师一样思考</h2><p>目标：</p>
+<p>函数</p>
+<p>函数运行过程中用到的标记数据</p>
+<p>建立对应关系</p>
+<ol>
+<li>监听数据的读取和修改<ul>
+<li>defineProperty：监听范围很窄，只能通过属性描述符去监听已有属性的读取和赋值。好处在于它的兼容性更好。</li>
+<li>Proxy：监听范围广，有多种操作对象的方式，比如说对对象属性的读取、修改对象的原型等等。</li>
+</ul>
+</li>
+<li>如何知晓数据对应的函数</li>
+</ol>
+</div><div class="post-reward"><div class="post-reward-btn" title="赞赏作者"><img src="/assets/images/svg/uc/uc-gift.svg" class="icon noview" alt="Icon"><span>喜欢这篇作品的话，奖励一下我吧～</span></div><div class="post-reward-content"><div class="post-reward-text">💗感谢你的喜欢与支持！</div><div class="post-reward-list"><a href="/reward" target="_blank">致谢名单</a></div></div></div><div class="post-copyright"><div class="post-copyright-info">本作品由 薄苏 于 2024-09-24 19:20:27 发布</div><div class="post-copyright-link"><span>作品地址：<a href="https://wakuwaku233.github.io/2024/09/24/%E7%9F%A5%E8%AF%86%E5%B7%A9%E5%9B%BA/%E7%9F%A5%E8%AF%86%E5%B7%A9%E5%9B%BA/">知识巩固</a></span><button class="copy-text" type="button" data-text="https://wakuwaku233.github.io/2024/09/24/%E7%9F%A5%E8%AF%86%E5%B7%A9%E5%9B%BA/%E7%9F%A5%E8%AF%86%E5%B7%A9%E5%9B%BA/">复制</button></div><div class="post-copyright-detail">除特别声明外，本站作品均采用 <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/' title='署名—非商业性使用—相同方式共享' target='_blank'>CC BY-NC-SA 4.0</a> 许可协议，转载请注明来自 <a href='/'>薄苏的桃花坞</a></div><img class="post-copyright-icon noview" src="/assets/images/Hexo-Theme-MEOW.png" alt="Logo"/></div><div class="post-tail-tags"><a class="post-tail-tags-link" href="/tags/%E8%B7%9F%E6%B8%A1%E4%B8%80%E5%B7%A9%E5%9B%BA/" rel="tag">跟渡一巩固</a></div></div><aside id="post-sidebar" status="show"><div id="toc-container"><div class="toc-title"><img src="/assets/images/svg/ta/ta-toc.svg" class="icon noview" alt="Icon"><span>目录</span></div><div class="toc-content" id="toc-div"><ol class="toc-list"><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#1-%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF"><span class="toc-list-text">1. 事件循环</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%8D%95%E7%BA%BF%E7%A8%8B%E6%98%AF%E5%BC%82%E6%AD%A5%E4%BA%A7%E7%94%9F%E7%9A%84%E5%8E%9F%E5%9B%A0%EF%BC%8C%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%98%AF%E5%BC%82%E6%AD%A5%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F%E3%80%82"><span class="toc-list-text">单线程是异步产生的原因，事件循环是异步的实现方式。</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E8%BF%9B%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="toc-list-text">浏览器的进程模型</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E4%BD%95%E4%B8%BA%E8%BF%9B%E7%A8%8B%EF%BC%9F"><span class="toc-list-text">何为进程？</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E4%BD%95%E4%B8%BA%E7%BA%BF%E7%A8%8B%EF%BC%9F"><span class="toc-list-text">何为线程？</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9C%89%E5%93%AA%E4%BA%9B%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B"><span class="toc-list-text">浏览器有哪些进程和线程?</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%B8%B2%E6%9F%93%E4%B8%BB%E7%BA%BF%E7%A8%8B%E6%98%AF%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%E7%9A%84%EF%BC%9F"><span class="toc-list-text">渲染主线程是如何工作的？</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E8%8B%A5%E5%B9%B2%E8%A7%A3%E9%87%8A"><span class="toc-list-text">若干解释</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E4%BD%95%E4%B8%BA%E5%BC%82%E6%AD%A5%EF%BC%9F"><span class="toc-list-text">何为异步？</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#JS-%E4%B8%BA%E4%BD%95%E4%BC%9A%E9%98%BB%E5%A1%9E%E6%B8%B2%E6%9F%93%EF%BC%9F"><span class="toc-list-text">JS 为何会阻塞渲染？</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E4%BB%BB%E5%8A%A1%E6%9C%89%E4%BC%98%E5%85%88%E7%BA%A7%E5%90%97%EF%BC%9F"><span class="toc-list-text">任务有优先级吗？</span></a></li></ol></li></ol></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#2-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86"><span class="toc-list-text">2. 浏览器渲染原理</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-reflow%EF%BC%9F"><span class="toc-list-text">什么是 reflow？</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-repaint%EF%BC%9F"><span class="toc-list-text">什么是 repaint？</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-transform-%E7%9A%84%E6%95%88%E7%8E%87%E9%AB%98%EF%BC%9F"><span class="toc-list-text">为什么 transform 的效率高？</span></a></li></ol></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#3-%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96"><span class="toc-list-text">3. 前端工程化</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#1-%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E7%9A%84%E6%84%8F%E4%B9%89"><span class="toc-list-text">1. 前端工程化的意义</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#2-%E6%A8%A1%E5%9D%97%E5%8C%96%E5%92%8C%E5%8C%85%E7%AE%A1%E7%90%86"><span class="toc-list-text">2.模块化和包管理</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#3-JS%E5%B7%A5%E5%85%B7%E9%93%BE"><span class="toc-list-text">3.  JS工具链</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#4-CSS%E5%B7%A5%E5%85%B7%E9%93%BE"><span class="toc-list-text">4. CSS工具链</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#5-%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7%E5%92%8C%E8%84%9A%E6%89%8B%E6%9E%B6"><span class="toc-list-text">5. 构建工具和脚手架</span></a></li></ol></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#4-%E4%BB%8E%E6%BA%90%E7%A0%81%E5%88%B0%E6%9E%B6%E6%9E%84"><span class="toc-list-text">4.从源码到架构</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#1-%E5%83%8F%E6%9E%B6%E6%9E%84%E5%B8%88%E4%B8%80%E6%A0%B7%E6%80%9D%E8%80%83"><span class="toc-list-text">1. 像架构师一样思考</span></a></li></ol></li></ol></div></div></aside></div></div><div id="toolbar" hide=""><div id="toolbar-setting-container" hide=""><div class="toolbar-item"><button id="tool-color-mode" title="深色模式" type="button"><img src="/assets/images/svg/ta/ta-moon.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button class="copy-text" id="tool-share" title="分享" type="button" data-text="https://wakuwaku233.github.io/2024/09/24/%E7%9F%A5%E8%AF%86%E5%B7%A9%E5%9B%BA/%E7%9F%A5%E8%AF%86%E5%B7%A9%E5%9B%BA/"><img src="/assets/images/svg/ta/ta-share.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button id="tool-font-size-plus" title="放大字体" type="button"><img src="/assets/images/svg/ta/ta-text-plus.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button id="tool-font-size-minus" title="缩小字体" type="button"><img src="/assets/images/svg/ta/ta-text-minus.svg" class="icon noview" alt="Icon"></button></div></div><div class="toolbar-container"><div class="toolbar-item"><button id="tool-setting" title="设置" type="button"><img src="/assets/images/svg/ta/ta-setting.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button id="tool-toc" title="目录" type="button"><img src="/assets/images/svg/ta/ta-toc.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button id="tool-gototop" title="返回顶部" type="button"><img src="/assets/images/svg/ta/ta-up.svg" class="icon noview" alt="Icon"></button></div></div></div></main><footer><div class="footer"><div id="footer-copyright">© 2024 - 2025 <span>💗</span> <a href="/aboutme">薄苏</a></div><div id="footer-info"><div id="footer-framework">🚀本站由 <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/chanwj/hexo-theme-meow" title=3.0.2 target="_blank">Meow</a> 强力驱动</div><div id="footer-runtime"><span id="runtime" data-startdate="2024-04-02T22:16:20.000Z">🌻已稳定运行.年.月.天</span></div></div><div id="footer-statistic"><span>共撰写37篇文章，全站共114.5k字</span></div><div id="footer-pageview"><div id="container_site_pv"><span>🔥总访问量</span><span id="vercount_value_site_pv"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 6l0 -3" /><path d="M16.25 7.75l2.15 -2.15" /><path d="M18 12l3 0" /><path d="M16.25 16.25l2.15 2.15" /><path d="M12 18l0 3" /><path d="M7.75 16.25l-2.15 2.15" /><path d="M6 12l-3 0" /><path d="M7.75 7.75l-2.15 -2.15" /></svg></span></div><div id="container_site_uv"><span>🐈访客人数</span><span id="vercount_value_site_uv"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 6l0 -3" /><path d="M16.25 7.75l2.15 -2.15" /><path d="M18 12l3 0" /><path d="M16.25 16.25l2.15 2.15" /><path d="M12 18l0 3" /><path d="M7.75 16.25l-2.15 2.15" /><path d="M6 12l-3 0" /><path d="M7.75 7.75l-2.15 -2.15" /></svg></span></div></div></div></footer><div class="scripts"><script>const GLOBALCONFIG = {
+  root: '/',
+  toolbar: true,
+  lazyload_src: '/assets/images/Meow-Loading.webp',
+  friends: false,
+  codeblock: true,
+  share_text: '🐱Share From Meow',
+  onblur_title: '再回来看看吧～✧(´▽`ʃ♡ƪ)',
+  mouse_click: true,
+  notify:{
+    enable: false,
+    info: '复制成功～转载请标注本文地址',
+    f12_info: '开发者模式已打开，请遵循本站版权协议'
+  },
+  search: {
+    enable: false,
+    path: 'search.xml',
+    local: {
+      top_n_per_article: 1,
+      preload: false
+    }
+  },
+  encrypt: false,
+};
+</script><script>if (!localStorage.getItem('color-mode')) {
+  localStorage.setItem('color-mode', 'light' || 'light');
+}
+document.body.setAttribute('data-mode', localStorage.getItem('color-mode'));
+</script>
+<script src="/js/theme/tools/utils.js"></script>
+
+<script src="/js/plugins/dist/lazyload.min.js"></script>
+
+<script src="/js/plugins/view-image.min.js"></script>
+<script src="https://cn.vercount.one/js" defer="defer"></script><script>if (localStorage.getItem('font-size')) {
+  document.querySelector('.post').style.fontSize = localStorage.getItem('font-size') + 'px';
+}
+</script>
+<script src="/js/main.js" type="module"></script>
+</div></body></html>

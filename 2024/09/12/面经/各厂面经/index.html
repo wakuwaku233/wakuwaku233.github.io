@@ -1,0 +1,929 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="author" content="薄苏"/><meta name="copyright" content="薄苏"/><meta name="theme-color" content="#FFB347"/><meta name="format-detection" content="telephone=no"/><meta name="keywords" content="面经"/><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-touch-fullscreen" content="yes"/><meta name="application-name" content="各厂面经 | 薄苏的桃花坞"/><meta name="apple-mobile-web-app-title" content="各厂面经 | 薄苏的桃花坞"/><meta name="apple-mobile-web-app-status-bar-style" content="#FFB347"/><link rel="canonical" href="https://wakuwaku233.github.io/2024/09/12/面经/各厂面经/"/><meta name="description" content="腾讯面经1. Vue2中组件的通信方式props，events，event bus，Vuex，scoped slots（通过插槽进行渲染） 2. 前端数据存储方式及其应用场景 Cookies: 用于存储少量数据，适合需要与服务器交互的场景，例如保存登录状态。受限于大小（一般不超过 4KB）和安...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="各厂面经 | 薄苏的桃花坞">
+<meta property="og:url" content="https://wakuwaku233.github.io/2024/09/12/%E9%9D%A2%E7%BB%8F/%E5%90%84%E5%8E%82%E9%9D%A2%E7%BB%8F/index.html">
+<meta property="og:site_name" content="薄苏的桃花坞">
+<meta property="og:description" content="腾讯面经1. Vue2中组件的通信方式props，events，event bus，Vuex，scoped slots（通过插槽进行渲染） 2. 前端数据存储方式及其应用场景 Cookies: 用于存储少量数据，适合需要与服务器交互的场景，例如保存登录状态。受限于大小（一般不超过 4KB）和安...">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wakuwaku233.github.io/2024/09/12/%E9%9D%A2%E7%BB%8F/%E5%90%84%E5%8E%82%E9%9D%A2%E7%BB%8F/assets/images/Hexo-Theme-MEOW.png">
+<meta property="article:published_time" content="2024-09-12T03:00:14.295Z">
+<meta property="article:modified_time" content="2025-04-27T05:23:35.037Z">
+<meta property="article:author" content="薄苏">
+<meta property="article:tag" content="面经">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://wakuwaku233.github.io/2024/09/12/%E9%9D%A2%E7%BB%8F/%E5%90%84%E5%8E%82%E9%9D%A2%E7%BB%8F/assets/images/Hexo-Theme-MEOW.png"><meta name="robots" content="index,follow"/><meta name="googlebot" content="index,follow"/><meta name="revisit-after" content="1 days"/><title>各厂面经 | 薄苏的桃花坞</title><link rel="shortcut icon" href="/assets/images/Hexo-Theme-MEOW.ico"><link rel="preconnect" href="/assets"/><link rel="preconnect" href="assets"/>
+<link rel="stylesheet" href="/css/style.css">
+<link rel="prefetch" href="/"/><link rel="prefetch" href="/archives"/><link rel="prefetch" href="/tags"/><meta name="generator" content="Hexo 6.3.0"></head><body bg-style="none"><header><div id="navbar"><div id="nav-info"><a id="site-icon" href="/" title="主页"><img src="/assets/images/Hexo-Theme-MEOW.png" alt="Logo"/></a><a id="site-name" href="/" title="主页"><div>薄苏的桃花坞</div><img src="/assets/images/svg/uc/uc-home.svg" class="icon noview" alt="Icon"></a></div><div id="nav-menu"><div class="menu-item"><a href="javascript:void(0);"><img src="/assets/images/svg/uc/uc-article.svg" class="icon noview" alt="Icon"><span>文章</span></a><ul class="sub-menu-item"><li><a href="/archives"><img src="/assets/images/svg/uc/uc-archive.svg" class="icon noview" alt="Icon"><span>归档</span></a></li><li><a href="/categories"><img src="/assets/images/svg/uc/uc-category.svg" class="icon noview" alt="Icon"><span>分类</span></a></li><li><a href="/tags"><img src="/assets/images/svg/uc/uc-tag.svg" class="icon noview" alt="Icon"><span>标签</span></a></li></ul></div><div class="menu-item"><a href="/comments"><img src="/assets/images/svg/uc/uc-comment.svg" class="icon noview" alt="Icon"><span>留言</span></a></div></div><div id="nav-function"><div id="menu-btn"><a href="javascript:void(0);" title="打开菜单"><img src="/assets/images/svg/uc/uc-menu.svg" class="icon noview" alt="Icon"></a></div></div></div></header><div id="menu-aside"><div id="menu-aside-container"><div id="menu-aside-info"><a href="/" title="主页"><img src="/assets/images/Hexo-Theme-MEOW.png" alt="Logo"/></a><a href="/" title="主页">薄苏的桃花坞</a></div><div class="menu-aside-item"><a href="javascript:void(0);"><img src="/assets/images/svg/uc/uc-article.svg" class="icon noview" alt="Icon"><span>文章</span></a><ul class="menu-aside-sub-item"><li><a href="/archives"><img src="/assets/images/svg/uc/uc-archive.svg" class="icon noview" alt="Icon"><span>归档</span></a></li><li><a href="/categories"><img src="/assets/images/svg/uc/uc-category.svg" class="icon noview" alt="Icon"><span>分类</span></a></li><li><a href="/tags"><img src="/assets/images/svg/uc/uc-tag.svg" class="icon noview" alt="Icon"><span>标签</span></a></li></ul></div><div class="menu-aside-item"><a href="/comments"><img src="/assets/images/svg/uc/uc-comment.svg" class="icon noview" alt="Icon"><span>留言</span></a></div><hr/></div></div><main><div class="banner"><div class="banner-info"><div class="banner-avatar"><img src="/assets/images/Hexo-Theme-MEOW.png" alt="Avatar"/></div><div class="banner-title">「 MEOW 」</div></div></div><div class="post-container"><div class="post-main"><div class="post-content"><h1 class="post-title">各厂面经</h1><div class="post-author"><span>作者: 薄苏</span></div><div class="post-meta"><div class="post-info"><div class="post-date"><div class="post-pubdate"><img src="/assets/images/svg/ta/ta-pubdate.svg" class="icon noview" alt="Icon"><span>发表于2024-09-12</span></div><div class="post-update"><img src="/assets/images/svg/ta/ta-update.svg" class="icon noview" alt="Icon"><span>更新于2025-08-24</span></div></div><div class="post-read"><div class="post-wordcount"><img src="/assets/images/svg/ta/ta-write.svg" class="icon noview" alt="Icon"><span>总字数: 10.5k字</span></div><div class="post-readtime"><img src="/assets/images/svg/ta/ta-time.svg" class="icon noview" alt="Icon"><span>阅读时长: 33分钟</span></div><div class="post-pageview"><img src="/assets/images/svg/ta/ta-fire.svg" class="icon noview" alt="Icon"><span>访问量: </span><span id="vercount_value_page_pv"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 6l0 -3" /><path d="M16.25 7.75l2.15 -2.15" /><path d="M18 12l3 0" /><path d="M16.25 16.25l2.15 2.15" /><path d="M12 18l0 3" /><path d="M7.75 16.25l-2.15 2.15" /><path d="M6 12l-3 0" /><path d="M7.75 7.75l-2.15 -2.15" /></svg></span></div></div></div><div class="post-attribute"><div class="post-categories"><img src="/assets/images/svg/ta/ta-category.svg" class="icon noview" alt="Icon"><span><a class="post-categories-link" href="/categories/%E9%9D%A2%E7%BB%8F/">面经</a></span></div><div class="post-tags"><img src="/assets/images/svg/ta/ta-tag.svg" class="icon noview" alt="Icon"><span><a class="post-tags-link" href="/tags/%E9%9D%A2%E7%BB%8F/" rel="tag">面经</a></span></div></div></div><div class="post markdown" indent="false"><h1 id="腾讯面经"><a href="#腾讯面经" class="headerlink" title="腾讯面经"></a>腾讯面经</h1><h2 id="1-Vue2中组件的通信方式"><a href="#1-Vue2中组件的通信方式" class="headerlink" title="1. Vue2中组件的通信方式"></a>1. Vue2中组件的通信方式</h2><p>props，events，event bus，Vuex，scoped slots（通过插槽进行渲染）</p>
+<h2 id="2-前端数据存储方式及其应用场景"><a href="#2-前端数据存储方式及其应用场景" class="headerlink" title="2. 前端数据存储方式及其应用场景"></a>2. 前端数据存储方式及其应用场景</h2><ul>
+<li><strong>Cookies</strong>: 用于存储少量数据，适合需要<strong>与服务器交互</strong>的场景，例如保存登录状态。受限于大小（一般不超过 4KB）和安全性（易被篡改）。</li>
+<li><strong>LocalStorage</strong>: 存储数据在客户端，数据持久化，适合<strong>存储较大数据</strong>（5MB），例如用户偏好设置。数据不会过期，除非手动删除。</li>
+<li><strong>SessionStorage</strong>: 存储数据在客户端，数据只在当前会话中有效，适合<strong>临时数据存储</strong>，如表单输入的暂存。数据在浏览器关闭时清除。</li>
+<li><strong>IndexedDB</strong>: 浏览器内置的 NoSQL 数据库，用于<strong>存储大量结构化数据</strong>，适合离线应用和需要复杂查询的场景。</li>
+<li><strong>WebSQL</strong>: 已被废弃的浏览器 API，用于<strong>存储结构化数据</strong>。建议使用 IndexedDB 作为替代方案。</li>
+</ul>
+<h2 id="3-受控组件和非受控组件"><a href="#3-受控组件和非受控组件" class="headerlink" title="3. 受控组件和非受控组件"></a>3. 受控组件和非受控组件</h2><p><strong>受控组件</strong>：</p>
+<ul>
+<li><p><strong>定义</strong>: 组件的状态由 React 的状态（<code>state</code>）或其他状态管理工具完全控制。</p>
+</li>
+<li><p><strong>特征</strong>: 表单元素的值由 React 状态决定，每次输入变化都会更新状态。</p>
+</li>
+<li><p><strong>优点</strong>: 易于管理和验证数据，便于实现复杂的交互逻辑。</p>
+</li>
+</ul>
+<p><strong>非受控组件</strong>：</p>
+<ul>
+<li><strong>定义</strong>: 组件的状态由 DOM 节点自身控制，React 状态不会直接干预。</li>
+<li><strong>特征</strong>: 使用 <code>ref</code> 访问 DOM 元素，数据的变化不会直接同步到 React 状态。</li>
+<li><strong>优点</strong>: 简化了组件逻辑，适合对表单数据的简单处理。</li>
+</ul>
+<h2 id="4-虚拟DOM"><a href="#4-虚拟DOM" class="headerlink" title="4. 虚拟DOM"></a>4. 虚拟DOM</h2><p>虚拟dom是一种优化技术，用于提高前端框架（如 React）的性能。其核心概念是：</p>
+<ul>
+<li><strong>虚拟 DOM</strong>: 是对实际 DOM 的轻量级表示。每当组件状态改变时，框架会创建一个新的虚拟 DOM 树。</li>
+<li><strong>对比和更新</strong>: 虚拟 DOM 通过与当前虚拟 DOM 树进行比较（称为“diffing”），找出变化部分，然后只更新实际 DOM 中的这些部分。</li>
+<li><strong>效率</strong>: 这种方式减少了对实际 DOM 的操作次数，提高了应用的性能和响应速度，因为直接操作实际 DOM 是昂贵的操作。</li>
+</ul>
+<p>例如，在 React 中，当状态改变时，虚拟 DOM 机制会计算出最小的更新量，优化了页面的渲染效率。</p>
+<h2 id="5-Javascript-数据溢出的控制方法"><a href="#5-Javascript-数据溢出的控制方法" class="headerlink" title="5.Javascript 数据溢出的控制方法"></a>5.Javascript 数据溢出的控制方法</h2><ul>
+<li><strong>使用大数库</strong>: 如 <code>BigInt</code> 或第三方库（例如 <code>bignumber.js</code>）来处理超大或超小的数值。</li>
+<li><strong>数据验证</strong>: 在处理用户输入或计算结果之前，进行范围检查，确保值在预期范围内。</li>
+<li><strong>防止精度丢失</strong>: 对浮点数运算进行适当处理，避免精度丢失。使用 <code>toFixed</code>、<code>Math.round</code> 等方法控制小数点后位数。</li>
+<li><strong>安全整数检查</strong>: 使用 <code>Number.isSafeInteger()</code> 确保数值在安全整数范围内。</li>
+</ul>
+<h2 id="6-前端的网络安全-？（XSS-CSRF）"><a href="#6-前端的网络安全-？（XSS-CSRF）" class="headerlink" title="6.前端的网络安全 ？（XSS CSRF）"></a>6.前端的网络安全 ？（XSS CSRF）</h2><h4 id="跨站脚本攻击（XSS）"><a href="#跨站脚本攻击（XSS）" class="headerlink" title="跨站脚本攻击（XSS）"></a><strong>跨站脚本攻击（XSS）</strong></h4><p><strong>定义</strong>: XSS（Cross-Site Scripting）是一种攻击方式，攻击者将恶意脚本注入到网页中，当其他用户访问该页面时，恶意脚本会在其浏览器中执行，从而窃取用户信息或执行其他恶意操作。</p>
+<p><strong>防护措施</strong>:</p>
+<ul>
+<li><p><strong>输出编码</strong>: 对用户输入进行正确的编码，确保在插入到 HTML、JavaScript、CSS 等内容中时不会被解释为脚本。可以使用函数如 <code>encodeURIComponent()</code>、<code>escape()</code>、<code>htmlspecialchars()</code> 等。</p>
+</li>
+<li><p><strong>输入验证</strong>: 验证和过滤用户输入，确保数据符合预期格式，避免恶意代码注入。</p>
+</li>
+<li><p><strong>使用Content Security Policy</strong> (CSP):</p>
+<p> CSP 是一种安全机制，通过设置<code>Content-Security-Policy</code>头，限制网页可以加载的资源和脚本来源，从而减少 XSS 攻击的风险。</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Content-Security-Policy</span><span class="punctuation">: </span>default-src &#x27;self&#x27;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>避免 <code>eval</code> 和动态代码执行</strong>: 避免使用 <code>eval()</code>、<code>setTimeout()</code> 和 <code>setInterval()</code> 等可能执行动态代码的功能。</p>
+</li>
+</ul>
+<h4 id="跨站请求伪造（CSRF）"><a href="#跨站请求伪造（CSRF）" class="headerlink" title="跨站请求伪造（CSRF）"></a><strong>跨站请求伪造（CSRF）</strong></h4><p><strong>定义</strong>: CSRF（Cross-Site Request Forgery）是一种攻击方式，攻击者诱使用户在已认证的网页上执行不希望的操作，例如提交表单或发起请求，从而劫持用户的会话。</p>
+<p><strong>防护措施</strong>:</p>
+<ul>
+<li><p><strong>使用 CSRF 令牌</strong>: 在每个敏感操作中，要求附带 CSRF 令牌。令牌应随机生成且与用户会话关联，防止被伪造。</p>
+<ul>
+<li><p>在表单中嵌入令牌:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;hidden&quot;</span> <span class="attr">name</span>=<span class="string">&quot;csrf_token&quot;</span> <span class="attr">value</span>=<span class="string">&quot;random_csrf_token&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在请求头中添加令牌:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fetch</span>(<span class="string">&#x27;/endpoint&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">  <span class="attr">headers</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;CSRF-Token&#x27;</span>: csrfToken</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">body</span>: <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(data)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>验证 HTTP Referer 头</strong>: 检查请求的 Referer 头，以确保请求来自受信任的来源。</p>
+</li>
+<li><p><strong>使用 SameSite Cookie 属性:</strong> 将 Cookie 的 SameSite 属性设置为<code>Strict</code>或<code>Lax</code>，防止第三方站点发起的跨站请求带上 Cookie。</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">CodeSet-Cookie</span><span class="punctuation">: </span>sessionId=abc123; SameSite=Strict</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="7-性能优化"><a href="#7-性能优化" class="headerlink" title="7. 性能优化"></a>7. 性能优化</h2><ol>
+<li><p>webpack</p>
+<ul>
+<li>tree shaking （删除不必要的代码）</li>
+<li>split chunks（抽离公共文件）</li>
+</ul>
+</li>
+<li><p>拆包</p>
+</li>
+<li><p>gzip</p>
+</li>
+<li><p>图片压缩</p>
+</li>
+<li><p>图片分割</p>
+</li>
+<li><p>sprite（组合成一张大图，发一次请求拉下来相当于好几张小图片，减少了服务器压力、并发和请求次数）</p>
+</li>
+<li><p>懒加载</p>
+</li>
+<li><p>CDN（CDN一般会用来托管Web资源）</p>
+</li>
+<li><p>web worker（为JavaScript创造多线程环境）</p>
+</li>
+<li><p>缓存（主要手段：浏览器缓存、CDN、反向代理、本地缓存、分布式缓存、数据库缓存）</p>
+</li>
+<li><p>GPU渲染</p>
+</li>
+<li><p>Ajax可缓存</p>
+</li>
+<li><p>Resource Hints（资源预加载）</p>
+</li>
+<li><p>SSR（服务端渲染）</p>
+</li>
+</ol>
+<h2 id="8-为什么会有调用堆的限制？"><a href="#8-为什么会有调用堆的限制？" class="headerlink" title="8. 为什么会有调用堆的限制？"></a>8. 为什么会有调用堆的限制？</h2><p>主要是为了防止程序运行时因过多的函数调用而导致的<strong>资源耗尽和系统崩溃</strong>。跟以下几个方面有关：</p>
+<ul>
+<li>栈内存限制</li>
+<li>性能考虑</li>
+<li>系统资源限制</li>
+<li>编程语言的设计</li>
+<li>实际应用</li>
+</ul>
+<h2 id="9-闭包是什么？"><a href="#9-闭包是什么？" class="headerlink" title="9.闭包是什么？"></a>9.闭包是什么？</h2><p>闭包是一种编程概念，指的是<strong>函数可以访问其外部函数作用域的变量</strong>。简单来说，它允许一个函数记住并访问其定义时的作用域，即使在外部函数已经执行完毕后。闭包常用于创建私有变量和函数，提供数据封装和保护。</p>
+<p>例如，在JavaScript中：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">outerFunction</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> outerVariable = <span class="string">&#x27;I am outside!&#x27;</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">innerFunction</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(outerVariable); <span class="comment">// 访问外部函数的变量</span></span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> innerFunction;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> closureFunction = <span class="title function_">outerFunction</span>();</span><br><span class="line"><span class="title function_">closureFunction</span>(); <span class="comment">// 输出: I am outside!</span></span><br></pre></td></tr></table></figure>
+
+<p>这里，<code>innerFunction</code> 是一个闭包，它记住了 <code>outerFunction</code> 的作用域，从而能够访问 <code>outerVariable</code>。</p>
+<p><strong>适用场景：</strong></p>
+<ol>
+<li><strong>数据私有化</strong>：<ul>
+<li>通过闭包，可以创建私有变量，防止外部直接访问和修改。例如，使用闭包封装状态。</li>
+</ul>
+</li>
+<li><strong>函数工厂</strong>：<ul>
+<li>通过闭包创建特定行为的函数。例如，生成带有特定参数的函数。</li>
+</ul>
+</li>
+<li><strong>事件处理器</strong>：<ul>
+<li>在事件处理程序中保持对外部变量的引用，常用于回调函数和定时器。</li>
+</ul>
+</li>
+<li><strong>记忆化函数</strong>：<ul>
+<li>使用闭包存储计算结果，以提高性能。适用于一些重复计算的函数。</li>
+</ul>
+</li>
+<li><strong>模块模式</strong>：<ul>
+<li>通过闭包封装模块的私有部分和公共接口，组织代码结构。</li>
+</ul>
+</li>
+<li><strong>延迟执行</strong>：<ul>
+<li>在异步操作中保存上下文状态，便于在后续操作中访问。</li>
+</ul>
+</li>
+</ol>
+<h2 id="10-闭包和原型链的关系是什么？"><a href="#10-闭包和原型链的关系是什么？" class="headerlink" title="10. 闭包和原型链的关系是什么？"></a>10. 闭包和原型链的关系是什么？</h2><p><strong>闭包和原型链的关系</strong></p>
+<ul>
+<li><strong>独立性</strong>: 闭包和原型链是两个独立的概念。闭包与函数的<strong>作用域</strong>有关，而原型链与对象的<strong>继承</strong>有关。</li>
+<li><strong>作用域 vs. 继承</strong>:<ul>
+<li><strong>闭包</strong>: 主要用于访问和维护函数外部的变量，不涉及对象继承。</li>
+<li><strong>原型链</strong>: 主要用于对象的继承和方法共享，不涉及函数的作用域。</li>
+</ul>
+</li>
+<li><strong>相互独立的使用场景</strong>:<ul>
+<li><strong>闭包</strong>: 适用于需要封装数据或函数的场景，例如创建私有变量和方法。</li>
+<li><strong>原型链</strong>: 适用于需要对象继承和共享方法的场景，例如构建继承体系和实现继承。</li>
+</ul>
+</li>
+</ul>
+<p><strong>原型链：</strong></p>
+<p><img src="/../../images/image-20240913133958546.png" alt="image-20240913133958546"></p>
+<h2 id="11-http1，1-1，2都有哪些区别？"><a href="#11-http1，1-1，2都有哪些区别？" class="headerlink" title="11. http1，1.1，2都有哪些区别？"></a>11. http1，1.1，2都有哪些区别？</h2><ul>
+<li><strong>HTTP&#x2F;1.0</strong>：每次请求需要建立新连接，性能较低。</li>
+<li><strong>HTTP&#x2F;1.1</strong>：引入持久连接和管道化，减少了连接开销，但仍有队头阻塞问题。</li>
+<li><strong>HTTP&#x2F;2</strong>：通过多路复用、头部压缩和流量控制显著提升了性能和效率，解决了HTTP&#x2F;1.x中的许多问题。</li>
+</ul>
+<p>这些改进使得 HTTP&#x2F;2 能够在现代网络应用中提供更高效的传输性能。</p>
+<h2 id="12-首部压缩是什么？"><a href="#12-首部压缩是什么？" class="headerlink" title="12. 首部压缩是什么？"></a>12. 首部压缩是什么？</h2><p><strong>首部压缩</strong>是指在HTTP&#x2F;2协议中，对<strong>请求和响应头信息</strong>进行压缩的技术。HTTP&#x2F;2使用一种称为HPACK的算法来压缩头部信息，减少传输的数据量。这种压缩方法通过使用静态表和动态表来存储和重用常见的头部字段，<u><em>从而减少重复数据和降低网络带宽消耗，提高传输效率</em>。</u></p>
+<h2 id="13-二进制帧的好处是什么？"><a href="#13-二进制帧的好处是什么？" class="headerlink" title="13. 二进制帧的好处是什么？"></a>13. 二进制帧的好处是什么？</h2><p>二进制帧在HTTP&#x2F;2中提供了多个好处。首先，它<strong>提高了传输效率</strong>，因为二进制格式比文本格式更紧凑和解析速度更快。其次，它<strong>允许多路复用</strong>，意味着多个请求和响应可以在一个连接上并发传输，而不会互相阻塞。最后，二进制帧<strong>使得协议解析更加清晰和准确</strong>，减少了文本协议中的歧义问题，从而提高了整体的可靠性和性能。</p>
+<h2 id="14-选择器的优先级"><a href="#14-选择器的优先级" class="headerlink" title="14. 选择器的优先级"></a>14. 选择器的优先级</h2><p>内联样式（1000） &gt; ID选择器（100） &gt; 类选择器、属性选择器和伪类 （10）&gt; 元素选择器和伪元素（1）</p>
+<h2 id="15-盒子类型"><a href="#15-盒子类型" class="headerlink" title="15. 盒子类型"></a>15. 盒子类型</h2><p><strong>标准盒子模型</strong>：元素的宽度和高度只包括内容区域，不包括padding、border和margin。计算宽度时需手动加上内边距和边框的高度。</p>
+<p><strong>替代盒子模型</strong>：元素的宽度和高度包括content、padding和border。这样可以更方便地控制元素的尺寸，避免了手动计算的复杂性。可以通过设置 <code>box-sizing: border-box;</code> 来启用。</p>
+<h2 id="16-http-和-https-的区别"><a href="#16-http-和-https-的区别" class="headerlink" title="16. http 和 https 的区别"></a>16. http 和 https 的区别</h2><p>HTTP（超文本传输协议）和 HTTPS（安全超文本传输协议）之间的主要区别在于安全性。</p>
+<ol>
+<li><strong>安全性</strong>：<ul>
+<li><strong>HTTP</strong>：数据以明文形式传输，容易受到中间人攻击，数据可能被窃取或篡改。</li>
+<li><strong>HTTPS</strong>：在 HTTP 的基础上，使用 SSL&#x2F;TLS 加密协议，确保数据在传输过程中的安全性和完整性。</li>
+</ul>
+</li>
+<li><strong>端口</strong>：<ul>
+<li><strong>HTTP</strong>：通常使用端口 80。</li>
+<li><strong>HTTPS</strong>：通常使用端口 443。</li>
+</ul>
+</li>
+<li><strong>证书</strong>：<ul>
+<li><strong>HTTP</strong>：不需要安全证书。</li>
+<li><strong>HTTPS</strong>：需要 SSL&#x2F;TLS 证书，以验证服务器身份并加密通信。</li>
+</ul>
+</li>
+</ol>
+<p>因此，HTTPS 更适合处理敏感信息，如在线支付和个人数据。</p>
+<h2 id="17-vue的生命周期"><a href="#17-vue的生命周期" class="headerlink" title="17. vue的生命周期"></a>17. vue的生命周期</h2><h3 id="vue2："><a href="#vue2：" class="headerlink" title="vue2："></a>vue2：</h3><ol>
+<li><strong>创建阶段</strong>：<ul>
+<li><code>beforeCreate</code>：实例被创建，数据观测和事件配置尚未开始。</li>
+<li><code>created</code>：实例创建完成，数据观测和事件配置已完成，可以访问数据。</li>
+</ul>
+</li>
+<li><strong>挂载阶段</strong>：<ul>
+<li><code>beforeMount</code>：在挂载开始之前被调用。</li>
+<li><code>mounted</code>：实例被挂载后调用，此时可以操作 DOM。</li>
+</ul>
+</li>
+<li><strong>更新阶段</strong>：<ul>
+<li><code>beforeUpdate</code>：数据变化后，虚拟 DOM 重新渲染之前调用。</li>
+<li><code>updated</code>：虚拟 DOM 重新渲染并渲染后调用。</li>
+</ul>
+</li>
+<li><strong>销毁阶段</strong>：<ul>
+<li><code>beforeDestroy</code>：实例销毁之前调用，可以进行清理。</li>
+<li><code>destroyed</code>：实例销毁后调用。</li>
+</ul>
+</li>
+</ol>
+<h3 id="vue3："><a href="#vue3：" class="headerlink" title="vue3："></a>vue3：</h3><ol>
+<li>setup</li>
+<li>onBeforeMount</li>
+<li>onMounted</li>
+<li>onBeforeUpdate</li>
+<li>onUpdated</li>
+<li>onBeforeUnmount</li>
+<li>onUnmounted</li>
+</ol>
+<h2 id="18-scoped原理"><a href="#18-scoped原理" class="headerlink" title="18. scoped原理"></a>18. scoped原理</h2><ol>
+<li><strong>动态生成类名</strong>：Vue 在编译组件时，为每个 scoped 样式生成一个唯一的类名，比如 <code>data-v-xxxxxx</code>，并将其应用到组件的根元素上。</li>
+<li><strong>选择器自动加前缀</strong>：所有 scoped 样式中的选择器自动加上这个唯一的类名前缀，确保样式仅影响该组件的元素。</li>
+<li><strong>样式隔离</strong>：通过这种方式，组件的样式不会影响其他组件，从而实现样式的局部化和隔离。</li>
+</ol>
+<h2 id="19-防抖和节流"><a href="#19-防抖和节流" class="headerlink" title="19. 防抖和节流"></a>19. 防抖和节流</h2><p>防抖是多次点击只完成最后一次，节流是单位时间内只完成一次操作</p>
+<h2 id="20-虚拟DOM"><a href="#20-虚拟DOM" class="headerlink" title="20. 虚拟DOM"></a>20. 虚拟DOM</h2><p>可以跨平台，并且把多次修改的结果一次性更新到页面上，从而有效地减少渲染次数，提高性能，通过采用diff算法跟新老节点。他是在不手动优化的情况下，提供过得去的性能。</p>
+<h2 id="21-html-怎么渲染到浏览器上的？"><a href="#21-html-怎么渲染到浏览器上的？" class="headerlink" title="21. html 怎么渲染到浏览器上的？"></a>21. html 怎么渲染到浏览器上的？</h2><h2 id="22-作用域有哪些？"><a href="#22-作用域有哪些？" class="headerlink" title="22. 作用域有哪些？"></a>22. 作用域有哪些？</h2><p>全局作用域，局部作用域（函数作用域，块作用域）</p>
+<h2 id="23-发布订阅模式"><a href="#23-发布订阅模式" class="headerlink" title="23. 发布订阅模式"></a>23. 发布订阅模式</h2><p>响应式原理是运用数据劫持和发布订阅模式</p>
+<h1 id="vivo面经"><a href="#vivo面经" class="headerlink" title="vivo面经"></a>vivo面经</h1><h2 id="1-vue3新特性有哪些？"><a href="#1-vue3新特性有哪些？" class="headerlink" title="1. vue3新特性有哪些？"></a>1. vue3新特性有哪些？</h2><ul>
+<li><h3 id="Composition-API"><a href="#Composition-API" class="headerlink" title="Composition API"></a><strong>Composition API</strong></h3><p>提供了一种新的组织组件逻辑的方法，使代码更加模块化和复用性更高。通过 <code>setup</code> 函数，可以在一个组件内组合和重用状态逻辑。</p>
+</li>
+<li><h3 id="Reactive-API"><a href="#Reactive-API" class="headerlink" title="Reactive API"></a><strong>Reactive API</strong></h3><p>改进了响应式系统，支持 <code>ref</code> 和 <code>reactive</code> 来创建响应式数据。响应式系统变得更加高效和灵活。</p>
+</li>
+<li><h3 id="Teleport"><a href="#Teleport" class="headerlink" title="Teleport"></a><strong>Teleport</strong></h3><p>允许将子组件的 DOM 节点传送到 DOM 树的任意位置，方便在全局范围内管理和操作组件。</p>
+</li>
+<li><h3 id="Fragments"><a href="#Fragments" class="headerlink" title="Fragments"></a><strong>Fragments</strong></h3><p>Vue 3 允许组件返回多个根节点，避免了 Vue 2 中必须使用单一根节点的限制。</p>
+</li>
+<li><h3 id="Suspense"><a href="#Suspense" class="headerlink" title="Suspense"></a><strong>Suspense</strong></h3><p>用于处理异步组件的加载和等待状态，使得异步数据的处理变得更加优雅。</p>
+</li>
+<li><h3 id="Improved-TypeScript-Support"><a href="#Improved-TypeScript-Support" class="headerlink" title="Improved TypeScript Support"></a><strong>Improved TypeScript Support</strong></h3><p>Vue 3 对 TypeScript 的支持更加全面和友好，增强了类型推导和类型安全性。</p>
+</li>
+<li><h3 id="Performance-Improvements"><a href="#Performance-Improvements" class="headerlink" title="Performance Improvements"></a><strong>Performance Improvements</strong></h3><p>Vue 3 提供了更快的虚拟 DOM 和响应式系统，减少了渲染和更新的开销，提高了整体性能。</p>
+</li>
+<li><h3 id="Custom-Renderer-API"><a href="#Custom-Renderer-API" class="headerlink" title="Custom Renderer API"></a><strong>Custom Renderer API</strong></h3><p>允许开发者创建自定义渲染器，以便将 Vue 用于非 DOM 平台（例如原生应用、桌面应用等）。</p>
+</li>
+<li><h3 id="Composition-API-with-TypeScript"><a href="#Composition-API-with-TypeScript" class="headerlink" title="Composition API with TypeScript"></a><strong>Composition API with TypeScript</strong></h3><p>改进了 Composition API 的 TypeScript 支持，使得类型推导和自动补全更加准确。</p>
+<p>从三个方面去答：</p>
+<ol>
+<li>性能优化（打包，渲染——组合式API更灵活）</li>
+<li>API改进</li>
+<li>底层重构 （proxy  —— vue2的object.defineProperty）</li>
+<li>可扩展性</li>
+</ol>
+</li>
+</ul>
+<h2 id="2-TS的新特性"><a href="#2-TS的新特性" class="headerlink" title="2. TS的新特性"></a>2. TS的新特性</h2><p> <strong>类型推断改进</strong></p>
+<ul>
+<li><p><strong>特性</strong>：增强了类型推断的准确性和智能性。例如，在 TypeScript 4.1 中引入了 <strong>模板字符串类型</strong>，可以更好地推断复杂的字符串模式。</p>
+</li>
+<li><p>示例：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">EventType</span> = <span class="string">&quot;click&quot;</span> | <span class="string">&quot;keydown&quot;</span> | <span class="string">&quot;resize&quot;</span>;</span><br><span class="line"><span class="keyword">type</span> <span class="title class_">EventMap</span> = &#123;</span><br><span class="line">  [K <span class="keyword">in</span> <span class="title class_">EventType</span>]: <span class="function">(<span class="params">event: Event</span>) =&gt;</span> <span class="built_in">void</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>模板字符串类型</strong></p>
+<ul>
+<li><p><strong>特性</strong>：允许使用模板字符串来创建新的类型。这可以用来表示由字符串模式构成的类型。</p>
+</li>
+<li><p>示例：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Greeting</span> = <span class="string">`Hello, <span class="subst">$&#123;<span class="built_in">string</span>&#125;</span>!`</span>;</span><br><span class="line"><span class="comment">// Greeting 可以是 &quot;Hello, World!&quot;、&quot;Hello, TypeScript!&quot; 等</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>条件类型改进</strong></p>
+<ul>
+<li><p><strong>特性</strong>：TypeScript 4.1 引入了 <strong>条件类型的分配条件</strong>（Distributive Conditional Types），使得条件类型的表达更加灵活。</p>
+</li>
+<li><p>示例：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">TrueType</span> = <span class="literal">true</span> <span class="keyword">extends</span> <span class="literal">true</span> ? <span class="string">&quot;Yes&quot;</span> : <span class="string">&quot;No&quot;</span>; <span class="comment">// &quot;Yes&quot;</span></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">FalseType</span> = <span class="literal">false</span> <span class="keyword">extends</span> <span class="literal">true</span> ? <span class="string">&quot;Yes&quot;</span> : <span class="string">&quot;No&quot;</span>; <span class="comment">// &quot;No&quot;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>新的 <code>unknown</code> 类型</strong></p>
+<ul>
+<li><p><strong>特性</strong>：引入了 <code>unknown</code> 类型，作为 <code>any</code> 类型的更安全的替代品，确保在使用之前必须先进行类型检查。</p>
+</li>
+<li><p>示例：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">value</span>: <span class="built_in">unknown</span>;</span><br><span class="line">value = <span class="number">42</span>;</span><br><span class="line">value = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> value === <span class="string">&quot;string&quot;</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(value.<span class="title function_">toUpperCase</span>()); <span class="comment">// 类型安全</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>非空断言操作符 (<code>!</code>)</strong></p>
+<ul>
+<li><p><strong>特性</strong>：用于指示 TypeScript 编译器某个值绝对不会为 <code>null</code> 或 <code>undefined</code>，可以消除对类型检查的警告。</p>
+</li>
+<li><p>示例：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">getLength</span>(str?: <span class="built_in">string</span>): <span class="built_in">number</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> str!.<span class="property">length</span>; <span class="comment">// 使用 `!` 断言 `str` 不可能为 `null` 或 `undefined`</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>ESM (ECMAScript Modules) 支持</strong></p>
+<ul>
+<li><p><strong>特性</strong>：TypeScript 4.5 提供了对 ESM 的更好支持，使得 TypeScript 可以更方便地与现代 JavaScript 模块系统集成。</p>
+</li>
+<li><p>示例：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用 ESM 导入</span></span><br><span class="line"><span class="keyword">import</span> &#123; foo &#125; <span class="keyword">from</span> <span class="string">&quot;./foo&quot;</span>;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>映射类型增强</strong></p>
+<ul>
+<li><p><strong>特性</strong>：映射类型现在支持更多的操作，例如 <code>keyof</code> 和 <code>as</code> 的组合，增强了类型映射的灵活性。</p>
+</li>
+<li><p>示例：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">MyType</span> = &#123;</span><br><span class="line">  [K <span class="keyword">in</span> keyof <span class="built_in">any</span>]: K;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>类和接口改进</strong></p>
+<ul>
+<li><p><strong>特性</strong>：引入了 <strong>类属性和方法的类型推导改进</strong>，以及 <strong>接口的可选链</strong>，使得类型定义更加清晰和简洁。</p>
+</li>
+<li><p>示例：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">MyClass</span> &#123;</span><br><span class="line">  property!: <span class="built_in">string</span>; <span class="comment">// 使用 `!` 断言属性会在构造函数中初始化</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>增强的类型别名和类型推导</strong></p>
+<ul>
+<li><p><strong>特性</strong>：类型别名现在支持更复杂的类型推导和递归类型。</p>
+</li>
+<li><p>示例：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">RecursiveType</span>&lt;T&gt; = T | <span class="title class_">RecursiveType</span>&lt;T&gt;[];</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>改进的错误信息</strong></p>
+<ul>
+<li><strong>特性</strong>：错误信息变得更加具体和易于理解，有助于快速定位和修复代码中的问题。</li>
+</ul>
+<p>这些新特性和改进使 TypeScript 更加灵活和强大，进一步提高了开发效率和代码的安全性。</p>
+<h2 id="3-v-if-和-v-for-优先级"><a href="#3-v-if-和-v-for-优先级" class="headerlink" title="3. v-if  和 v-for 优先级"></a>3. v-if  和 v-for 优先级</h2><p><strong>vue2 中 v-for 的优先级更高。</strong></p>
+<p>v-for优先于v-if被解析，如果同时出现，每次渲染都会<strong>先执行循环再判断条件</strong>，无论如何循环都不可避免，浪费了性能。</p>
+<p>要避免出现这种情况，则在外层嵌套template，在这一层进行v-if判断，然后在内部进行v-for循环。如果条件出现在循环内部，可通过计算属性提前过滤掉那些不需要显示的项。</p>
+<p><strong>vue3 中 v-if 的优先级更高。</strong></p>
+<h1 id="Cider面经"><a href="#Cider面经" class="headerlink" title="Cider面经"></a>Cider面经</h1><h2 id="1-css3新增"><a href="#1-css3新增" class="headerlink" title="1. css3新增"></a>1. css3新增</h2><p><strong>背景和边框</strong>：background-size、background-origin、border-image</p>
+<p><strong>文本效果</strong>：text-shadow、word-wrap、word-break</p>
+<p><strong>2D&#x2F;3D</strong>：2D转换、3D转换</p>
+<p><strong>动画和过渡效果：</strong>transition、animation</p>
+<h2 id="2-h5新增api-标签"><a href="#2-h5新增api-标签" class="headerlink" title="2. h5新增api,标签"></a>2. h5新增api,标签</h2><p><strong>新增标签：</strong></p>
+<p>header、footer、nav、artical、section、vedio、audio、input类型扩展、datalist</p>
+<p><strong>新增api：</strong></p>
+<p>地理定位、本地存储、拖放</p>
+<h2 id="3-es6新增"><a href="#3-es6新增" class="headerlink" title="3. es6新增"></a>3. es6新增</h2><p>let和const、箭头函数、模板字符串、解构赋值、扩展运算符、类、模块</p>
+<h1 id="美团一面"><a href="#美团一面" class="headerlink" title="美团一面"></a>美团一面</h1><h2 id="平时是怎么学习的"><a href="#平时是怎么学习的" class="headerlink" title="平时是怎么学习的"></a>平时是怎么学习的</h2><h2 id="你为什么选择前端"><a href="#你为什么选择前端" class="headerlink" title="你为什么选择前端"></a>你为什么选择前端</h2><h2 id="vue2-vue3-的区别"><a href="#vue2-vue3-的区别" class="headerlink" title="vue2 vue3 的区别"></a>vue2 vue3 的区别</h2><h2 id="vue怎么实现双向绑定的"><a href="#vue怎么实现双向绑定的" class="headerlink" title="vue怎么实现双向绑定的"></a>vue怎么实现双向绑定的</h2><h2 id="v-model的实现原理-xxx-语法糖-—-v-bind-defineEvent"><a href="#v-model的实现原理-xxx-语法糖-—-v-bind-defineEvent" class="headerlink" title="v-model的实现原理   xxx   语法糖 — v-bind defineEvent"></a>v-model的实现原理   xxx   语法糖 — v-bind defineEvent</h2><p>就是个语法糖。绑定value，监听inputshi’jian</p>
+<p><img src="/../../images/image-20250401094150657.png" alt="image-20250401094150657"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;tab-bar v-bind:value=&quot;selectedLabel&quot; v-on:input=&quot;selectedLabel = $event&quot;&gt; </span><br><span class="line">&lt;/tab-bar&gt;</span><br></pre></td></tr></table></figure>
+
+<p>tab-bar组件内部</p>
+<p><img src="/../../images/image-20250401094519380.png" alt="image-20250401094519380"></p>
+<h2 id="vue-router-两种模式"><a href="#vue-router-两种模式" class="headerlink" title="vue-router 两种模式"></a>vue-router 两种模式</h2><h2 id="history模式为什么会报404？"><a href="#history模式为什么会报404？" class="headerlink" title="history模式为什么会报404？"></a>history模式为什么会报404？</h2><ol>
+<li>浏览器会向服务器请求该路径的资源</li>
+<li>但服务器实际不存在这个物理路径的文件</li>
+<li>服务器返回 404 错误</li>
+</ol>
+<h2 id="nginx-了解吗？"><a href="#nginx-了解吗？" class="headerlink" title="nginx 了解吗？"></a>nginx 了解吗？</h2><h2 id="如果让你部署一个history路由（纯前端）的项目，你怎么去保证所有路由都在同一个域名下"><a href="#如果让你部署一个history路由（纯前端）的项目，你怎么去保证所有路由都在同一个域名下" class="headerlink" title="如果让你部署一个history路由（纯前端）的项目，你怎么去保证所有路由都在同一个域名下"></a>如果让你部署一个history路由（纯前端）的项目，你怎么去保证所有路由都在同一个域名下</h2><p>通过 <strong>前端路由配置</strong> + <strong>服务器重定向规则</strong>，可以确保所有 History 路由在同一个域名下正常工作。核心逻辑是让服务器将所有非静态资源请求指向 <code>index.html</code>，由前端接管路由控制。</p>
+<p><strong>服务器配置：</strong></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">  <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">  <span class="attribute">server_name</span> example.com;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 静态资源直接访问</span></span><br><span class="line">  <span class="section">location</span> / &#123;</span><br><span class="line">    <span class="attribute">root</span> /path/to/your/dist; <span class="comment"># 前端构建产物目录</span></span><br><span class="line">    <span class="attribute">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.html; <span class="comment"># 关键：未找到文件时返回 index.html</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 子目录部署（如 example.com/subdir/）</span></span><br><span class="line">  <span class="section">location</span> /subdir/ &#123;</span><br><span class="line">    <span class="attribute">alias</span> /path/to/your/dist/;</span><br><span class="line">    <span class="attribute">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ /subdir/index.html;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="微信小程序的生命周期"><a href="#微信小程序的生命周期" class="headerlink" title="微信小程序的生命周期"></a>微信小程序的生命周期</h2><h2 id="onLoad-onshow-的区别？xxx"><a href="#onLoad-onshow-的区别？xxx" class="headerlink" title="onLoad  onshow 的区别？xxx"></a>onLoad  onshow 的区别？xxx</h2><h2 id="onLoad-onshow-同时触发一个接口会发生什么现象？怎么修复这个现象"><a href="#onLoad-onshow-同时触发一个接口会发生什么现象？怎么修复这个现象" class="headerlink" title="onLoad  onshow 同时触发一个接口会发生什么现象？怎么修复这个现象"></a>onLoad  onshow 同时触发一个接口会发生什么现象？怎么修复这个现象</h2><p><strong>现象：</strong></p>
+<ol>
+<li>重复请求</li>
+<li>数据覆盖与性能问题</li>
+<li>竟态问题（就是两个请求顺序不一样，可能会导致最终展示的数据不一致）</li>
+</ol>
+<p><strong>解决方案：</strong></p>
+<ol>
+<li><p>通过标志位控制请求触发</p>
+</li>
+<li><p>合并请求（防抖）</p>
+</li>
+<li><p>取消未完成的重复请求</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Page</span>(&#123;</span><br><span class="line">  <span class="attr">currentRequest</span>: <span class="literal">null</span>,</span><br><span class="line">  <span class="title function_">onLoad</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">fetchData</span>();</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="title function_">onShow</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">fetchData</span>();</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="title function_">fetchData</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// 取消之前的未完成请求</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">currentRequest</span>) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">currentRequest</span>.<span class="title function_">abort</span>();</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">currentRequest</span> = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 发起新请求</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">currentRequest</span> = wx.<span class="title function_">request</span>(&#123;</span><br><span class="line">      <span class="attr">url</span>: <span class="string">&#x27;your_api_url&#x27;</span>,</span><br><span class="line">      <span class="attr">success</span>: <span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 更新数据逻辑</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">complete</span>: <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">currentRequest</span> = <span class="literal">null</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>按需更新</li>
+</ol>
+</li>
+</ol>
+<h2 id="如何实现页面的样式影响到组件内部-页面A的样式控制组件B的样式"><a href="#如何实现页面的样式影响到组件内部-页面A的样式控制组件B的样式" class="headerlink" title="如何实现页面的样式影响到组件内部   页面A的样式控制组件B的样式"></a>如何实现页面的样式影响到组件内部   页面A的样式控制组件B的样式</h2><ol>
+<li>使用深度选择器   <code>::v-deep、&gt;&gt;&gt;、/deep/</code></li>
+<li>全局样式（无作用域）</li>
+<li>动态类名（通过props传递）</li>
+<li>内联样式（动态样式绑定）</li>
+<li>修改第三方组件库样式</li>
+<li>CSS Modules 穿透（react）</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="left">适用场景</th>
+<th align="left">优点</th>
+<th align="left">缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">深度选择器</td>
+<td align="left">Vue 组件样式穿透</td>
+<td align="left">精准控制，避免全局污染</td>
+<td align="left">语法需适配不同框架</td>
+</tr>
+<tr>
+<td align="left">全局样式</td>
+<td align="left">简单快速覆盖</td>
+<td align="left">无需复杂配置</td>
+<td align="left">易造成样式污染</td>
+</tr>
+<tr>
+<td align="left">动态类名</td>
+<td align="left">需动态切换样式</td>
+<td align="left">灵活可控</td>
+<td align="left">需组件B支持 props 接收类名</td>
+</tr>
+<tr>
+<td align="left">内联样式</td>
+<td align="left">动态样式调整</td>
+<td align="left">优先级高，实时生效</td>
+<td align="left">无法处理复杂选择器</td>
+</tr>
+<tr>
+<td align="left">第三方组件库穿透</td>
+<td align="left">覆盖第三方组件默认样式</td>
+<td align="left">直接修改第三方组件样式</td>
+<td align="left">依赖第三方组件的 DOM 结构</td>
+</tr>
+</tbody></table>
+<p>根据实际场景选择合适方案，优先推荐 <strong>深度选择器</strong> 和 <strong>动态类名</strong>，避免全局污染。</p>
+<h2 id="组件是否有控制外部的样式属性"><a href="#组件是否有控制外部的样式属性" class="headerlink" title="组件是否有控制外部的样式属性"></a>组件是否有控制外部的样式属性</h2><h2 id="微信小程序上传文件（项目）"><a href="#微信小程序上传文件（项目）" class="headerlink" title="微信小程序上传文件（项目）"></a>微信小程序上传文件（项目）</h2><h2 id="浏览器缓存机制"><a href="#浏览器缓存机制" class="headerlink" title="浏览器缓存机制"></a>浏览器缓存机制</h2><p>（我还会答expires cache-controll的区别，加时间戳去打破缓存机制）</p>
+<h2 id="html页面-实现协商缓存-单页面"><a href="#html页面-实现协商缓存-单页面" class="headerlink" title="html页面 实现协商缓存 单页面"></a>html页面 实现协商缓存 单页面</h2><ul>
+<li><p><strong>首次请求</strong>：<br>服务器返回 <code>index.html</code> 并附带 <code>ETag</code> 和 <code>Last-Modified</code> 头。</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">200</span> OK</span><br><span class="line"><span class="attribute">Cache-Control</span><span class="punctuation">: </span>no-cache</span><br><span class="line"><span class="attribute">ETag</span><span class="punctuation">: </span>W/&quot;12345-1620000000000&quot;</span><br><span class="line"><span class="attribute">Last-Modified</span><span class="punctuation">: </span>Wed, 01 Jan 2023 00:00:00 GMT</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>后续请求</strong>：<br>浏览器自动携带 <code>If-None-Match</code> 和 <code>If-Modified-Since</code> 头：</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GET</span> <span class="string">/index.html</span> <span class="meta">HTTP/1.1</span></span><br><span class="line"><span class="attribute">If-None-Match</span><span class="punctuation">: </span>W/&quot;12345-1620000000000&quot;</span><br><span class="line"><span class="attribute">If-Modified-Since</span><span class="punctuation">: </span>Wed, 01 Jan 2023 00:00:00 GMT</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="怎么判断有没有修改html页面"><a href="#怎么判断有没有修改html页面" class="headerlink" title="怎么判断有没有修改html页面"></a>怎么判断有没有修改html页面</h2><p>看是否返回304，如果是协商缓存的话</p>
+<h2 id="Etag-是什么？"><a href="#Etag-是什么？" class="headerlink" title="Etag 是什么？"></a>Etag 是什么？</h2><p>资源生成的唯一标识符</p>
+<h2 id="前端行业的最新状态"><a href="#前端行业的最新状态" class="headerlink" title="前端行业的最新状态"></a>前端行业的最新状态</h2><h2 id="为什么vite有统一前端的可能"><a href="#为什么vite有统一前端的可能" class="headerlink" title="为什么vite有统一前端的可能"></a>为什么vite有统一前端的可能</h2><p>（ESM，业内的认可，速度）</p>
+<h2 id="西唯兵项目的背景"><a href="#西唯兵项目的背景" class="headerlink" title="西唯兵项目的背景"></a>西唯兵项目的背景</h2><h2 id="上线之后的运营效果"><a href="#上线之后的运营效果" class="headerlink" title="上线之后的运营效果"></a>上线之后的运营效果</h2><h2 id="。。。。不知道再聊什么"><a href="#。。。。不知道再聊什么" class="headerlink" title="。。。。不知道再聊什么"></a>。。。。不知道再聊什么</h2><h2 id="微信小程序（好像是又好像是web）的性能优化"><a href="#微信小程序（好像是又好像是web）的性能优化" class="headerlink" title="微信小程序（好像是又好像是web）的性能优化"></a>微信小程序（好像是又好像是web）的性能优化</h2><h2 id="keep-alive怎么实现的"><a href="#keep-alive怎么实现的" class="headerlink" title="keep-alive怎么实现的"></a>keep-alive怎么实现的</h2><p><code>keep-alive</code> 的核心原理是通过 <strong>缓存 VNode 和组件实例</strong>，结合 <strong>LRU 缓存策略</strong> 和 <strong>生命周期钩子管理</strong>，实现组件的状态保留和快速恢复。通过 <code>include/exclude</code> 和 <code>max</code> 属性，开发者可以灵活控制缓存策略，平衡性能与内存消耗。</p>
+<h3 id="1-缓存机制"><a href="#1-缓存机制" class="headerlink" title="1. 缓存机制"></a>1. 缓存机制</h3><ul>
+<li><strong>缓存对象</strong>：<code>keep-alive</code> 内部维护一个缓存对象 <code>cache</code>（类似 <code>Map</code>），用于存储需要缓存的组件实例。</li>
+<li><strong>标识符生成</strong>：每个被缓存的组件通过 <code>key</code> 标识，默认基于组件的 <code>name</code> 或 <code>tag</code>，结合 <code>props</code> 生成唯一键。</li>
+</ul>
+<h3 id="2-组件激活与失活"><a href="#2-组件激活与失活" class="headerlink" title="2. 组件激活与失活"></a>2. 组件激活与失活</h3><ul>
+<li><strong>生命周期钩子</strong>：<ul>
+<li>当组件被包裹在 <code>keep-alive</code> 中时：<ul>
+<li><strong>首次渲染</strong>：触发正常的 <code>created</code> → <code>mounted</code> 生命周期。</li>
+<li><strong>切换到后台</strong>（如路由离开）：触发 <code>deactivated</code> 钩子，组件实例被缓存。</li>
+<li><strong>重新激活</strong>（如路由返回）：触发 <code>activated</code> 钩子，从缓存中恢复实例，<strong>跳过重新创建</strong>。</li>
+</ul>
+</li>
+<li>缓存的组件不会触发 <code>destroyed</code> 或 <code>beforeDestroy</code> 钩子。</li>
+</ul>
+</li>
+<li><strong>状态保留</strong>：组件的状态（如数据、DOM 结构）会被保留，避免重复渲染的开销。</li>
+</ul>
+<h3 id="3-实现核心"><a href="#3-实现核心" class="headerlink" title="3. 实现核心"></a>3. 实现核心</h3><ul>
+<li><p><strong><code>render</code> 函数</strong>：</p>
+<ul>
+<li><code>keep-alive</code> 是一个抽象组件（不渲染 DOM），通过 <code>render</code> 函数决定渲染内容。</li>
+<li>在 <code>render</code> 中，通过 <code>slot</code> 获取子组件 VNode，并根据条件决定是否缓存。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 伪代码</span></span><br><span class="line"><span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> slot = <span class="variable language_">this</span>.<span class="property">$slots</span>.<span class="property">default</span>;</span><br><span class="line">  <span class="keyword">const</span> vnode = slot[<span class="number">0</span>]; <span class="comment">// 获取子组件 VNode</span></span><br><span class="line">  <span class="keyword">const</span> key = <span class="title function_">generateKey</span>(vnode); <span class="comment">// 生成唯一 key</span></span><br><span class="line">  <span class="keyword">if</span> (cache.<span class="title function_">has</span>(key)) &#123;</span><br><span class="line">    <span class="comment">// 命中缓存：直接取出缓存的 VNode</span></span><br><span class="line">    vnode.<span class="property">componentInstance</span> = cache.<span class="title function_">get</span>(key).<span class="property">componentInstance</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 未命中缓存：存入缓存</span></span><br><span class="line">    cache.<span class="title function_">set</span>(key, vnode);</span><br><span class="line">  &#125;</span><br><span class="line">  vnode.<span class="property">data</span>.<span class="property">keepAlive</span> = <span class="literal">true</span>; <span class="comment">// 标记为 keep-alive 组件</span></span><br><span class="line">  <span class="keyword">return</span> vnode;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>缓存淘汰策略（LRU）</strong>：</p>
+<ul>
+<li>通过 <code>max</code> 属性设置最大缓存数，超出时按 <strong>最近最少使用（LRU）</strong> 淘汰旧缓存。</li>
+<li>每次访问缓存时，将组件移到缓存队列的头部，淘汰时删除末尾的旧缓存。</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-include-和-exclude"><a href="#4-include-和-exclude" class="headerlink" title="4. include 和 exclude"></a>4. include 和 exclude</h3><ul>
+<li><p><strong>匹配规则</strong>：通过 <code>include</code> 和 <code>exclude</code> 属性控制哪些组件需要缓存（基于组件 <code>name</code>）。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;keep-alive :include=&quot;[&#x27;Home&#x27;, &#x27;User&#x27;]&quot; :exclude=&quot;[&#x27;Admin&#x27;]&quot; :max=&quot;5&quot;&gt;</span><br><span class="line">  &lt;router-view /&gt;</span><br><span class="line">&lt;/keep-alive&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>实现方式</strong>：在缓存前检查组件 <code>name</code> 是否匹配 <code>include</code> 和 <code>exclude</code> 规则。</p>
+</li>
+</ul>
+<h3 id="5-与-Vue-Router-的集成"><a href="#5-与-Vue-Router-的集成" class="headerlink" title="5. 与 Vue Router 的集成"></a>5. 与 Vue Router 的集成</h3><ul>
+<li><p>在路由切换时，<code>keep-alive</code> 可以缓存 <code>&lt;router-view&gt;</code> 渲染的组件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;keep-alive&gt;</span><br><span class="line">  &lt;router-view v-if=&quot;$route.meta.keepAlive&quot; /&gt;</span><br><span class="line">&lt;/keep-alive&gt;</span><br><span class="line">&lt;router-view v-if=&quot;!$route.meta.keepAlive&quot; /&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过路由元信息 <code>meta.keepAlive</code> 动态控制是否需要缓存。</p>
+</li>
+</ul>
+<h3 id="6-性能优化"><a href="#6-性能优化" class="headerlink" title="6. 性能优化"></a><strong>6. 性能优化</strong></h3><ul>
+<li><strong>减少重复渲染</strong>：避免组件销毁和重建的开销（如复杂计算的 <code>created</code> 或 <code>mounted</code>）。</li>
+<li><strong>内存管理</strong>：需合理设置 <code>max</code> 防止内存泄漏，尤其是移动端场景。</li>
+</ul>
+<h2 id="你怎么实现封住组件的"><a href="#你怎么实现封住组件的" class="headerlink" title="你怎么实现封住组件的"></a>你怎么实现封住组件的</h2><h2 id="为什么会出现这种问题（不知道什么问题）"><a href="#为什么会出现这种问题（不知道什么问题）" class="headerlink" title="为什么会出现这种问题（不知道什么问题）"></a>为什么会出现这种问题（不知道什么问题）</h2><h2 id="闭包核心概念"><a href="#闭包核心概念" class="headerlink" title="闭包核心概念"></a>闭包核心概念</h2><h2 id="function-与-箭头函数的区别"><a href="#function-与-箭头函数的区别" class="headerlink" title="function 与 箭头函数的区别"></a>function 与 箭头函数的区别</h2><h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2><h2 id="浮动，为什么要浮动"><a href="#浮动，为什么要浮动" class="headerlink" title="浮动，为什么要浮动"></a>浮动，为什么要浮动</h2><p>浮动（<code>float</code>）最初设计是为了实现<strong>文字环绕图片</strong>的效果，但后来被广泛用于传统布局。其核心作用是让元素<strong>脱离文档流</strong>，并允许其他内容围绕它排列。</p>
+<h2 id="文档流是什么"><a href="#文档流是什么" class="headerlink" title="文档流是什么"></a>文档流是什么</h2><p>元素的默认排列方式，分为块级和行内元素的自然布局。</p>
+<h2 id="还有什么擅长但是没有提问的点"><a href="#还有什么擅长但是没有提问的点" class="headerlink" title="还有什么擅长但是没有提问的点"></a>还有什么擅长但是没有提问的点</h2><h1 id="美团二面"><a href="#美团二面" class="headerlink" title="美团二面"></a>美团二面</h1><ol>
+<li><p>自我介绍</p>
+</li>
+<li><p>有自己部署什么网页吗</p>
+</li>
+<li><p>项目背景</p>
+</li>
+<li><p>前端学到什么程度</p>
+</li>
+<li><p>网页有点卡是因为什么</p>
+</li>
+<li><p>用域名去访问怎么操作</p>
+<p>设置nginx</p>
+</li>
+<li><p>jquery</p>
+<p>破防了。。我以为问的query和params。。我还没反应过来。</p>
+<p>该答XHR、Fetch、、Ajax、Axios。</p>
+</li>
+<li><p>大屏适配用了什么</p>
+<p>媒体查询，rem，百分比，vh、vm，flex和grid布局</p>
+</li>
+<li><p>还了解哪些大屏可视化技术</p>
+</li>
+<li><p>rem的原理</p>
+</li>
+</ol>
+<p>   <strong>1. 基本概念</strong></p>
+<ul>
+<li><strong>rem（Root EM）</strong> 是 CSS 中的相对长度单位，其值始终相对于 <strong>根元素（<code>&lt;html&gt;</code>）的字体大小</strong>。</li>
+<li>例如：若根元素的 <code>font-size</code> 设置为 <code>16px</code>，则 <code>1rem = 16px</code>，<code>2rem = 32px</code>，以此类推。</li>
+</ul>
+<hr>
+<p>   <strong>2. 与 em 的区别</strong></p>
+<ul>
+<li><strong>em</strong>：相对于 <strong>父元素</strong> 的字体大小，多层嵌套时可能导致计算复杂（逐级继承）。</li>
+<li><strong>rem</strong>：直接相对于 <strong>根元素</strong> 的字体大小，避免嵌套影响，全局统一基准。</li>
+</ul>
+<hr>
+<p>   <strong>3. 核心原理</strong></p>
+<ul>
+<li><strong>根元素控制</strong>：通过调整 <code>&lt;html&gt;</code> 标签的 <code>font-size</code>，所有使用 <code>rem</code> 的样式会自动按比例缩放。</li>
+<li><strong>公式</strong>：<br><code>元素实际长度 = rem 值 × 根元素字体大小</code><br>例如：<code>width: 10rem</code>（根字体为 <code>16px</code>） → 实际宽度为 <code>160px</code>。</li>
+</ul>
+<ol start="11">
+<li><p>echarts 打包体积怎么降低的</p>
+</li>
+<li><p>axios包括了哪些封装</p>
+</li>
+<li><p>为什么不用devtools来看请求数据的返回</p>
+</li>
+<li><p>鉴权怎么做的 meta</p>
+<p>最好通过token去讲鉴权</p>
+</li>
+<li><p>拦截请求把自己的角色变成其他怎么办？</p>
+<p>解决方案：（标白就是常用的）</p>
+<ul>
+<li><p><strong>使用HTTPS加密通信</strong></p>
+</li>
+<li><p><strong>服务端验证用户信息与权限</strong></p>
+<p><strong>不信任客户端提交的角色信息</strong>：角色和权限应由服务端根据用户会话或Token从数据库获取，而非依赖请求中的参数。</p>
+</li>
+<li><p><strong>采用安全的Token机制（如JWT）</strong></p>
+</li>
+<li><p><strong>输入验证与数据过滤</strong></p>
+<ul>
+<li><p><strong>防御重点</strong>：清除请求中的敏感字段（如 <code>role</code>、<code>isAdmin</code>）。</p>
+</li>
+<li><p><strong>实现方式</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Express 中间件示例：过滤角色字段</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">sanitizeBody</span> = (<span class="params">req, res, next</span>) =&gt; &#123;</span><br><span class="line">  <span class="comment">// 删除 body 和 query 中的角色字段</span></span><br><span class="line">  <span class="keyword">delete</span> req.<span class="property">body</span>.<span class="property">role</span>;</span><br><span class="line">  <span class="keyword">delete</span> req.<span class="property">query</span>.<span class="property">role</span>;</span><br><span class="line">  <span class="title function_">next</span>();</span><br><span class="line">&#125;;</span><br><span class="line">app.<span class="title function_">use</span>(sanitizeBody);</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>实施权限控制</p>
+</li>
+<li><p>日志记录与监控</p>
+</li>
+<li><p>定期安全审计与渗透测试</p>
+</li>
+<li><p>客户端安全措施</p>
+</li>
+<li><p>应急响应计划</p>
+</li>
+</ul>
+</li>
+<li><p>登录的状态是怎么保持的</p>
+<p>sessionID 或 token，建议答token，因为可以从JWT入手，然后存在cookie和localStorage都是可以的。</p>
+</li>
+<li><p>图片的懒加载</p>
+<p>v-lazy，或者是InterSection Observer API，事件监听和滚动机制</p>
+</li>
+<li><p>一组数组转化为树形筛选项</p>
+</li>
+<li><p>实现异步任务队列</p>
+</li>
+<li><p>为什么想来北京啊╰(<em>°▽°</em>)╯</p>
+</li>
+<li><p>没听清</p>
+</li>
+</ol>
+<h1 id="字节一面"><a href="#字节一面" class="headerlink" title="字节一面"></a>字节一面</h1><ol>
+<li>自我介绍</li>
+<li>在学校的项目以及经历</li>
+<li>你的项目哪个点收获比较大</li>
+<li>设计表单循环校验</li>
+<li>现在的校验方式有什么可以优化的节点</li>
+<li>ref整体使用上有什么</li>
+<li>.value使用上什么缺点</li>
+<li>vue2，vue3的提升</li>
+<li>属性是怎么监听的</li>
+<li>js基本类型</li>
+<li>五道code题</li>
+<li>js一些对象类型</li>
+</ol>
+<h1 id="字节二面"><a href="#字节二面" class="headerlink" title="字节二面"></a>字节二面</h1><ol>
+<li><p>为什么dns用udp进行解析，怎么优化udp的解析速度</p>
+<p>（1）</p>
+<ul>
+<li>低开销与高效率</li>
+<li>轻量级传输</li>
+<li>避免资源占用</li>
+<li>容错与回退机制</li>
+</ul>
+<p>（2）</p>
+<p><strong>客户端优化：</strong></p>
+<ul>
+<li>DNS缓存</li>
+<li>预取与预加载</li>
+<li>并行查询</li>
+</ul>
+<p><strong>服务器优化：</strong></p>
+<ul>
+<li>负载均衡与冗余</li>
+<li>部署高性能DNS服务器</li>
+<li>EDNS扩展</li>
+</ul>
+</li>
+<li><p>如果前端不用IP地址用Mac地址有什么问题</p>
+<ul>
+<li><p><strong>无法跨网络通信</strong>：MAC地址仅在局域网内有效，无法路由到互联网。</p>
+</li>
+<li><p><strong>协议不兼容</strong>：现有网络协议栈（如TCP&#x2F;IP）和前端API均依赖IP地址。</p>
+</li>
+<li><p><strong>动态性与管理困难</strong>：MAC地址静态固化，无法适应动态网络环境。</p>
+</li>
+<li><p><strong>安全风险</strong>：MAC地址暴露设备物理标识，导致隐私问题。</p>
+</li>
+<li><p><strong>基础设施依赖</strong>：互联网的全球路由和NAT机制均基于IP设计。</p>
+</li>
+</ul>
+</li>
+<li><p>前端存储信息有什么方式</p>
+</li>
+<li><p>localStorage的大小   <strong>5MB</strong></p>
+</li>
+<li><p>假如用户信息存在了sessionStorage，用户开了两个标签页，这两个标签页sessionStorage的内容可以互通嘛</p>
+<p>不可以。不同浏览器标签页中的 sessionStorage 默认情况下无法直接共享数据。每个标签页拥有独立的存储空间，数据仅在当前标签页的生命周期内有效。</p>
+<p><img src="/../../images/image-20250402095637159.png" alt="image-20250402095637159"></p>
+</li>
+<li><p>setup是什么时候执行的</p>
+</li>
+<li><p>vuex和pinia的区别</p>
+</li>
+<li><p>git的指令</p>
+</li>
+<li><p>用过git rebase嘛</p>
+<p>Git Rebase 是用于重构提交历史的工具，其核心作用在于将分支的提交基点转移至目标分支的最新节点，从而生成线性化的提交记录。相较于传统的 <code>git merge</code> 方式，它能够消除冗余的合并提交节点，使版本历史更加清晰简洁。</p>
+<ul>
+<li><strong>rebase</strong>：适合整理本地未推送的提交历史，追求版本线性和可读性。</li>
+<li><strong>merge</strong>：适合保留完整合并记录的场景（如公共分支集成）。</li>
+</ul>
+</li>
+<li><p>git pull和git fetch的区别</p>
+<ul>
+<li><strong>Git Fetch</strong><br>仅从远程仓库获取最新提交数据到本地仓库，不会修改工作目录文件或当前分支状态。执行后需手动调用<code>git merge</code>或<code>git rebase</code>合并变更到本地分支，适用于需要预先审查远程变更的场景。</li>
+<li><strong>Git Pull</strong><br>自动完成两步操作：先执行<code>git fetch</code>获取远程更新，随后立即执行<code>git merge</code>将远程分支合并到当前本地分支。该操作会直接改变工作目录内容，适合需要快速同步远程变更的场景。</li>
+</ul>
+</li>
+<li><p>git 怎么看某一行是谁写的代码</p>
+<p><strong>git blame 命令</strong></p>
+<p><strong>基础语法</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git blame &lt;文件路径&gt;</span><br></pre></td></tr></table></figure>
+
+<p>该命令会显示指定文件中每一行代码的最后修改者，包含提交哈希值、作者姓名、修改时间及对应代码内容。</p>
+<p><strong>精确行号定位</strong><br>通过<code>-L</code>参数限定行号范围，支持两种格式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git blame -L &lt;起始行&gt;,&lt;结束行&gt; &lt;文件路径&gt;  <span class="comment"># 查看行范围</span></span><br><span class="line">git blame -L &lt;单一行号&gt; &lt;文件路径&gt;        <span class="comment"># 查看单行</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>合并代码的时候冲突是怎么解决的</p>
+<ul>
+<li>获取最新代码（git pull）</li>
+<li>定位冲突文件 （git status）</li>
+<li>手动编辑冲突内容</li>
+<li>验证与提交变更</li>
+</ul>
+<ol>
+<li><strong>可视化辅助工具</strong><br>执行<code>git mergetool</code>启动系统默认的图形化工具（如 Beyond Compare、KDiff3），通过界面交互方式对比和选择代码片段。</li>
+<li><strong>复杂冲突处理</strong><br>若多次合并后仍出现冲突，建议使用<code>git rebase --abort</code>终止当前合并进程，重新拉取最新代码后执行增量式合并。</li>
+</ol>
+</li>
+<li><p>js的渲染流程</p>
+</li>
+<li><p>宏任务和微任务有什么区别</p>
+<p><img src="/../../images/image-20250402215544210.png" alt="image-20250402215544210"></p>
+</li>
+<li><p>算法（一开始写的查找二叉搜索树的第k小元素，我真的忘了，然后写了顺时针打印数组，基本上a出来了）</p>
+</li>
+</ol>
+<h1 id="云智一面"><a href="#云智一面" class="headerlink" title="云智一面"></a>云智一面</h1><ol>
+<li><p>融资通做了什么优化前端项目的构建打包与提升系统性能优化</p>
+</li>
+<li><p>v-if和v-show的区别、场景，为什么多用v-if，为什么会有这样的区别</p>
+<p>区别是因为他们的设计目标不同：</p>
+<p>v-if基于<strong>条件渲染</strong>，v-show基于<strong>快速切换显示和隐藏</strong>。</p>
+<p><img src="/../../images/image-20250410111039256.png" alt="image-20250410111039256"></p>
+</li>
+<li><p>怎么对echarts按需引入和整个打包进来有什么区别</p>
+</li>
+<li><p>不部署在cdn有什么缺点</p>
+<ul>
+<li>加载速度变慢</li>
+<li>服务器压力剧增</li>
+<li>可用性降低</li>
+<li>安全性风险</li>
+<li>SEO负面影响</li>
+</ul>
+</li>
+<li><p>cdn找就近服务器的原理</p>
+<ul>
+<li>地理位置定位</li>
+<li>DNS解析</li>
+<li>全局负载均衡</li>
+<li>网络拓扑和缓存命中率</li>
+<li>用户体验和负载均衡</li>
+</ul>
+</li>
+<li><p>vue的数据绑定对应到原生js是什么</p>
+<p>给按钮添加监听器</p>
+</li>
+<li><p>双向绑定的原理</p>
+</li>
+<li><p>vue3在双向绑定做什么什么更改</p>
+</li>
+<li><p>融资通的上传文件和回显</p>
+</li>
+<li><p>父子组件通信</p>
+</li>
+<li><p>父组件怎么调用子组件的方法</p>
+<p><img src="/../../images/image-20250410112429808.png" alt="image-20250410112429808"></p>
+<p>这些都可以</p>
+</li>
+<li><p>场景题：扫码登陆，浏览器怎么知道是哪个用户扫的码</p>
+</li>
+<li><p>场景题：页面上多了一个不是自己写的广告，是怎么回事</p>
+<ul>
+<li>第三方库或插件可能会在项目中引入广告</li>
+<li>外部服务器调用</li>
+<li>自定义组件或代码中的广告</li>
+<li>DNS劫持或服务器问题</li>
+<li>恶意代码或插件</li>
+</ul>
+</li>
+<li><p>黑客是怎么把这个广告植入进去</p>
+<ul>
+<li>xss反射型、存储型</li>
+<li>第三方服务或框架的漏洞</li>
+<li>恶意扩展程序或脚本</li>
+<li>SEO中毒</li>
+</ul>
+</li>
+<li><p>怎么预防黑客劫持http请求</p>
+<ul>
+<li>使用https</li>
+<li>强化dns安全</li>
+<li>网络安全防护</li>
+<li>数据加密</li>
+</ul>
+</li>
+<li><p>为什么用https黑客会劫持不到</p>
+<ul>
+<li>有TLS&#x2F;SSL加密，可以防止中间人攻击</li>
+<li>http访问不了</li>
+</ul>
+</li>
+<li><p>https证书的机制是什么，为什么用了这个就没办法篡改</p>
+<p>截取了对方发给我们的公钥，然后将他自己的公钥发送给我们，当我们使用他的公钥加密后发送的信息，就可以被他用自己的私钥解密。然后他伪装成我们以同样的方法向对方发送信息，这样我们的信息就被窃取了，然而自己还不知道。为了解决这样的问题，可以使用数字证书。</p>
+<p>首先使用一种 Hash 算法来对公钥和其他信息进行加密，生成一个<strong>信息摘要</strong>，然后让有公信力的认证中心（简称 CA ）用它的私钥对消息摘要<strong>加密</strong>，形成<strong>签名</strong>。最后将原始的信息和签名合在一起，称为数字证书。当接收方收到数字证书的时候，先根据原始信息使用同样的 Hash 算法生成一个摘要，然后使用公证处的公钥来对数字证书中的摘要进行解密，最后将解密的摘要和生成的摘要进行对比，就能发现得到的信息是否被更改了。</p>
+<p>这个方法最要的是认证中心的可靠性，一般浏览器里会内置一些顶层的认证中心的证书，相当于我们自动信任了他们，只有这样才能保证数据的安全。</p>
+<p><img src="/../../images/1603965685765-ffc9a525-ccad-43f0-bb25-8e17281d68fe-1744272063543-3.webp" alt="img"></p>
+</li>
+<li><p>用户的浏览器该怎么判断这个证书可不可信</p>
+</li>
+<li><p>开发的时候用到了哪些git指令</p>
+</li>
+<li><p>公司怎么部署项目</p>
+<ul>
+<li><strong>初创公司</strong>：手动部署 + 单台云服务器 + 基础监控。</li>
+<li><strong>中大型公司</strong>：全自动化CI&#x2F;CD + 多环境隔离 + 分布式架构。</li>
+</ul>
+</li>
+<li><p>项目有用过流水线相关的吗</p>
+</li>
+<li><p>了解过最近ai相关的工具吗？用过写了什么项目</p>
+</li>
+<li><p>调用过大模型api吗</p>
+</li>
+<li><p>在公司里面用后台写过项目吗</p>
+</li>
+</ol>
+<h1 id="腾讯一面"><a href="#腾讯一面" class="headerlink" title="腾讯一面"></a>腾讯一面</h1><ol>
+<li><p>动态规划的dp是什么意思</p>
+</li>
+<li><p>贪心是什么</p>
+</li>
+<li><p>比较两颗二叉树是否相同除了用递归，还可以用什么（栈来做）</p>
+</li>
+<li><p>堆像什么数据结构（队列），在操作系统里面堆和栈的区别</p>
+<p>堆：内存手动分配，空间不连续</p>
+<p>栈：内存自动分配，空间连续</p>
+</li>
+<li><p>前端怎么和后端通信，如果不用ajax、axios、fetch、xhr来发送请求的话</p>
+<ul>
+<li><code>&lt;form&gt;</code>标签点击提交</li>
+<li>websocket</li>
+</ul>
+</li>
+<li><p>大文件分片是怎么分的，上传完了之后怎么读取</p>
+</li>
+<li><p>扩展上一题，怎么读取文件和图片（应该是往二进制那块答）</p>
+<h4 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h4><p>在 JavaScript 中，可以使用 <code>FileReader</code> 对象以二进制方式读取文件。以下是一个读取文件并将其内容以二进制形式输出的示例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Read File in Binary<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">id</span>=<span class="string">&quot;fileInput&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> fileInput = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;fileInput&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">        fileInput.<span class="title function_">addEventListener</span>(<span class="string">&#x27;change&#x27;</span>, <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> file = event.<span class="property">target</span>.<span class="property">files</span>[<span class="number">0</span>];</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (file) &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">const</span> reader = <span class="keyword">new</span> <span class="title class_">FileReader</span>();</span></span><br><span class="line"><span class="language-javascript">                reader.<span class="title function_">readAsArrayBuffer</span>(file);</span></span><br><span class="line"><span class="language-javascript">                reader.<span class="property">onload</span> = <span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                    <span class="keyword">const</span> arrayBuffer = reader.<span class="property">result</span>;</span></span><br><span class="line"><span class="language-javascript">                    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;File content in binary:&#x27;</span>, arrayBuffer);</span></span><br><span class="line"><span class="language-javascript">                &#125;;</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;);</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>在这个示例中，当用户选择一个文件后，<code>FileReader</code> 对象会将文件内容读取为 <code>ArrayBuffer</code>，这是一种二进制数据的表示形式。</p>
+<h4 id="读取图片"><a href="#读取图片" class="headerlink" title="读取图片"></a>读取图片</h4><p>读取图片同样可以使用 <code>FileReader</code> 对象。以下是一个读取图片并将其显示在页面上的示例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Read Image in Binary<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">id</span>=<span class="string">&quot;imageInput&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">&quot;imageDisplay&quot;</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Selected Image&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> imageInput = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;imageInput&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> imageDisplay = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;imageDisplay&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">        imageInput.<span class="title function_">addEventListener</span>(<span class="string">&#x27;change&#x27;</span>, <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> file = event.<span class="property">target</span>.<span class="property">files</span>[<span class="number">0</span>];</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (file) &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">const</span> reader = <span class="keyword">new</span> <span class="title class_">FileReader</span>();</span></span><br><span class="line"><span class="language-javascript">                reader.<span class="title function_">readAsDataURL</span>(file);</span></span><br><span class="line"><span class="language-javascript">                reader.<span class="property">onload</span> = <span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                    imageDisplay.<span class="property">src</span> = reader.<span class="property">result</span>;</span></span><br><span class="line"><span class="language-javascript">                &#125;;</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;);</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">&lt;/html</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>怎么给一张图片加水印</p>
+</li>
+<li><p>如果屏幕上有个按钮，还有一个数值双向绑定了num，然后点击按钮会开启一个for循环，num从0-&gt;99，那么页面会怎么显示（直接变到99）</p>
+</li>
+<li><p>事件循环怎么知道for循环进行完了要渲染，抛开框架</p>
+</li>
+<li><p>如何当一个事件循环结束之后打印一个日志（或是一条消息都可以）</p>
+</li>
+</ol>
+<h1 id="拼多多一面"><a href="#拼多多一面" class="headerlink" title="拼多多一面"></a>拼多多一面</h1><ol>
+<li><p>定位有哪些方式</p>
+</li>
+<li><p>场景题：如果一个长宽都是100px的父元素，开启了相对定位，transform按照（50% 75%）的中心旋转九十度，子元素开启绝对定位无长宽为0，left和top为0，那么父元素旋转之后子元素的坐标是多少</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父元素中心点坐标</span></span><br><span class="line"><span class="keyword">const</span> x0 = <span class="number">50</span>;</span><br><span class="line"><span class="keyword">const</span> y0 = <span class="number">75</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 子元素初始坐标</span></span><br><span class="line"><span class="keyword">const</span> x1 = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">const</span> y1 = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 旋转角度（弧度）</span></span><br><span class="line"><span class="keyword">const</span> theta = <span class="title class_">Math</span>.<span class="property">PI</span> / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 计算旋转后的坐标</span></span><br><span class="line"><span class="keyword">const</span> x2 = x0 + (x1 - x0) * <span class="title class_">Math</span>.<span class="title function_">cos</span>(theta) - (y1 - y0) * <span class="title class_">Math</span>.<span class="title function_">sin</span>(theta);</span><br><span class="line"><span class="keyword">const</span> y2 = y0 + (x1 - x0) * <span class="title class_">Math</span>.<span class="title function_">sin</span>(theta) + (y1 - y0) * <span class="title class_">Math</span>.<span class="title function_">cos</span>(theta);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`子元素旋转后的坐标为 (<span class="subst">$&#123;x2&#125;</span>, <span class="subst">$&#123;y2&#125;</span>)`</span>);</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>布局题：写一个这样子的布局，要求header高100px，content包裹baner，footer高100px，整个容器用container包裹，当整个容器不满足一个屏幕时，content自动撑开。footer粘在最底下不变。如果屏幕宽度大于1600px就左右margin为150px，小于1600px就左右margin为160px，怎么写</p>
+<p>要用flew-grow来撑开。</p>
+<p><strong>拓展：</strong>flex：1；代表的是flex-grow：1，flex-shrink：1，flex-basis：0%；</p>
+<p><img src="/../../images/image-20250418211215033.png" alt="image-20250418211215033"></p>
+<p>媒体查询来写左右：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> (<span class="attribute">max-width</span>: <span class="number">1600px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">160px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">1601px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">150px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>关于绝对定位还问了一些相对性的问题</p>
+</li>
+<li><p>promise的api（all，then，race，catch，finally，allSettled）</p>
+<h4 id="Promise-allSettled"><a href="#Promise-allSettled" class="headerlink" title="Promise.allSettled()"></a><code>Promise.allSettled()</code></h4><p><code>Promise.allSettled()</code> 接收一个可迭代对象，当所有传入的 <code>Promise</code> 都已敲定（已解决或已拒绝）时，它返回一个新的 <code>Promise</code>，其结果是一个包含每个 <code>Promise</code> 结果对象的数组，每个对象包含 <code>status</code>（<code>fulfilled</code> 或 <code>rejected</code>）和对应的 <code>value</code> 或 <code>reason</code>。</p>
+</li>
+<li><p>给一个异步数组，要求完成并行和串行这些任务的函数</p>
+</li>
+<li><p>选择题，考察了端口号、gzip是否什么时候都会减少打包体积、document.cookie是否在任何时候都能读取cookie、跨域问题</p>
+</li>
+</ol>
+<h1 id="作业帮一面"><a href="#作业帮一面" class="headerlink" title="作业帮一面"></a>作业帮一面</h1><p>大部分是直接开始吟唱的，记录一些不会的：</p>
+<ol>
+<li><p>indexDB的使用</p>
+</li>
+<li><p>sessionStorage的限制</p>
+</li>
+<li><p>server push</p>
+<p><strong>Server Push（服务器推送）</strong> 是 HTTP&#x2F;2 协议的一项核心特性，允许服务器在客户端明确请求某些资源之前，主动将资源推送到客户端（浏览器）的缓存中。它的主要目标是<strong>减少页面加载延迟</strong>，通过预判客户端需要的资源并提前推送，优化网页性能。</p>
+</li>
+<li><p>sse（基本上说出来了，只是有丢丢没说出来）</p>
+<p><img src="/../../images/image-20250423163216833.png" alt="image-20250423163216833"></p>
+</li>
+<li><p>webpack的插件用过哪些</p>
+</li>
+<li><p>vue3静态提升</p>
+<p>在 Vue 3 里，模板编译时会分析模板中的节点，把那些不会改变的静态节点提取出来，并且只创建一次，而非在每次渲染时都重新创建，这就是静态提升。这能减少虚拟 DOM 的创建与比较开销，从而提升渲染性能。</p>
+</li>
+</ol>
+</div><div class="post-reward"><div class="post-reward-btn" title="赞赏作者"><img src="/assets/images/svg/uc/uc-gift.svg" class="icon noview" alt="Icon"><span>喜欢这篇作品的话，奖励一下我吧～</span></div><div class="post-reward-content"><div class="post-reward-text">💗感谢你的喜欢与支持！</div><div class="post-reward-list"><a href="/reward" target="_blank">致谢名单</a></div></div></div><div class="post-copyright"><div class="post-copyright-info">本作品由 薄苏 于 2024-09-12 11:00:14 发布</div><div class="post-copyright-link"><span>作品地址：<a href="https://wakuwaku233.github.io/2024/09/12/%E9%9D%A2%E7%BB%8F/%E5%90%84%E5%8E%82%E9%9D%A2%E7%BB%8F/">各厂面经</a></span><button class="copy-text" type="button" data-text="https://wakuwaku233.github.io/2024/09/12/%E9%9D%A2%E7%BB%8F/%E5%90%84%E5%8E%82%E9%9D%A2%E7%BB%8F/">复制</button></div><div class="post-copyright-detail">除特别声明外，本站作品均采用 <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/' title='署名—非商业性使用—相同方式共享' target='_blank'>CC BY-NC-SA 4.0</a> 许可协议，转载请注明来自 <a href='/'>薄苏的桃花坞</a></div><img class="post-copyright-icon noview" src="/assets/images/Hexo-Theme-MEOW.png" alt="Logo"/></div><div class="post-tail-tags"><a class="post-tail-tags-link" href="/tags/%E9%9D%A2%E7%BB%8F/" rel="tag">面经</a></div></div><aside id="post-sidebar" status="show"><div id="toc-container"><div class="toc-title"><img src="/assets/images/svg/ta/ta-toc.svg" class="icon noview" alt="Icon"><span>目录</span></div><div class="toc-content" id="toc-div"><ol class="toc-list"><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F"><span class="toc-list-text">腾讯面经</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#1-Vue2%E4%B8%AD%E7%BB%84%E4%BB%B6%E7%9A%84%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F"><span class="toc-list-text">1. Vue2中组件的通信方式</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#2-%E5%89%8D%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-list-text">2. 前端数据存储方式及其应用场景</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#3-%E5%8F%97%E6%8E%A7%E7%BB%84%E4%BB%B6%E5%92%8C%E9%9D%9E%E5%8F%97%E6%8E%A7%E7%BB%84%E4%BB%B6"><span class="toc-list-text">3. 受控组件和非受控组件</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#4-%E8%99%9A%E6%8B%9FDOM"><span class="toc-list-text">4. 虚拟DOM</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#5-Javascript-%E6%95%B0%E6%8D%AE%E6%BA%A2%E5%87%BA%E7%9A%84%E6%8E%A7%E5%88%B6%E6%96%B9%E6%B3%95"><span class="toc-list-text">5.Javascript 数据溢出的控制方法</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#6-%E5%89%8D%E7%AB%AF%E7%9A%84%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8-%EF%BC%9F%EF%BC%88XSS-CSRF%EF%BC%89"><span class="toc-list-text">6.前端的网络安全 ？（XSS CSRF）</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#7-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="toc-list-text">7. 性能优化</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#8-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E6%9C%89%E8%B0%83%E7%94%A8%E5%A0%86%E7%9A%84%E9%99%90%E5%88%B6%EF%BC%9F"><span class="toc-list-text">8. 为什么会有调用堆的限制？</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#9-%E9%97%AD%E5%8C%85%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-list-text">9.闭包是什么？</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#10-%E9%97%AD%E5%8C%85%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%9A%84%E5%85%B3%E7%B3%BB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-list-text">10. 闭包和原型链的关系是什么？</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#11-http1%EF%BC%8C1-1%EF%BC%8C2%E9%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-list-text">11. http1，1.1，2都有哪些区别？</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#12-%E9%A6%96%E9%83%A8%E5%8E%8B%E7%BC%A9%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-list-text">12. 首部压缩是什么？</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#13-%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%B8%A7%E7%9A%84%E5%A5%BD%E5%A4%84%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-list-text">13. 二进制帧的好处是什么？</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#14-%E9%80%89%E6%8B%A9%E5%99%A8%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-list-text">14. 选择器的优先级</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#15-%E7%9B%92%E5%AD%90%E7%B1%BB%E5%9E%8B"><span class="toc-list-text">15. 盒子类型</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#16-http-%E5%92%8C-https-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-list-text">16. http 和 https 的区别</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#17-vue%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-list-text">17. vue的生命周期</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#vue2%EF%BC%9A"><span class="toc-list-text">vue2：</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#vue3%EF%BC%9A"><span class="toc-list-text">vue3：</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#18-scoped%E5%8E%9F%E7%90%86"><span class="toc-list-text">18. scoped原理</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#19-%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81"><span class="toc-list-text">19. 防抖和节流</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#20-%E8%99%9A%E6%8B%9FDOM"><span class="toc-list-text">20. 虚拟DOM</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#21-html-%E6%80%8E%E4%B9%88%E6%B8%B2%E6%9F%93%E5%88%B0%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8A%E7%9A%84%EF%BC%9F"><span class="toc-list-text">21. html 怎么渲染到浏览器上的？</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#22-%E4%BD%9C%E7%94%A8%E5%9F%9F%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-list-text">22. 作用域有哪些？</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#23-%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F"><span class="toc-list-text">23. 发布订阅模式</span></a></li></ol></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#vivo%E9%9D%A2%E7%BB%8F"><span class="toc-list-text">vivo面经</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#1-vue3%E6%96%B0%E7%89%B9%E6%80%A7%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-list-text">1. vue3新特性有哪些？</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Composition-API"><span class="toc-list-text">Composition API</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Reactive-API"><span class="toc-list-text">Reactive API</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Teleport"><span class="toc-list-text">Teleport</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Fragments"><span class="toc-list-text">Fragments</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Suspense"><span class="toc-list-text">Suspense</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Improved-TypeScript-Support"><span class="toc-list-text">Improved TypeScript Support</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Performance-Improvements"><span class="toc-list-text">Performance Improvements</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Custom-Renderer-API"><span class="toc-list-text">Custom Renderer API</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Composition-API-with-TypeScript"><span class="toc-list-text">Composition API with TypeScript</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#2-TS%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7"><span class="toc-list-text">2. TS的新特性</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#3-v-if-%E5%92%8C-v-for-%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-list-text">3. v-if  和 v-for 优先级</span></a></li></ol></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#Cider%E9%9D%A2%E7%BB%8F"><span class="toc-list-text">Cider面经</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#1-css3%E6%96%B0%E5%A2%9E"><span class="toc-list-text">1. css3新增</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#2-h5%E6%96%B0%E5%A2%9Eapi-%E6%A0%87%E7%AD%BE"><span class="toc-list-text">2. h5新增api,标签</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#3-es6%E6%96%B0%E5%A2%9E"><span class="toc-list-text">3. es6新增</span></a></li></ol></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#%E7%BE%8E%E5%9B%A2%E4%B8%80%E9%9D%A2"><span class="toc-list-text">美团一面</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%B9%B3%E6%97%B6%E6%98%AF%E6%80%8E%E4%B9%88%E5%AD%A6%E4%B9%A0%E7%9A%84"><span class="toc-list-text">平时是怎么学习的</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E4%BD%A0%E4%B8%BA%E4%BB%80%E4%B9%88%E9%80%89%E6%8B%A9%E5%89%8D%E7%AB%AF"><span class="toc-list-text">你为什么选择前端</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#vue2-vue3-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-list-text">vue2 vue3 的区别</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#vue%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E7%9A%84"><span class="toc-list-text">vue怎么实现双向绑定的</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#v-model%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86-xxx-%E8%AF%AD%E6%B3%95%E7%B3%96-%E2%80%94-v-bind-defineEvent"><span class="toc-list-text">v-model的实现原理   xxx   语法糖 — v-bind defineEvent</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#vue-router-%E4%B8%A4%E7%A7%8D%E6%A8%A1%E5%BC%8F"><span class="toc-list-text">vue-router 两种模式</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#history%E6%A8%A1%E5%BC%8F%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E6%8A%A5404%EF%BC%9F"><span class="toc-list-text">history模式为什么会报404？</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#nginx-%E4%BA%86%E8%A7%A3%E5%90%97%EF%BC%9F"><span class="toc-list-text">nginx 了解吗？</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%A6%82%E6%9E%9C%E8%AE%A9%E4%BD%A0%E9%83%A8%E7%BD%B2%E4%B8%80%E4%B8%AAhistory%E8%B7%AF%E7%94%B1%EF%BC%88%E7%BA%AF%E5%89%8D%E7%AB%AF%EF%BC%89%E7%9A%84%E9%A1%B9%E7%9B%AE%EF%BC%8C%E4%BD%A0%E6%80%8E%E4%B9%88%E5%8E%BB%E4%BF%9D%E8%AF%81%E6%89%80%E6%9C%89%E8%B7%AF%E7%94%B1%E9%83%BD%E5%9C%A8%E5%90%8C%E4%B8%80%E4%B8%AA%E5%9F%9F%E5%90%8D%E4%B8%8B"><span class="toc-list-text">如果让你部署一个history路由（纯前端）的项目，你怎么去保证所有路由都在同一个域名下</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-list-text">微信小程序的生命周期</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#onLoad-onshow-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9Fxxx"><span class="toc-list-text">onLoad  onshow 的区别？xxx</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#onLoad-onshow-%E5%90%8C%E6%97%B6%E8%A7%A6%E5%8F%91%E4%B8%80%E4%B8%AA%E6%8E%A5%E5%8F%A3%E4%BC%9A%E5%8F%91%E7%94%9F%E4%BB%80%E4%B9%88%E7%8E%B0%E8%B1%A1%EF%BC%9F%E6%80%8E%E4%B9%88%E4%BF%AE%E5%A4%8D%E8%BF%99%E4%B8%AA%E7%8E%B0%E8%B1%A1"><span class="toc-list-text">onLoad  onshow 同时触发一个接口会发生什么现象？怎么修复这个现象</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E9%A1%B5%E9%9D%A2%E7%9A%84%E6%A0%B7%E5%BC%8F%E5%BD%B1%E5%93%8D%E5%88%B0%E7%BB%84%E4%BB%B6%E5%86%85%E9%83%A8-%E9%A1%B5%E9%9D%A2A%E7%9A%84%E6%A0%B7%E5%BC%8F%E6%8E%A7%E5%88%B6%E7%BB%84%E4%BB%B6B%E7%9A%84%E6%A0%B7%E5%BC%8F"><span class="toc-list-text">如何实现页面的样式影响到组件内部   页面A的样式控制组件B的样式</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-list-text">总结</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E7%BB%84%E4%BB%B6%E6%98%AF%E5%90%A6%E6%9C%89%E6%8E%A7%E5%88%B6%E5%A4%96%E9%83%A8%E7%9A%84%E6%A0%B7%E5%BC%8F%E5%B1%9E%E6%80%A7"><span class="toc-list-text">组件是否有控制外部的样式属性</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%EF%BC%88%E9%A1%B9%E7%9B%AE%EF%BC%89"><span class="toc-list-text">微信小程序上传文件（项目）</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6"><span class="toc-list-text">浏览器缓存机制</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#html%E9%A1%B5%E9%9D%A2-%E5%AE%9E%E7%8E%B0%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98-%E5%8D%95%E9%A1%B5%E9%9D%A2"><span class="toc-list-text">html页面 实现协商缓存 单页面</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%80%8E%E4%B9%88%E5%88%A4%E6%96%AD%E6%9C%89%E6%B2%A1%E6%9C%89%E4%BF%AE%E6%94%B9html%E9%A1%B5%E9%9D%A2"><span class="toc-list-text">怎么判断有没有修改html页面</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Etag-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-list-text">Etag 是什么？</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%89%8D%E7%AB%AF%E8%A1%8C%E4%B8%9A%E7%9A%84%E6%9C%80%E6%96%B0%E7%8A%B6%E6%80%81"><span class="toc-list-text">前端行业的最新状态</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88vite%E6%9C%89%E7%BB%9F%E4%B8%80%E5%89%8D%E7%AB%AF%E7%9A%84%E5%8F%AF%E8%83%BD"><span class="toc-list-text">为什么vite有统一前端的可能</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E8%A5%BF%E5%94%AF%E5%85%B5%E9%A1%B9%E7%9B%AE%E7%9A%84%E8%83%8C%E6%99%AF"><span class="toc-list-text">西唯兵项目的背景</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E4%B8%8A%E7%BA%BF%E4%B9%8B%E5%90%8E%E7%9A%84%E8%BF%90%E8%90%A5%E6%95%88%E6%9E%9C"><span class="toc-list-text">上线之后的运营效果</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E3%80%82%E3%80%82%E3%80%82%E3%80%82%E4%B8%8D%E7%9F%A5%E9%81%93%E5%86%8D%E8%81%8A%E4%BB%80%E4%B9%88"><span class="toc-list-text">。。。。不知道再聊什么</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%EF%BC%88%E5%A5%BD%E5%83%8F%E6%98%AF%E5%8F%88%E5%A5%BD%E5%83%8F%E6%98%AFweb%EF%BC%89%E7%9A%84%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="toc-list-text">微信小程序（好像是又好像是web）的性能优化</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#keep-alive%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E7%9A%84"><span class="toc-list-text">keep-alive怎么实现的</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#1-%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6"><span class="toc-list-text">1. 缓存机制</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#2-%E7%BB%84%E4%BB%B6%E6%BF%80%E6%B4%BB%E4%B8%8E%E5%A4%B1%E6%B4%BB"><span class="toc-list-text">2. 组件激活与失活</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#3-%E5%AE%9E%E7%8E%B0%E6%A0%B8%E5%BF%83"><span class="toc-list-text">3. 实现核心</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#4-include-%E5%92%8C-exclude"><span class="toc-list-text">4. include 和 exclude</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#5-%E4%B8%8E-Vue-Router-%E7%9A%84%E9%9B%86%E6%88%90"><span class="toc-list-text">5. 与 Vue Router 的集成</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#6-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="toc-list-text">6. 性能优化</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E4%BD%A0%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E5%B0%81%E4%BD%8F%E7%BB%84%E4%BB%B6%E7%9A%84"><span class="toc-list-text">你怎么实现封住组件的</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%87%BA%E7%8E%B0%E8%BF%99%E7%A7%8D%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%89"><span class="toc-list-text">为什么会出现这种问题（不知道什么问题）</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E9%97%AD%E5%8C%85%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="toc-list-text">闭包核心概念</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#function-%E4%B8%8E-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-list-text">function 与 箭头函数的区别</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="toc-list-text">盒模型</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%B5%AE%E5%8A%A8%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%B5%AE%E5%8A%A8"><span class="toc-list-text">浮动，为什么要浮动</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%96%87%E6%A1%A3%E6%B5%81%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-list-text">文档流是什么</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E8%BF%98%E6%9C%89%E4%BB%80%E4%B9%88%E6%93%85%E9%95%BF%E4%BD%86%E6%98%AF%E6%B2%A1%E6%9C%89%E6%8F%90%E9%97%AE%E7%9A%84%E7%82%B9"><span class="toc-list-text">还有什么擅长但是没有提问的点</span></a></li></ol></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#%E7%BE%8E%E5%9B%A2%E4%BA%8C%E9%9D%A2"><span class="toc-list-text">美团二面</span></a></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#%E5%AD%97%E8%8A%82%E4%B8%80%E9%9D%A2"><span class="toc-list-text">字节一面</span></a></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#%E5%AD%97%E8%8A%82%E4%BA%8C%E9%9D%A2"><span class="toc-list-text">字节二面</span></a></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#%E4%BA%91%E6%99%BA%E4%B8%80%E9%9D%A2"><span class="toc-list-text">云智一面</span></a></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#%E8%85%BE%E8%AE%AF%E4%B8%80%E9%9D%A2"><span class="toc-list-text">腾讯一面</span></a></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#%E6%8B%BC%E5%A4%9A%E5%A4%9A%E4%B8%80%E9%9D%A2"><span class="toc-list-text">拼多多一面</span></a></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#%E4%BD%9C%E4%B8%9A%E5%B8%AE%E4%B8%80%E9%9D%A2"><span class="toc-list-text">作业帮一面</span></a></li></ol></div></div></aside></div></div><div id="toolbar" hide=""><div id="toolbar-setting-container" hide=""><div class="toolbar-item"><button id="tool-color-mode" title="深色模式" type="button"><img src="/assets/images/svg/ta/ta-moon.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button class="copy-text" id="tool-share" title="分享" type="button" data-text="https://wakuwaku233.github.io/2024/09/12/%E9%9D%A2%E7%BB%8F/%E5%90%84%E5%8E%82%E9%9D%A2%E7%BB%8F/"><img src="/assets/images/svg/ta/ta-share.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button id="tool-font-size-plus" title="放大字体" type="button"><img src="/assets/images/svg/ta/ta-text-plus.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button id="tool-font-size-minus" title="缩小字体" type="button"><img src="/assets/images/svg/ta/ta-text-minus.svg" class="icon noview" alt="Icon"></button></div></div><div class="toolbar-container"><div class="toolbar-item"><button id="tool-setting" title="设置" type="button"><img src="/assets/images/svg/ta/ta-setting.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button id="tool-toc" title="目录" type="button"><img src="/assets/images/svg/ta/ta-toc.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button id="tool-gototop" title="返回顶部" type="button"><img src="/assets/images/svg/ta/ta-up.svg" class="icon noview" alt="Icon"></button></div></div></div></main><footer><div class="footer"><div id="footer-copyright">© 2024 - 2025 <span>💗</span> <a href="/aboutme">薄苏</a></div><div id="footer-info"><div id="footer-framework">🚀本站由 <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/chanwj/hexo-theme-meow" title=3.0.2 target="_blank">Meow</a> 强力驱动</div><div id="footer-runtime"><span id="runtime" data-startdate="2024-04-02T22:16:20.000Z">🌻已稳定运行.年.月.天</span></div></div><div id="footer-statistic"><span>共撰写37篇文章，全站共114.5k字</span></div><div id="footer-pageview"><div id="container_site_pv"><span>🔥总访问量</span><span id="vercount_value_site_pv"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 6l0 -3" /><path d="M16.25 7.75l2.15 -2.15" /><path d="M18 12l3 0" /><path d="M16.25 16.25l2.15 2.15" /><path d="M12 18l0 3" /><path d="M7.75 16.25l-2.15 2.15" /><path d="M6 12l-3 0" /><path d="M7.75 7.75l-2.15 -2.15" /></svg></span></div><div id="container_site_uv"><span>🐈访客人数</span><span id="vercount_value_site_uv"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 6l0 -3" /><path d="M16.25 7.75l2.15 -2.15" /><path d="M18 12l3 0" /><path d="M16.25 16.25l2.15 2.15" /><path d="M12 18l0 3" /><path d="M7.75 16.25l-2.15 2.15" /><path d="M6 12l-3 0" /><path d="M7.75 7.75l-2.15 -2.15" /></svg></span></div></div></div></footer><div class="scripts"><script>const GLOBALCONFIG = {
+  root: '/',
+  toolbar: true,
+  lazyload_src: '/assets/images/Meow-Loading.webp',
+  friends: false,
+  codeblock: true,
+  share_text: '🐱Share From Meow',
+  onblur_title: '再回来看看吧～✧(´▽`ʃ♡ƪ)',
+  mouse_click: true,
+  notify:{
+    enable: false,
+    info: '复制成功～转载请标注本文地址',
+    f12_info: '开发者模式已打开，请遵循本站版权协议'
+  },
+  search: {
+    enable: false,
+    path: 'search.xml',
+    local: {
+      top_n_per_article: 1,
+      preload: false
+    }
+  },
+  encrypt: false,
+};
+</script><script>if (!localStorage.getItem('color-mode')) {
+  localStorage.setItem('color-mode', 'light' || 'light');
+}
+document.body.setAttribute('data-mode', localStorage.getItem('color-mode'));
+</script>
+<script src="/js/theme/tools/utils.js"></script>
+
+<script src="/js/plugins/dist/lazyload.min.js"></script>
+
+<script src="/js/plugins/view-image.min.js"></script>
+<script src="https://cn.vercount.one/js" defer="defer"></script><script>if (localStorage.getItem('font-size')) {
+  document.querySelector('.post').style.fontSize = localStorage.getItem('font-size') + 'px';
+}
+</script>
+<script src="/js/main.js" type="module"></script>
+</div></body></html>
